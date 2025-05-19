@@ -1,0 +1,228 @@
+Description: Palma Wallet AI Support Service - Serverless chatbot using S3 knowledge base
+
+# Global variables
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 256
+    Environment:
+      Variables:
+        KNOWLEDGE_BASE_BUCKET: palma-wallet-knowledge-base
+        FAQ_TABLE: palma-wallet-faq
+        QUERY_LOG_TABLE: palma-wallet-query-logs
+        EMBEDDING_PREFIX: embeddings/
+
+Resources:
+  # DynamoDB Tables
+  FaqTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: palma-wallet-faq
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      Tags:
+        - Key: Application
+          Value: PalmaWalletAISupport
+
+  QueryLogTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: palma-wallet-query-logs
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: query_id
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: S
+      KeySchema:
+        - AttributeName: query_id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: TimestampIndex
+          KeySchema:
+            - AttributeName: timestamp
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Application
+          Value: PalmaWalletAISupport
+
+  # S3 Bucket (Using existing bucket referenced by parameters)
+  # Note: In a real scenario, you could create the bucket here if it doesn't exist
+
+  # Lambda Functions
+  ProcessDocumentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: palma-ai-support-process-document
+      CodeUri: ./lambda/document_processor/
+      Handler: app.process_document
+      Runtime: python3.9
+      Timeout: 300
+      MemorySize: 512
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref KNOWLEDGE_BASE_BUCKET
+        - S3WritePolicy:
+            BucketName: !Ref KNOWLEDGE_BASE_BUCKET
+        - DynamoDBCrudPolicy:
+            TableName: !Ref FaqTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource: '*'
+      Events:
+        S3Event:
+          Type: S3
+          Properties:
+            Bucket: !Ref S3Bucket
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: raw-documents/
+
+  QueryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: palma-ai-support-query
+      CodeUri: ./lambda/query_processor/
+      Handler: app.query_knowledge_base
+      Runtime: python3.9
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref KNOWLEDGE_BASE_BUCKET
+        - DynamoDBCrudPolicy:
+            TableName: !Ref FaqTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref QueryLogTable
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+              Resource: '*'
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /chat
+            Method: post
+            RestApiId: !Ref PalmaAiApi
+
+  FeedbackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: palma-ai-support-feedback
+      CodeUri: ./lambda/feedback_processor/
+      Handler: app.process_feedback
+      Runtime: python3.9
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref QueryLogTable
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /feedback
+            Method: post
+            RestApiId: !Ref PalmaAiApi
+
+  # API Gateway
+  PalmaAiApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: palma-ai-support-api
+      StageName: prod
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+      Auth:
+        ApiKeyRequired: true
+        UsagePlan:
+          CreateUsagePlan: PER_API
+          Description: Usage plan for Palma AI Support API
+          Quota:
+            Limit: 5000
+            Period: MONTH
+          Throttle:
+            BurstLimit: 10
+            RateLimit: 5
+
+  # CloudWatch Dashboard for monitoring
+  PalmaAiDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: PalmaAiSupportDashboard
+      DashboardBody: !Sub |
+        {
+          "widgets": [
+            {
+              "type": "metric",
+              "x": 0,
+              "y": 0,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  [ "AWS/Lambda", "Invocations", "FunctionName", "${QueryFunction}" ],
+                  [ ".", "Errors", ".", "." ],
+                  [ ".", "Duration", ".", "." ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "${AWS::Region}",
+                "title": "Query Function Metrics",
+                "period": 300
+              }
+            },
+            {
+              "type": "metric",
+              "x": 12,
+              "y": 0,
+              "width": 12,
+              "height": 6,
+              "properties": {
+                "metrics": [
+                  [ "AWS/ApiGateway", "Count", "ApiName", "palma-ai-support-api" ],
+                  [ ".", "4XXError", ".", "." ],
+                  [ ".", "5XXError", ".", "." ]
+                ],
+                "view": "timeSeries",
+                "stacked": false,
+                "region": "${AWS::Region}",
+                "title": "API Gateway Metrics",
+                "period": 300
+              }
+            }
+          ]
+        }
+
+Outputs:
+  ApiEndpoint:
+    Description: "API Gateway endpoint URL for the Palma AI Support Service"
+    Value: !Sub "https://${PalmaAiApi}.execute-api.${AWS::Region}.amazonaws.com/prod/"
+  
+  ApiKey:
+    Description: "API Key to access the Palma AI Support Service"
+    Value: !Ref PalmaAiApiKey
+    
+  ProcessDocumentFunction:
+    Description: "Lambda function that processes documents uploaded to S3"
+    Value: !GetAtt ProcessDocumentFunction.Arn
+    
+  QueryFunction:
+    Description: "Lambda function that handles chat queries"
+    Value: !GetAtt QueryFunction.Arn
+
