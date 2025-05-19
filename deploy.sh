@@ -6,7 +6,7 @@
 # Set variables
 STACK_NAME="palma-ai-support-service"
 S3_BUCKET="palma-wallet-knowledge-base"  # Replace with your actual S3 bucket for deployment artifacts
-REGION="us-east-1"                      # Replace with your preferred AWS region
+REGION="af-south-1"                      # Replace with your preferred AWS region
 
 # Colors for output
 RED='\033[0;31m'

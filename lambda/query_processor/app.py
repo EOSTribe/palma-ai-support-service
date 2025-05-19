@@ -16,7 +16,7 @@ s3 = boto3.client('s3')
 dynamodb = boto3.resource('dynamodb')
 bedrock_runtime = boto3.client(
     service_name='bedrock-runtime',
-    region_name=os.environ.get('AWS_REGION', 'us-east-1')
+    region_name=os.environ.get('AWS_REGION', 'af-south-1')
 )
 
 # Get environment variables
