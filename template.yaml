@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: Palma Wallet AI Support Service - Serverless chatbot using S3 knowledge base
 
 Parameters:
-  KnowledgeBaseBucket:
+  KnowledgeBaseBucketName:
     Type: String
     Default: palma-wallet-knowledge-base
 
@@ -62,8 +62,13 @@ Resources:
         - Key: Application
           Value: PalmaWalletAISupport
 
-  # S3 Bucket (Using existing bucket referenced by parameters)
-  # Note: In a real scenario, you could create the bucket here if it doesn't exist
+  # S3 Bucket for the knowledge base
+  KnowledgeBaseBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Ref KnowledgeBaseBucketName
+
 
   # Lambda Functions
   ProcessDocumentFunction:
@@ -164,7 +169,7 @@ Resources:
             Period: MONTH
           Throttle:
             BurstLimit: 10
-          RateLimit: 5
+            RateLimit: 5
 
   PalmaAiApiKey:
     Type: AWS::ApiGateway::ApiKey
