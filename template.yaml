@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: Palma Wallet AI Support Service - Serverless chatbot using S3 knowledge base
 
 Parameters:
-  KNOWLEDGE_BASE_BUCKET:
+  KnowledgeBaseBucket:
     Type: String
     Default: palma-wallet-knowledge-base
 
@@ -13,7 +13,7 @@ Globals:
     MemorySize: 256
     Environment:
       Variables:
-        KNOWLEDGE_BASE_BUCKET: !Ref KNOWLEDGE_BASE_BUCKET
+        KNOWLEDGE_BASE_BUCKET: !Ref KnowledgeBaseBucket
         FAQ_TABLE: palma-wallet-faq
         QUERY_LOG_TABLE: palma-wallet-query-logs
         EMBEDDING_PREFIX: embeddings/
@@ -77,9 +77,9 @@ Resources:
       MemorySize: 512
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref KNOWLEDGE_BASE_BUCKET
+            BucketName: !Ref KnowledgeBaseBucket
         - S3WritePolicy:
-            BucketName: !Ref KNOWLEDGE_BASE_BUCKET
+            BucketName: !Ref KnowledgeBaseBucket
         - DynamoDBCrudPolicy:
             TableName: !Ref FaqTable
         - Statement:
@@ -91,7 +91,7 @@ Resources:
         S3Event:
           Type: S3
           Properties:
-            Bucket: !Ref KNOWLEDGE_BASE_BUCKET
+            Bucket: !Ref KnowledgeBaseBucket
             Events: s3:ObjectCreated:*
             Filter:
               S3Key:
@@ -108,7 +108,7 @@ Resources:
       Runtime: python3.9
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref KNOWLEDGE_BASE_BUCKET
+            BucketName: !Ref KnowledgeBaseBucket
         - DynamoDBCrudPolicy:
             TableName: !Ref FaqTable
         - DynamoDBCrudPolicy:
@@ -164,7 +164,37 @@ Resources:
             Period: MONTH
           Throttle:
             BurstLimit: 10
-            RateLimit: 5
+          RateLimit: 5
+
+  PalmaAiApiKey:
+    Type: AWS::ApiGateway::ApiKey
+    Properties:
+      Enabled: true
+      Name: PalmaAIApiKey
+      StageKeys:
+        - RestApiId: !Ref PalmaAiApi
+          StageName: prod
+
+  PalmaAiUsagePlan:
+    Type: AWS::ApiGateway::UsagePlan
+    Properties:
+      ApiStages:
+        - ApiId: !Ref PalmaAiApi
+          Stage: prod
+      Description: Usage plan for Palma AI Support API
+      Quota:
+        Limit: 5000
+        Period: MONTH
+      Throttle:
+        BurstLimit: 10
+        RateLimit: 5
+
+  PalmaAiUsagePlanKey:
+    Type: AWS::ApiGateway::UsagePlanKey
+    Properties:
+      KeyId: !Ref PalmaAiApiKey
+      KeyType: API_KEY
+      UsagePlanId: !Ref PalmaAiUsagePlan
 
   # CloudWatch Dashboard for monitoring
   PalmaAiDashboard:
