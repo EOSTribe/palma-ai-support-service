@@ -13,7 +13,7 @@ Globals:
     MemorySize: 256
     Environment:
       Variables:
-        KNOWLEDGE_BASE_BUCKET: !Ref KnowledgeBaseBucketName
+        KNOWLEDGE_BASE_BUCKET: !Ref KnowledgeBaseBucket
         FAQ_TABLE: palma-wallet-faq
         QUERY_LOG_TABLE: palma-wallet-query-logs
         EMBEDDING_PREFIX: embeddings/
@@ -67,7 +67,7 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     Properties:
-      BucketName: !Ref KnowledgeBaseBucketName
+      BucketName: !Sub "${KnowledgeBaseBucketName}-${AWS::AccountId}"
 
 
   # Lambda Functions
@@ -82,9 +82,9 @@ Resources:
       MemorySize: 512
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref KnowledgeBaseBucketName
+            BucketName: !Ref KnowledgeBaseBucket
         - S3WritePolicy:
-            BucketName: !Ref KnowledgeBaseBucketName
+            BucketName: !Ref KnowledgeBaseBucket
         - DynamoDBCrudPolicy:
             TableName: !Ref FaqTable
         - Statement:
@@ -113,7 +113,7 @@ Resources:
       Runtime: python3.9
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref KnowledgeBaseBucketName
+            BucketName: !Ref KnowledgeBaseBucket
         - DynamoDBCrudPolicy:
             TableName: !Ref FaqTable
         - DynamoDBCrudPolicy:
