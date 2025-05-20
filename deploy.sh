@@ -5,7 +5,6 @@
 
 # Set variables
 STACK_NAME="palma-ai-support-service"
-S3_BUCKET="palma-wallet-knowledge-base"  # Replace with your actual S3 bucket
 REGION="af-south-1"                     # Your region
 
 # Colors for output
@@ -28,27 +27,14 @@ if ! command -v sam &> /dev/null; then
     exit 1
 fi
 
-# Create deployment bucket if it doesn't exist
-echo -e "${YELLOW}Checking if deployment bucket exists...${NC}"
-if ! aws s3 ls "s3://${S3_BUCKET}" --region ${REGION} &> /dev/null; then
-    echo -e "${YELLOW}Creating deployment bucket: ${S3_BUCKET}${NC}"
-    aws s3 mb "s3://${S3_BUCKET}" --region ${REGION}
-    aws s3api put-bucket-versioning --bucket ${S3_BUCKET} --versioning-configuration Status=Enabled --region ${REGION}
-    echo -e "${YELLOW}Waiting for bucket to be ready...${NC}"
-    sleep 5
-fi
 
 # Build using container to match Lambda runtime
 echo -e "${YELLOW}Building the SAM application using container-based builds...${NC}"
 sam build --use-container
 
-# Package the application
-echo -e "${YELLOW}Packaging the application...${NC}"
-sam package --s3-bucket ${S3_BUCKET} --output-template-file packaged.yaml --region ${REGION}
-
 # Deploy the application
 echo -e "${YELLOW}Deploying the application...${NC}"
-sam deploy --template-file packaged.yaml --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM --region ${REGION} --no-fail-on-empty-changeset
+sam deploy --stack-name ${STACK_NAME} --capabilities CAPABILITY_IAM --region ${REGION} --resolve-s3 --no-fail-on-empty-changeset
 
 # Check if deployment was successful
 if [ $? -eq 0 ]; then
