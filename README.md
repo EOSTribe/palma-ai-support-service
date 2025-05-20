@@ -80,10 +80,9 @@ chmod +x deploy.sh
 ```
 
 The script will:
-- Install required dependencies
-- Build the SAM application
-- Package and deploy to AWS
-- Output the API Gateway URL
+- Build the SAM application using a container that matches the Lambda runtime
+- Package and deploy the stack to AWS
+- Output the API Gateway URL and generated API key
 
 ## API Endpoints
 

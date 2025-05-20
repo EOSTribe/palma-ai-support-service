@@ -5,8 +5,8 @@
 
 # Set variables
 STACK_NAME="palma-ai-support-service"
-S3_BUCKET="palma-wallet-knowledge-base"  # Replace with your actual S3 bucket for deployment artifacts
-REGION="af-south-1"                      # Replace with your preferred AWS region
+S3_BUCKET="palma-wallet-knowledge-base"  # Replace with your actual S3 bucket
+REGION="af-south-1"                     # Your region
 
 # Colors for output
 RED='\033[0;31m'
@@ -33,30 +33,14 @@ echo -e "${YELLOW}Checking if deployment bucket exists...${NC}"
 if ! aws s3 ls "s3://${S3_BUCKET}" --region ${REGION} &> /dev/null; then
     echo -e "${YELLOW}Creating deployment bucket: ${S3_BUCKET}${NC}"
     aws s3 mb "s3://${S3_BUCKET}" --region ${REGION}
-    
-    # Set bucket versioning for better traceability
     aws s3api put-bucket-versioning --bucket ${S3_BUCKET} --versioning-configuration Status=Enabled --region ${REGION}
-    
-    # Wait for bucket to be ready
     echo -e "${YELLOW}Waiting for bucket to be ready...${NC}"
     sleep 5
 fi
 
-# Install Lambda dependencies
-echo -e "${YELLOW}Installing Lambda dependencies...${NC}"
-
-echo -e "${YELLOW}Installing document_processor dependencies...${NC}"
-pip install -r lambda/document_processor/requirements.txt -t lambda/document_processor/
-
-echo -e "${YELLOW}Installing query_processor dependencies...${NC}"
-pip install -r lambda/query_processor/requirements.txt -t lambda/query_processor/
-
-echo -e "${YELLOW}Installing feedback_processor dependencies...${NC}"
-pip install -r lambda/feedback_processor/requirements.txt -t lambda/feedback_processor/
-
-# Build the SAM application
-echo -e "${YELLOW}Building the SAM application...${NC}"
-sam build
+# Build using container to match Lambda runtime
+echo -e "${YELLOW}Building the SAM application using container-based builds...${NC}"
+sam build --use-container
 
 # Package the application
 echo -e "${YELLOW}Packaging the application...${NC}"
@@ -69,17 +53,15 @@ sam deploy --template-file packaged.yaml --stack-name ${STACK_NAME} --capabiliti
 # Check if deployment was successful
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Deployment successful!${NC}"
-    
-    # Get the API Gateway endpoint
     API_URL=$(aws cloudformation describe-stacks --stack-name ${STACK_NAME} --region ${REGION} --query "Stacks[0].Outputs[?OutputKey=='ApiEndpoint'].OutputValue" --output text)
-    
+    API_KEY=$(aws cloudformation describe-stacks --stack-name ${STACK_NAME} --region ${REGION} --query "Stacks[0].Outputs[?OutputKey=='ApiKey'].OutputValue" --output text)
     echo -e "${GREEN}Your API is available at: ${API_URL}${NC}"
+    echo -e "${GREEN}Your API Key is: ${API_KEY}${NC}"
     echo -e "${YELLOW}Example usage:${NC}"
-    echo -e "curl -X POST ${API_URL}chat -H \"Content-Type: application/json\" -d '{\"query\":\"How do I send cryptocurrency?\"}'"
+    echo -e "curl -X POST ${API_URL}chat -H \"Content-Type: application/json\" -H \"x-api-key: ${API_KEY}\" -d '{\"query\":\"How do I send cryptocurrency?\"}'"
 else
     echo -e "${RED}Deployment failed!${NC}"
     exit 1
 fi
 
 echo -e "${GREEN}Deployment complete!${NC}"
-
