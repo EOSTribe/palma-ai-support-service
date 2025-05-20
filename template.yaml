@@ -171,35 +171,6 @@ Resources:
             BurstLimit: 10
             RateLimit: 5
 
-  PalmaAiApiKey:
-    Type: AWS::ApiGateway::ApiKey
-    Properties:
-      Enabled: true
-      Name: PalmaAIApiKey
-      StageKeys:
-        - RestApiId: !Ref PalmaAiApi
-          StageName: prod
-
-  PalmaAiUsagePlan:
-    Type: AWS::ApiGateway::UsagePlan
-    Properties:
-      ApiStages:
-        - ApiId: !Ref PalmaAiApi
-          Stage: prod
-      Description: Usage plan for Palma AI Support API
-      Quota:
-        Limit: 5000
-        Period: MONTH
-      Throttle:
-        BurstLimit: 10
-        RateLimit: 5
-
-  PalmaAiUsagePlanKey:
-    Type: AWS::ApiGateway::UsagePlanKey
-    Properties:
-      KeyId: !Ref PalmaAiApiKey
-      KeyType: API_KEY
-      UsagePlanId: !Ref PalmaAiUsagePlan
 
   # CloudWatch Dashboard for monitoring
   PalmaAiDashboard:
@@ -257,7 +228,7 @@ Outputs:
   
   ApiKey:
     Description: "API Key to access the Palma AI Support Service"
-    Value: !Ref PalmaAiApiKey
+    Value: !Ref PalmaAiApiApiKey
     
   ProcessDocumentFunction:
     Description: "Lambda function that processes documents uploaded to S3"
