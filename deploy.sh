@@ -29,8 +29,14 @@ fi
 
 
 # Build using container to match Lambda runtime
-echo -e "${YELLOW}Building the SAM application using container-based builds...${NC}"
-sam build --use-container
+echo -e "${YELLOW}Building the SAM application...${NC}"
+if command -v docker &> /dev/null && docker info > /dev/null 2>&1; then
+    echo -e "${YELLOW}Docker detected - using container based build${NC}"
+    sam build --use-container
+else
+    echo -e "${YELLOW}Docker not available - falling back to local build${NC}"
+    sam build
+fi
 
 # Deploy the application
 echo -e "${YELLOW}Deploying the application...${NC}"
