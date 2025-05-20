@@ -13,7 +13,7 @@ Globals:
     MemorySize: 256
     Environment:
       Variables:
-        KNOWLEDGE_BASE_BUCKET: !Ref KnowledgeBaseBucket
+        KNOWLEDGE_BASE_BUCKET: !Ref KnowledgeBaseBucketName
         FAQ_TABLE: palma-wallet-faq
         QUERY_LOG_TABLE: palma-wallet-query-logs
         EMBEDDING_PREFIX: embeddings/
@@ -82,9 +82,9 @@ Resources:
       MemorySize: 512
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref KnowledgeBaseBucket
+            BucketName: !Ref KnowledgeBaseBucketName
         - S3WritePolicy:
-            BucketName: !Ref KnowledgeBaseBucket
+            BucketName: !Ref KnowledgeBaseBucketName
         - DynamoDBCrudPolicy:
             TableName: !Ref FaqTable
         - Statement:
@@ -113,7 +113,7 @@ Resources:
       Runtime: python3.9
       Policies:
         - S3ReadPolicy:
-            BucketName: !Ref KnowledgeBaseBucket
+            BucketName: !Ref KnowledgeBaseBucketName
         - DynamoDBCrudPolicy:
             TableName: !Ref FaqTable
         - DynamoDBCrudPolicy:
