@@ -1,0 +1,332 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Palma Wallet AI Support Service - Serverless chatbot using S3 knowledge
+  base
+Parameters:
+  KnowledgeBaseBucketName:
+    Type: String
+    Default: palma-wallet-knowledge-base
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 256
+    Environment:
+      Variables:
+        KNOWLEDGE_BASE_BUCKET:
+          Ref: KnowledgeBaseBucket
+        FAQ_TABLE: palma-wallet-faq
+        QUERY_LOG_TABLE: palma-wallet-query-logs
+        EMBEDDING_PREFIX: embeddings/
+Resources:
+  FaqTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: palma-wallet-faq
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: id
+        AttributeType: S
+      KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+      Tags:
+      - Key: Application
+        Value: PalmaWalletAISupport
+    Metadata:
+      SamResourceId: FaqTable
+  QueryLogTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: palma-wallet-query-logs
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: query_id
+        AttributeType: S
+      - AttributeName: timestamp
+        AttributeType: S
+      KeySchema:
+      - AttributeName: query_id
+        KeyType: HASH
+      GlobalSecondaryIndexes:
+      - IndexName: TimestampIndex
+        KeySchema:
+        - AttributeName: timestamp
+          KeyType: HASH
+        Projection:
+          ProjectionType: ALL
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+      - Key: Application
+        Value: PalmaWalletAISupport
+    Metadata:
+      SamResourceId: QueryLogTable
+  KnowledgeBaseBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      BucketName:
+        Fn::Sub: ${KnowledgeBaseBucketName}-${AWS::AccountId}
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+          - '*'
+          AllowedMethods:
+          - GET
+          - PUT
+          - POST
+          - DELETE
+          - HEAD
+          AllowedOrigins:
+          - '*'
+          MaxAge: 3600
+    Metadata:
+      SamResourceId: KnowledgeBaseBucket
+  ProcessDocumentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: palma-ai-support-process-document
+      CodeUri: s3://palma-wallet-knowledge-base/d62c49bb0b507d02e45db3a0c0ede4fd
+      Handler: app.process_document
+      Runtime: python3.9
+      Timeout: 300
+      MemorySize: 512
+      Policies:
+      - S3ReadPolicy:
+          BucketName:
+            Ref: KnowledgeBaseBucket
+      - S3WritePolicy:
+          BucketName:
+            Ref: KnowledgeBaseBucket
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: FaqTable
+      - Statement:
+        - Effect: Allow
+          Action:
+          - bedrock:InvokeModel
+          Resource: '*'
+    Metadata:
+      SamResourceId: ProcessDocumentFunction
+  S3BucketPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+        - ProcessDocumentFunction
+        - Arn
+      Principal: s3.amazonaws.com
+      SourceArn:
+        Fn::GetAtt:
+        - KnowledgeBaseBucket
+        - Arn
+    Metadata:
+      SamResourceId: S3BucketPermission
+  QueryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: palma-ai-support-query
+      CodeUri: s3://palma-wallet-knowledge-base/56093af160b605758b2780b2fca02622
+      Handler: app.query_knowledge_base
+      Runtime: python3.9
+      Policies:
+      - S3ReadPolicy:
+          BucketName:
+            Ref: KnowledgeBaseBucket
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: FaqTable
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: QueryLogTable
+      - Statement:
+        - Effect: Allow
+          Action:
+          - bedrock:InvokeModel
+          Resource: '*'
+    Metadata:
+      SamResourceId: QueryFunction
+  FeedbackFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: palma-ai-support-feedback
+      CodeUri: s3://palma-wallet-knowledge-base/0cc6312a4e6ce24699c92848a8353a85
+      Handler: app.process_feedback
+      Runtime: python3.9
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: QueryLogTable
+    Metadata:
+      SamResourceId: FeedbackFunction
+  PalmaAiApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: palma-ai-support-api
+      StageName: prod
+      Cors:
+        AllowMethods: '''GET,POST,OPTIONS'''
+        AllowHeaders: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'''
+        AllowOrigin: '''*'''
+      Auth:
+        ApiKeyRequired: true
+        UsagePlan:
+          CreateUsagePlan: PER_API
+          Description: Usage plan for Palma AI Support API
+          Quota:
+            Limit: 5000
+            Period: MONTH
+          Throttle:
+            BurstLimit: 10
+            RateLimit: 5
+    Metadata:
+      SamResourceId: PalmaAiApi
+  FeedbackResource:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId:
+        Ref: PalmaAiApi
+      ParentId:
+        Fn::GetAtt:
+        - PalmaAiApi
+        - RootResourceId
+      PathPart: feedback
+    Metadata:
+      SamResourceId: FeedbackResource
+  QueryApiMethod:
+    Type: AWS::ApiGateway::Method
+    DependsOn: PalmaAiApi
+    Properties:
+      RestApiId:
+        Ref: PalmaAiApi
+      ResourceId:
+        Fn::GetAtt:
+        - PalmaAiApi
+        - RootResourceId
+      HttpMethod: POST
+      ApiKeyRequired: true
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri:
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${QueryFunction.Arn}/invocations
+    Metadata:
+      SamResourceId: QueryApiMethod
+  FeedbackApiMethod:
+    Type: AWS::ApiGateway::Method
+    DependsOn:
+    - PalmaAiApi
+    - FeedbackResource
+    Properties:
+      RestApiId:
+        Ref: PalmaAiApi
+      ResourceId:
+        Ref: FeedbackResource
+      HttpMethod: POST
+      ApiKeyRequired: true
+      AuthorizationType: NONE
+      Integration:
+        Type: AWS_PROXY
+        IntegrationHttpMethod: POST
+        Uri:
+          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${FeedbackFunction.Arn}/invocations
+    Metadata:
+      SamResourceId: FeedbackApiMethod
+  QueryFunctionPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Ref: QueryFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${PalmaAiApi}/*/POST/
+    Metadata:
+      SamResourceId: QueryFunctionPermission
+  FeedbackFunctionPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Ref: FeedbackFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${PalmaAiApi}/*/POST/feedback
+    Metadata:
+      SamResourceId: FeedbackFunctionPermission
+  PalmaAiApiDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+    - QueryApiMethod
+    - FeedbackApiMethod
+    Properties:
+      RestApiId:
+        Ref: PalmaAiApi
+      StageName: prod
+    Metadata:
+      SamResourceId: PalmaAiApiDeployment
+  PalmaAiApiKey:
+    Type: AWS::ApiGateway::ApiKey
+    DependsOn:
+    - PalmaAiApiDeployment
+    Properties:
+      Name: PalmaAiSupportApiKey
+      Description: API Key for Palma AI Support Service
+      Enabled: true
+      StageKeys:
+      - RestApiId:
+          Ref: PalmaAiApi
+        StageName: prod
+    Metadata:
+      SamResourceId: PalmaAiApiKey
+  PalmaAiDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: PalmaAiSupportDashboard
+      DashboardBody:
+        Fn::Sub: "{\n  \"widgets\": [\n    {\n      \"type\": \"metric\",\n      \"\
+          x\": 0,\n      \"y\": 0,\n      \"width\": 12,\n      \"height\": 6,\n \
+          \     \"properties\": {\n        \"metrics\": [\n          [ \"AWS/Lambda\"\
+          , \"Invocations\", \"FunctionName\", \"${QueryFunction}\" ],\n         \
+          \ [ \".\", \"Errors\", \".\", \".\" ],\n          [ \".\", \"Duration\"\
+          , \".\", \".\" ]\n        ],\n        \"view\": \"timeSeries\",\n      \
+          \  \"stacked\": false,\n        \"region\": \"${AWS::Region}\",\n      \
+          \  \"title\": \"Query Function Metrics\",\n        \"period\": 300\n   \
+          \   }\n    },\n    {\n      \"type\": \"metric\",\n      \"x\": 12,\n  \
+          \    \"y\": 0,\n      \"width\": 12,\n      \"height\": 6,\n      \"properties\"\
+          : {\n        \"metrics\": [\n          [ \"AWS/ApiGateway\", \"Count\",\
+          \ \"ApiName\", \"palma-ai-support-api\" ],\n          [ \".\", \"4XXError\"\
+          , \".\", \".\" ],\n          [ \".\", \"5XXError\", \".\", \".\" ]\n   \
+          \     ],\n        \"view\": \"timeSeries\",\n        \"stacked\": false,\n\
+          \        \"region\": \"${AWS::Region}\",\n        \"title\": \"API Gateway\
+          \ Metrics\",\n        \"period\": 300\n      }\n    }\n  ]\n}\n"
+    Metadata:
+      SamResourceId: PalmaAiDashboard
+Outputs:
+  ApiEndpoint:
+    Description: API Gateway endpoint URL for the Palma AI Support Service
+    Value:
+      Fn::Sub: https://${PalmaAiApi}.execute-api.${AWS::Region}.amazonaws.com/prod/
+  ApiKey:
+    Description: API Key to access the Palma AI Support Service
+    Value:
+      Ref: PalmaAiApiKey
+  ProcessDocumentFunction:
+    Description: Lambda function that processes documents uploaded to S3
+    Value:
+      Fn::GetAtt:
+      - ProcessDocumentFunction
+      - Arn
+  QueryFunction:
+    Description: Lambda function that handles chat queries
+    Value:
+      Fn::GetAtt:
+      - QueryFunction
+      - Arn
+  S3BucketName:
+    Description: S3 bucket for knowledge base storage
+    Value:
+      Ref: KnowledgeBaseBucket
