@@ -1,13 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
 Description: Palma Wallet AI Support Service - Serverless chatbot using S3 knowledge base
 
-# Global variables
+Parameters:
+  KNOWLEDGE_BASE_BUCKET:
+    Type: String
+    Default: palma-wallet-knowledge-base
+
 Globals:
   Function:
     Timeout: 30
     MemorySize: 256
     Environment:
       Variables:
-        KNOWLEDGE_BASE_BUCKET: palma-wallet-knowledge-base
+        KNOWLEDGE_BASE_BUCKET: !Ref KNOWLEDGE_BASE_BUCKET
         FAQ_TABLE: palma-wallet-faq
         QUERY_LOG_TABLE: palma-wallet-query-logs
         EMBEDDING_PREFIX: embeddings/
@@ -85,7 +91,7 @@ Resources:
         S3Event:
           Type: S3
           Properties:
-            Bucket: !Ref S3Bucket
+            Bucket: !Ref KNOWLEDGE_BASE_BUCKET
             Events: s3:ObjectCreated:*
             Filter:
               S3Key:
