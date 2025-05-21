@@ -54,7 +54,7 @@ If you haven't already created the S3 bucket for the knowledge base, follow thes
 
 ```bash
 # Create the bucket
-aws s3 mb s3://palma-wallet-knowledge-base --region af-south-1
+aws s3 mb s3://palma-wallet-knowledge-base --region us-east-1
 
 # Create folder structure
 aws s3api put-object --bucket palma-wallet-knowledge-base --key raw-documents/

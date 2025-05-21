@@ -3,9 +3,9 @@ version = 0.1
 stack_name = "palma-ai-support"
 resolve_s3 = true
 s3_prefix = "palma-ai-support"
-region = "af-south-1"
+region = "us-east-1"  # Changed from us-east-1 to us-east-1
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
 disable_rollback = true
-parameter_overrides = "KnowledgeBaseBucketName=\"palma-wallet-knowledge-base\""
+parameter_overrides = "KnowledgeBaseBucketName=\"palma-wallet-knowledge-base\" ApiStageName=\"v1\""
 image_repositories = []

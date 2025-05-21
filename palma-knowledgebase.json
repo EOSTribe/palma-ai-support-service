@@ -3,8 +3,8 @@
     "documentType": "knowledge_base",
     "documentId": "palma-wallet-kb-001",
     "version": "1.0.0",
-    "dateCreated": "2025-05-18",
-    "lastUpdated": "2025-05-18",
+    "dateCreated": "2025-05-20",
+    "lastUpdated": "2025-05-20",
     "source": "Palma Wallet Documentation"
   },
   "sections": [
@@ -195,7 +195,7 @@
         {
           "id": "tech-03",
           "question": "What is the backend infrastructure for Palma Wallet?",
-          "answer": "Palma Wallet uses AWS (Amazon Web Services) for its backend infrastructure. User data is stored in DynamoDB tables, with the region set to af-south-1 (Cape Town). The architecture includes serverless components with Lambda functions handling transaction processing and user data management. User private keys are never stored on the server - only public keys are stored to verify transaction signatures.",
+          "answer": "Palma Wallet uses AWS (Amazon Web Services) for its backend infrastructure. User data is stored in DynamoDB tables, with the region set to us-east-1 (Cape Town). The architecture includes serverless components with Lambda functions handling transaction processing and user data management. User private keys are never stored on the server - only public keys are stored to verify transaction signatures.",
           "keywords": ["backend", "server", "AWS", "infrastructure", "database"]
         },
         {
@@ -239,4 +239,3 @@
   ],
   "schema_version": "1.0"
 }
-

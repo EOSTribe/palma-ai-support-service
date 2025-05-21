@@ -6,6 +6,10 @@ Parameters:
   KnowledgeBaseBucketName:
     Type: String
     Default: palma-wallet-knowledge-base
+  ApiStageName:
+    Type: String
+    Default: v1
+    Description: API Gateway stage name (use something different than 'prod')
 Globals:
   Function:
     Timeout: 30
@@ -146,6 +150,14 @@ Resources:
           Action:
           - bedrock:InvokeModel
           Resource: '*'
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /chat
+            Method: POST
+            RestApiId:
+              Ref: PalmaAiApi
     Metadata:
       SamResourceId: QueryFunction
   FeedbackFunction:
@@ -159,13 +171,22 @@ Resources:
       - DynamoDBCrudPolicy:
           TableName:
             Ref: QueryLogTable
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /feedback
+            Method: POST
+            RestApiId:
+              Ref: PalmaAiApi
     Metadata:
       SamResourceId: FeedbackFunction
   PalmaAiApi:
     Type: AWS::Serverless::Api
     Properties:
       Name: palma-ai-support-api
-      StageName: prod
+      StageName:
+        Ref: ApiStageName
       Cors:
         AllowMethods: '''GET,POST,OPTIONS'''
         AllowHeaders: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'''
@@ -181,105 +202,16 @@ Resources:
           Throttle:
             BurstLimit: 10
             RateLimit: 5
+      EndpointConfiguration: REGIONAL
     Metadata:
       SamResourceId: PalmaAiApi
-  FeedbackResource:
-    Type: AWS::ApiGateway::Resource
-    Properties:
-      RestApiId:
-        Ref: PalmaAiApi
-      ParentId:
-        Fn::GetAtt:
-        - PalmaAiApi
-        - RootResourceId
-      PathPart: feedback
-    Metadata:
-      SamResourceId: FeedbackResource
-  QueryApiMethod:
-    Type: AWS::ApiGateway::Method
-    DependsOn: PalmaAiApi
-    Properties:
-      RestApiId:
-        Ref: PalmaAiApi
-      ResourceId:
-        Fn::GetAtt:
-        - PalmaAiApi
-        - RootResourceId
-      HttpMethod: POST
-      ApiKeyRequired: true
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri:
-          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${QueryFunction.Arn}/invocations
-    Metadata:
-      SamResourceId: QueryApiMethod
-  FeedbackApiMethod:
-    Type: AWS::ApiGateway::Method
-    DependsOn:
-    - PalmaAiApi
-    - FeedbackResource
-    Properties:
-      RestApiId:
-        Ref: PalmaAiApi
-      ResourceId:
-        Ref: FeedbackResource
-      HttpMethod: POST
-      ApiKeyRequired: true
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri:
-          Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${FeedbackFunction.Arn}/invocations
-    Metadata:
-      SamResourceId: FeedbackApiMethod
-  QueryFunctionPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      Action: lambda:InvokeFunction
-      FunctionName:
-        Ref: QueryFunction
-      Principal: apigateway.amazonaws.com
-      SourceArn:
-        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${PalmaAiApi}/*/POST/
-    Metadata:
-      SamResourceId: QueryFunctionPermission
-  FeedbackFunctionPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      Action: lambda:InvokeFunction
-      FunctionName:
-        Ref: FeedbackFunction
-      Principal: apigateway.amazonaws.com
-      SourceArn:
-        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${PalmaAiApi}/*/POST/feedback
-    Metadata:
-      SamResourceId: FeedbackFunctionPermission
-  PalmaAiApiDeployment:
-    Type: AWS::ApiGateway::Deployment
-    DependsOn:
-    - QueryApiMethod
-    - FeedbackApiMethod
-    Properties:
-      RestApiId:
-        Ref: PalmaAiApi
-      StageName: prod
-    Metadata:
-      SamResourceId: PalmaAiApiDeployment
   PalmaAiApiKey:
     Type: AWS::ApiGateway::ApiKey
-    DependsOn:
-    - PalmaAiApiDeployment
+    DependsOn: PalmaAiApi
     Properties:
       Name: PalmaAiSupportApiKey
       Description: API Key for Palma AI Support Service
       Enabled: true
-      StageKeys:
-      - RestApiId:
-          Ref: PalmaAiApi
-        StageName: prod
     Metadata:
       SamResourceId: PalmaAiApiKey
   PalmaAiDashboard:
@@ -309,7 +241,7 @@ Outputs:
   ApiEndpoint:
     Description: API Gateway endpoint URL for the Palma AI Support Service
     Value:
-      Fn::Sub: https://${PalmaAiApi}.execute-api.${AWS::Region}.amazonaws.com/prod/
+      Fn::Sub: https://${PalmaAiApi}.execute-api.${AWS::Region}.amazonaws.com/${ApiStageName}/
   ApiKey:
     Description: API Key to access the Palma AI Support Service
     Value:

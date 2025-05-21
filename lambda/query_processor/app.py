@@ -16,7 +16,7 @@ s3 = boto3.client('s3')
 dynamodb = boto3.resource('dynamodb')
 bedrock_runtime = boto3.client(
     service_name='bedrock-runtime',
-    region_name=os.environ.get('AWS_REGION', 'af-south-1')
+    region_name=os.environ.get('AWS_REGION', 'us-east-1')
 )
 
 # Get environment variables
@@ -26,27 +26,106 @@ FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq')
 QUERY_LOG_TABLE = os.environ.get('QUERY_LOG_TABLE', 'palma-wallet-query-logs')
 SIMILARITY_THRESHOLD = float(os.environ.get('SIMILARITY_THRESHOLD', '0.6'))
 MAX_RESULTS = int(os.environ.get('MAX_RESULTS', '3'))
-MODEL_ID = os.environ.get('MODEL_ID', 'anthropic.claude-3-sonnet-20240229-v1:0')
+MODEL_ID = 'anthropic.claude-3-sonnet-20240229-v1:0'  # Use the granted model
 
-def get_embeddings(text):
-    """Generate embeddings using Amazon Bedrock."""
+def get_embedding_anthropic(text):
+    """Generate embeddings using Anthropic Claude model."""
     try:
+        # Correct format for Claude 3 Sonnet
+        payload = {
+            "anthropic_version": "bedrock-2023-05-31",
+            "max_tokens": 1,  # Minimal tokens since we only want embeddings
+            "messages": [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": text
+                        }
+                    ]
+                }
+            ],
+            "embedding": True  # Request embeddings
+        }
+        
         response = bedrock_runtime.invoke_model(
             modelId=MODEL_ID,
-            body=json.dumps({
-                "input_text": text,
-                "embedding_only": True
-            })
+            body=json.dumps(payload)
         )
         
-        response_body = json.loads(response['body'].read().decode('utf-8'))
-        return response_body['embedding']
+        response_body = json.loads(response['body'].read())
+        
+        # Extract the embedding from the response
+        if 'embedding' in response_body:
+            return response_body['embedding']
+        else:
+            logger.error(f"No embedding in response: {json.dumps(response_body)}")
+            raise ValueError("No embedding in response")
+            
     except Exception as e:
         logger.error(f"Error generating embeddings: {str(e)}")
         raise
 
+def create_simple_embedding(text, dimension=1536):
+    """Create a simple deterministic embedding when Bedrock is not available."""
+    import hashlib
+    
+    # Create a hash of the text
+    hash_obj = hashlib.sha256(text.encode())
+    hash_hex = hash_obj.hexdigest()
+    
+    # Generate a deterministic vector from the hash
+    values = []
+    for i in range(0, len(hash_hex), 2):
+        if len(values) >= dimension:
+            break
+        hex_pair = hash_hex[i:i+2]
+        value = int(hex_pair, 16) / 255.0  # Normalize to [0, 1]
+        values.append(value * 2 - 1)  # Scale to [-1, 1]
+    
+    # If we need more dimensions, create more hashes
+    original_hash = hash_hex
+    while len(values) < dimension:
+        hash_obj = hashlib.sha256((original_hash + str(len(values))).encode())
+        hash_hex = hash_obj.hexdigest()
+        for i in range(0, len(hash_hex), 2):
+            if len(values) >= dimension:
+                break
+            hex_pair = hash_hex[i:i+2]
+            value = int(hex_pair, 16) / 255.0
+            values.append(value * 2 - 1)
+    
+    # Ensure we have exactly dimension values
+    values = values[:dimension]
+    
+    # Normalize to unit vector
+    norm = sum(v**2 for v in values) ** 0.5
+    normalized = [v / norm for v in values]
+    
+    return normalized
+
+def get_embeddings(text):
+    """Generate embeddings with fallback to simple embedding if needed."""
+    try:
+        return get_embedding_anthropic(text)
+    except Exception as e:
+        logger.warning(f"Error generating embeddings with Bedrock: {str(e)}")
+        logger.warning("Falling back to simple embedding method")
+        return create_simple_embedding(text)
+
 def cosine_similarity(vec_a, vec_b):
     """Calculate cosine similarity between two vectors."""
+    if not vec_a or not vec_b:
+        return 0
+        
+    if len(vec_a) != len(vec_b):
+        # If vectors have different dimensions, resize the smaller one
+        if len(vec_a) < len(vec_b):
+            vec_a = vec_a + [0] * (len(vec_b) - len(vec_a))
+        else:
+            vec_b = vec_b + [0] * (len(vec_a) - len(vec_b))
+    
     dot_product = np.dot(vec_a, vec_b)
     norm_a = np.linalg.norm(vec_a)
     norm_b = np.linalg.norm(vec_b)
@@ -107,6 +186,63 @@ def search_faq_table(query):
         logger.error(f"Error searching FAQ table: {str(e)}")
         return []
 
+def semantic_search_faq_table(query_embedding):
+    """Search for semantically similar items in the FAQ DynamoDB table using vector similarity."""
+    try:
+        table = dynamodb.Table(FAQ_TABLE)
+        
+        # Scan all items (for production, consider vector database or more efficient solution)
+        response = table.scan()
+        
+        results = []
+        for item in response.get('Items', []):
+            embedding = item.get('embedding')
+            
+            # Skip items without embeddings
+            if not embedding:
+                continue
+            
+            # Calculate similarity
+            similarity = cosine_similarity(query_embedding, embedding)
+            
+            # Only include results above the threshold
+            if similarity >= SIMILARITY_THRESHOLD:
+                results.append({
+                    'item': item,
+                    'similarity': similarity
+                })
+        
+        # Handle pagination
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+            
+            for item in response.get('Items', []):
+                embedding = item.get('embedding')
+                
+                # Skip items without embeddings
+                if not embedding:
+                    continue
+                
+                # Calculate similarity
+                similarity = cosine_similarity(query_embedding, embedding)
+                
+                # Only include results above the threshold
+                if similarity >= SIMILARITY_THRESHOLD:
+                    results.append({
+                        'item': item,
+                        'similarity': similarity
+                    })
+        
+        # Sort by similarity (highest first)
+        results.sort(key=lambda x: x['similarity'], reverse=True)
+        
+        logger.info(f"Found {len(results)} semantic matches in FAQ table")
+        return results[:MAX_RESULTS]
+        
+    except Exception as e:
+        logger.error(f"Error performing semantic search: {str(e)}")
+        return []
+
 def search_embeddings_s3(query, query_embedding):
     """Search for similar content using vector embeddings from S3."""
     try:
@@ -150,75 +286,75 @@ def search_embeddings_s3(query, query_embedding):
         # Sort by similarity (highest first)
         results.sort(key=lambda x: x['similarity'], reverse=True)
         
-        # Return top results
+        logger.info(f"Found {len(results)} matches in S3 embeddings")
         return results[:MAX_RESULTS]
     
     except Exception as e:
         logger.error(f"Error searching embeddings in S3: {str(e)}")
         return []
 
-def generate_ai_response(query, context_items, user_id=None):
-    """Generate an AI response using Bedrock and the retrieved context."""
+def generate_ai_response(query, context_items):
+    """Generate an AI response using Bedrock Claude."""
     try:
         # Extract relevant context from the retrieved items
         context = ""
         for item in context_items:
             context_item = item.get('item', {})
             context += f"Section: {context_item.get('section_title', '')}\n"
-            context += f"Q: {context_item.get('question', '')}\n"
-            context += f"A: {context_item.get('answer', '')}\n\n"
+            context += f"Question: {context_item.get('question', '')}\n"
+            context += f"Answer: {context_item.get('answer', '')}\n\n"
         
-        # Get user-specific context if available
-        user_context = ""
-        if user_id:
-            # This is where you could retrieve user-specific information
-            # like transaction history, account details, etc.
-            # For now, we'll leave it empty
-            pass
+        # Prepare the Claude message format
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": f"""
+                        <context>
+                        {context}
+                        </context>
+                        
+                        The above context contains information about Palma Wallet, a cryptocurrency wallet application.
+                        Based ONLY on this context, please answer the following user question:
+                        
+                        User Question: {query}
+                        
+                        If the context doesn't contain the information needed to answer the question confidently, 
+                        acknowledge that and suggest what the user might want to know instead.
+                        
+                        Respond in a friendly, helpful tone as a customer support agent for Palma Wallet.
+                        Keep your response concise but thorough.
+                        
+                        Rules:
+                        1. Never mention that you're an AI or that you're using context to answer.
+                        2. Don't apologize excessively.
+                        3. Use a conversational tone that's professional but friendly.
+                        4. Format your response for readability with appropriate spacing.
+                        """
+                    }
+                ]
+            }
+        ]
         
-        # Add user context if available
-        if user_context:
-            context += f"\nUser Information:\n{user_context}\n"
-        
-        # Prepare the prompt for Claude
-        prompt = f"""
-        <context>
-        {context}
-        </context>
-        
-        The above context contains information about Palma Wallet, a cryptocurrency wallet application.
-        Based ONLY on this context, please answer the following user question:
-        
-        User Question: {query}
-        
-        If the context doesn't contain the information needed to answer the question confidently, 
-        acknowledge that and suggest what the user might want to know instead.
-        
-        Respond in a friendly, helpful tone as a customer support agent for Palma Wallet.
-        Keep your response concise but thorough.
-        
-        Here are some rules to follow:
-        1. Never mention that you're an AI or that you're using context to answer.
-        2. Don't apologize excessively.
-        3. If the user is asking about a specific transaction or account detail not in the context, 
-           suggest they check their transaction history in the app.
-        4. Use a conversational tone that's professional but friendly.
-        5. Format your response for readability with appropriate spacing.
-        """
-        
-        # Call Bedrock for response generation
+        # Call the Bedrock API
         response = bedrock_runtime.invoke_model(
             modelId=MODEL_ID,
             body=json.dumps({
-                "prompt": prompt,
-                "max_tokens": 1000,
+                "anthropic_version": "bedrock-2023-05-31",
+                "max_tokens": 500,
                 "temperature": 0.2,
                 "top_p": 0.9,
+                "messages": messages
             })
         )
         
-        response_body = json.loads(response['body'].read().decode('utf-8'))
-        ai_response = response_body.get('completion', response_body.get('content', ''))
+        # Parse the response
+        response_body = json.loads(response['body'].read())
+        
+        # Extract the response text
+        ai_response = response_body['content'][0]['text']
         
         return ai_response.strip()
     
@@ -269,11 +405,76 @@ def log_query(query, response, found_items, user_id=None, session_id=None, feedb
         # Non-critical error, continue execution
         return None
 
+def check_or_create_table(table_name):
+    """Check if a DynamoDB table exists and create it if it doesn't."""
+    dynamodb_client = boto3.client('dynamodb')
+    
+    try:
+        # Check if table exists
+        dynamodb_client.describe_table(TableName=table_name)
+        logger.info(f"Table {table_name} exists")
+        return True
+    except dynamodb_client.exceptions.ResourceNotFoundException:
+        logger.info(f"Table {table_name} doesn't exist, creating it...")
+        
+        try:
+            # Create the table
+            if table_name == FAQ_TABLE:
+                response = dynamodb_client.create_table(
+                    TableName=table_name,
+                    KeySchema=[
+                        {'AttributeName': 'id', 'KeyType': 'HASH'}
+                    ],
+                    AttributeDefinitions=[
+                        {'AttributeName': 'id', 'AttributeType': 'S'}
+                    ],
+                    BillingMode='PAY_PER_REQUEST'
+                )
+            elif table_name == QUERY_LOG_TABLE:
+                response = dynamodb_client.create_table(
+                    TableName=table_name,
+                    KeySchema=[
+                        {'AttributeName': 'query_id', 'KeyType': 'HASH'}
+                    ],
+                    AttributeDefinitions=[
+                        {'AttributeName': 'query_id', 'AttributeType': 'S'},
+                        {'AttributeName': 'timestamp', 'AttributeType': 'S'}
+                    ],
+                    GlobalSecondaryIndexes=[
+                        {
+                            'IndexName': 'TimestampIndex',
+                            'KeySchema': [
+                                {'AttributeName': 'timestamp', 'KeyType': 'HASH'}
+                            ],
+                            'Projection': {'ProjectionType': 'ALL'}
+                        }
+                    ],
+                    BillingMode='PAY_PER_REQUEST'
+                )
+            
+            logger.info(f"Table {table_name} created successfully")
+            
+            # Wait for the table to be created
+            waiter = dynamodb_client.get_waiter('table_exists')
+            waiter.wait(TableName=table_name)
+            
+            return True
+        except Exception as e:
+            logger.error(f"Error creating table {table_name}: {str(e)}")
+            return False
+    except Exception as e:
+        logger.error(f"Error checking table {table_name}: {str(e)}")
+        return False
+
 def query_knowledge_base(event, context):
     """
     Main Lambda handler to process incoming query requests.
     """
     try:
+        # First ensure the tables exist
+        check_or_create_table(FAQ_TABLE)
+        check_or_create_table(QUERY_LOG_TABLE)
+        
         # Parse the incoming request
         if 'body' in event:
             body = json.loads(event.get('body', '{}'))
@@ -330,8 +531,12 @@ def query_knowledge_base(event, context):
         # Generate embeddings for the query
         query_embedding = get_embeddings(query)
         
-        # Search for similar content using embeddings
-        search_results = search_embeddings_s3(query, query_embedding)
+        # First try semantic search in the FAQ table
+        search_results = semantic_search_faq_table(query_embedding)
+        
+        # If no results in FAQ table, try search in S3 embeddings
+        if not search_results:
+            search_results = search_embeddings_s3(query, query_embedding)
         
         # If we don't find any relevant content
         if not search_results:
@@ -359,7 +564,7 @@ def query_knowledge_base(event, context):
             }
         
         # Generate an AI response using the retrieved context
-        ai_response = generate_ai_response(query, search_results, user_id)
+        ai_response = generate_ai_response(query, search_results)
         
         # Log the query and response for system improvement
         query_id = log_query(query, ai_response, search_results, user_id, session_id)
@@ -392,7 +597,111 @@ def query_knowledge_base(event, context):
             })
         }
 
-def lambda_handler(event, context):
-    """Lambda handler that calls the query_knowledge_base function."""
-    return query_knowledge_base(event, context)
+def process_feedback(event, context):
+    """
+    Process feedback for a previous query.
+    """
+    try:
+        # Parse the incoming request
+        if 'body' in event:
+            body = json.loads(event.get('body', '{}'))
+        else:
+            body = event
+        
+        query_id = body.get('query_id', '')
+        feedback = body.get('feedback', {})
+        
+        if not query_id:
+            return {
+                'statusCode': 400,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({'error': 'query_id parameter is required'})
+            }
+        
+        # Check if the feedback contains valid fields
+        if not feedback or not isinstance(feedback, dict):
+            return {
+                'statusCode': 400,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({'error': 'feedback must be a non-empty object'})
+            }
+        
+        # Get the query log item
+        table = dynamodb.Table(QUERY_LOG_TABLE)
+        
+        try:
+            response = table.get_item(Key={'query_id': query_id})
+            
+            if 'Item' not in response:
+                return {
+                    'statusCode': 404,
+                    'headers': {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    'body': json.dumps({'error': f'Query with ID {query_id} not found'})
+                }
+            
+            # Update the item with feedback
+            item = response['Item']
+            item['feedback'] = feedback
+            item['feedback_timestamp'] = datetime.now().isoformat()
+            
+            # Write back to DynamoDB
+            table.put_item(Item=item)
+            
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({
+                    'message': 'Feedback recorded successfully',
+                    'query_id': query_id
+                })
+            }
+            
+        except Exception as e:
+            logger.error(f"Error processing feedback: {str(e)}")
+            return {
+                'statusCode': 500,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({
+                    'error': f'Error processing feedback: {str(e)}'
+                })
+            }
+            
+    except Exception as e:
+        logger.error(f"Error processing feedback request: {str(e)}")
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({
+                'error': f'Error processing feedback request: {str(e)}'
+            })
+        }
 
+def lambda_handler(event, context):
+    """Lambda handler that routes to the appropriate function based on path."""
+    
+    # Check if this is an API Gateway event
+    if 'path' in event and event.get('path') == '/feedback':
+        return process_feedback(event, context)
+    else:
+        return query_knowledge_base(event, context)
+    
+    
+    

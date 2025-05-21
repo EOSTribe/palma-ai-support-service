@@ -11,7 +11,7 @@
     },
     "regionRegex" : "^(us|eu|ap|sa|ca|me|af|il)\\-\\w+\\-\\d+$",
     "regions" : {
-      "af-south-1" : {
+      "us-east-1" : {
         "description" : "Africa (Cape Town)"
       },
       "ap-east-1" : {

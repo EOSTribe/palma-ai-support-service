@@ -5,7 +5,11 @@ Description: Palma Wallet AI Support Service - Serverless chatbot using S3 knowl
 Parameters:
   KnowledgeBaseBucketName:
     Type: String
-    Default: palma-wallet-knowledge-base
+    Default: palma-wallet-knowledge-base-new
+  ApiStageName:
+    Type: String
+    Default: v1
+    Description: API Gateway stage name (use something different than 'prod')
 
 Globals:
   Function:
@@ -14,8 +18,8 @@ Globals:
     Environment:
       Variables:
         KNOWLEDGE_BASE_BUCKET: !Ref KnowledgeBaseBucket
-        FAQ_TABLE: palma-wallet-faq
-        QUERY_LOG_TABLE: palma-wallet-query-logs
+        FAQ_TABLE: palma-wallet-faq-new
+        QUERY_LOG_TABLE: palma-wallet-query-logs-new
         EMBEDDING_PREFIX: embeddings/
 
 Resources:
@@ -23,7 +27,7 @@ Resources:
   FaqTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: palma-wallet-faq
+      TableName: palma-wallet-faq-new
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
         - AttributeName: id
@@ -38,7 +42,7 @@ Resources:
   QueryLogTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: palma-wallet-query-logs
+      TableName: palma-wallet-query-logs-new
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
         - AttributeName: query_id
@@ -106,7 +110,6 @@ Resources:
               Resource: '*'
 
   # Manually configure S3 bucket notification
-  # This is a simpler approach than using a custom resource
   S3BucketPermission:
     Type: AWS::Lambda::Permission
     Properties:
@@ -134,6 +137,13 @@ Resources:
               Action:
                 - bedrock:InvokeModel
               Resource: '*'
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /chat
+            Method: POST
+            RestApiId: !Ref PalmaAiApi
 
   FeedbackFunction:
     Type: AWS::Serverless::Function
@@ -145,13 +155,20 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref QueryLogTable
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /feedback
+            Method: POST
+            RestApiId: !Ref PalmaAiApi
 
-  # API Gateway
+  # API Gateway using simplified approach with a different stage name
   PalmaAiApi:
     Type: AWS::Serverless::Api
     Properties:
       Name: palma-ai-support-api
-      StageName: prod
+      StageName: !Ref ApiStageName
       Cors:
         AllowMethods: "'GET,POST,OPTIONS'"
         AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
@@ -167,87 +184,7 @@ Resources:
           Throttle:
             BurstLimit: 10
             RateLimit: 5
-
-  # Create feedback resource
-  FeedbackResource:
-    Type: AWS::ApiGateway::Resource
-    Properties:
-      RestApiId: !Ref PalmaAiApi
-      ParentId: !GetAtt PalmaAiApi.RootResourceId
-      PathPart: "feedback"
-
-  # API method for query (chat) - root path
-  QueryApiMethod:
-    Type: AWS::ApiGateway::Method
-    DependsOn: PalmaAiApi
-    Properties:
-      RestApiId: !Ref PalmaAiApi
-      ResourceId: !GetAtt PalmaAiApi.RootResourceId
-      HttpMethod: POST
-      ApiKeyRequired: true
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${QueryFunction.Arn}/invocations"
-
-  # API method for the feedback function
-  FeedbackApiMethod:
-    Type: AWS::ApiGateway::Method
-    DependsOn: 
-      - PalmaAiApi
-      - FeedbackResource
-    Properties:
-      RestApiId: !Ref PalmaAiApi
-      ResourceId: !Ref FeedbackResource
-      HttpMethod: POST
-      ApiKeyRequired: true
-      AuthorizationType: NONE
-      Integration:
-        Type: AWS_PROXY
-        IntegrationHttpMethod: POST
-        Uri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${FeedbackFunction.Arn}/invocations"
-
-  # Permission for API Gateway to invoke Query function
-  QueryFunctionPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      Action: lambda:InvokeFunction
-      FunctionName: !Ref QueryFunction
-      Principal: apigateway.amazonaws.com
-      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${PalmaAiApi}/*/POST/"
-
-  # Permission for API Gateway to invoke Feedback function
-  FeedbackFunctionPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      Action: lambda:InvokeFunction
-      FunctionName: !Ref FeedbackFunction
-      Principal: apigateway.amazonaws.com
-      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${PalmaAiApi}/*/POST/feedback"
-
-  # API Deployment - explicitly depend on all methods to ensure they exist first
-  PalmaAiApiDeployment:
-    Type: AWS::ApiGateway::Deployment
-    DependsOn:
-      - QueryApiMethod
-      - FeedbackApiMethod
-    Properties:
-      RestApiId: !Ref PalmaAiApi
-      StageName: prod
-
-  # Create API key
-  PalmaAiApiKey:
-    Type: AWS::ApiGateway::ApiKey
-    DependsOn:
-      - PalmaAiApiDeployment
-    Properties:
-      Name: PalmaAiSupportApiKey
-      Description: API Key for Palma AI Support Service
-      Enabled: true
-      StageKeys:
-        - RestApiId: !Ref PalmaAiApi
-          StageName: prod
+      EndpointConfiguration: REGIONAL
 
   # CloudWatch Dashboard for monitoring
   PalmaAiDashboard:
@@ -301,11 +238,11 @@ Resources:
 Outputs:
   ApiEndpoint:
     Description: "API Gateway endpoint URL for the Palma AI Support Service"
-    Value: !Sub "https://${PalmaAiApi}.execute-api.${AWS::Region}.amazonaws.com/prod/"
+    Value: !Sub "https://${PalmaAiApi}.execute-api.${AWS::Region}.amazonaws.com/${ApiStageName}/"
   
   ApiKey:
-    Description: "API Key to access the Palma AI Support Service"
-    Value: !Ref PalmaAiApiKey
+    Description: "API Key for the Palma AI Support Service"
+    Value: !Ref PalmaAiApiApiKey
     
   ProcessDocumentFunction:
     Description: "Lambda function that processes documents uploaded to S3"

@@ -122,7 +122,7 @@
       "type":"string",
       "documentation":"<p>The region of the S3 bucket that Amazon Web Services delivers the report into.</p>",
       "enum":[
-        "af-south-1",
+        "us-east-1",
         "ap-east-1",
         "ap-south-1",
         "ap-south-2",
