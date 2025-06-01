@@ -1,0 +1,242 @@
+{
+    "metadata": {
+      "documentType": "knowledge_base",
+      "documentId": "palma-wallet-kb-001-es",
+      "version": "1.0.0",
+      "dateCreated": "2025-05-20",
+      "lastUpdated": "2025-05-20",
+      "source": "Palma Wallet Documentation",
+      "language": "es"
+    },
+    "sections": [
+      {
+        "sectionId": "general-information",
+        "sectionTitle": "Información General",
+        "content": [
+          {
+            "id": "general-01",
+            "question": "¿Qué es Palma Wallet?",
+            "answer": "Palma Wallet es una aplicación de billetera de criptomonedas que permite a los usuarios almacenar, enviar y recibir activos digitales de forma segura. Se enfoca en proporcionar una interfaz fácil de usar mientras mantiene una seguridad robusta para las transacciones de criptomonedas.",
+            "keywords": ["descripción general", "introducción", "conceptos básicos"]
+          },
+          {
+            "id": "general-02",
+            "question": "¿Qué criptomonedas admite Palma Wallet?",
+            "answer": "Palma Wallet actualmente admite USDT (Tether) en las redes ERC20 (Ethereum) y TRC20 (TRON). El soporte para criptomonedas adicionales está planeado para futuras actualizaciones.",
+            "keywords": ["moneda", "token", "coin", "criptomoneda", "soporte", "USDT", "Tether"]
+          },
+          {
+            "id": "general-03",
+            "question": "¿Es gratuito usar Palma Wallet?",
+            "answer": "Palma Wallet es gratuito para descargar y usar. No hay tarifas cobradas por la billetera en sí para operaciones básicas. Sin embargo, se aplican tarifas de transacción de blockchain (tarifas de red) al enviar criptomonedas, las cuales varían según la red utilizada (ERC20 o TRC20).",
+            "keywords": ["gratis", "costo", "tarifas", "precios"]
+          }
+        ]
+      },
+      {
+        "sectionId": "account-management",
+        "sectionTitle": "Gestión de Cuenta",
+        "content": [
+          {
+            "id": "account-01",
+            "question": "¿Cómo creo una cuenta de Palma Wallet?",
+            "answer": "Puedes crear una cuenta de Palma Wallet iniciando sesión con Google, Apple o verificación telefónica. Después de la autenticación, se genera un par de claves criptográficas seguras para tu billetera para garantizar la seguridad de las transacciones.",
+            "keywords": ["registrarse", "crear cuenta", "nuevo usuario"]
+          },
+          {
+            "id": "account-02",
+            "question": "¿Qué métodos de autenticación admite Palma Wallet?",
+            "answer": "Palma Wallet admite tres métodos de autenticación: Inicio de sesión con Google, Inicio de sesión con Apple y verificación por número de teléfono. Estos proporcionan formas seguras y convenientes de acceder a tu billetera.",
+            "keywords": ["iniciar sesión", "autenticación", "Google", "Apple", "teléfono"]
+          },
+          {
+            "id": "account-03",
+            "question": "¿Cómo garantiza Palma Wallet la seguridad de mi cuenta?",
+            "answer": "Palma Wallet implementa varias medidas de seguridad que incluyen: generar pares de claves criptográficas (claves públicas y privadas) para cada usuario, almacenar de forma segura las claves privadas en almacenamiento cifrado en tu dispositivo, usar firmas digitales para verificar la autenticidad de las transacciones y proporcionar opciones de respaldo para tus claves privadas protegidas por contraseña.",
+            "keywords": ["seguridad", "protección", "clave privada", "cifrado"]
+          },
+          {
+            "id": "account-04",
+            "question": "¿Qué sucede si pierdo acceso a mi dispositivo?",
+            "answer": "Si has creado una copia de seguridad de tu clave privada en la pantalla de Configuración, puedes restaurar tu billetera en un nuevo dispositivo usando la copia de seguridad y tu contraseña. Sin una copia de seguridad, podrías perder acceso a tus fondos, por lo que crear una copia de seguridad segura es esencial.",
+            "keywords": ["dispositivo perdido", "nuevo teléfono", "recuperación", "restaurar", "respaldo"]
+          },
+          {
+            "id": "account-05",
+            "question": "¿Cómo cierro sesión en Palma Wallet?",
+            "answer": "Puedes cerrar sesión tocando el botón 'Cerrar sesión' en el encabezado de la pantalla de Inicio o yendo a Configuración > Acciones de cuenta > Cerrar sesión. Cuando cierras sesión, los datos de tu billetera se conservan localmente para mantener el acceso a tus claves privadas e información de billetera.",
+            "keywords": ["cerrar sesión", "salir"]
+          }
+        ]
+      },
+      {
+        "sectionId": "wallet-security",
+        "sectionTitle": "Seguridad de la Billetera",
+        "content": [
+          {
+            "id": "security-01",
+            "question": "¿Cómo se almacena mi clave privada en Palma Wallet?",
+            "answer": "Tu clave privada se almacena de forma segura usando el EncryptedStorage de React Native, que utiliza métodos de cifrado específicos de la plataforma (Keychain en iOS y Keystore en Android). La clave privada nunca abandona tu dispositivo sin cifrar.",
+            "keywords": ["clave privada", "almacenamiento", "cifrado", "keychain"]
+          },
+          {
+            "id": "security-02",
+            "question": "¿Cómo hago una copia de seguridad de mi billetera?",
+            "answer": "Para hacer una copia de seguridad de tu billetera: 1) Ve a Configuración, 2) Navega a la sección 'Seguridad de la billetera', 3) Ingresa una contraseña segura (mínimo 8 caracteres), 4) Confirma tu contraseña, 5) Toca 'Copia de seguridad segura'. Guarda tu contraseña de respaldo de forma segura: sin ella, no puedes restaurar tu billetera.",
+            "keywords": ["copia de seguridad", "respaldo seguro", "guardar", "contraseña"]
+          },
+          {
+            "id": "security-03",
+            "question": "¿Qué sucede si olvido mi contraseña de respaldo?",
+            "answer": "Si olvidas tu contraseña de respaldo, no podrás restaurar tu billetera desde la copia de seguridad. No existe un mecanismo de recuperación de contraseña por razones de seguridad. Por eso es crucial almacenar tu contraseña de respaldo en un lugar seguro y memorable.",
+            "keywords": ["olvidé contraseña", "recuperación de contraseña", "restablecer contraseña"]
+          },
+          {
+            "id": "security-04",
+            "question": "¿Cómo funciona la firma de transacciones en Palma Wallet?",
+            "answer": "Palma Wallet utiliza firma criptográfica para todas las transacciones. Cuando inicias una transacción, la aplicación crea una firma digital usando tu clave privada. Esta firma prueba que autorizaste la transacción sin exponer tu clave privada. La firma se verifica en la blockchain usando tu clave pública.",
+            "keywords": ["transacción", "firma", "verificación", "criptografía"]
+          },
+          {
+            "id": "security-05",
+            "question": "¿Se sincronizan mis datos entre dispositivos?",
+            "answer": "Tu información básica de cuenta se almacena en los servidores de Palma, pero tus claves privadas permanecen solo en tu dispositivo por seguridad. Si deseas usar tu billetera en múltiples dispositivos, necesitas usar la funcionalidad de respaldo y restauración en cada dispositivo.",
+            "keywords": ["sincronizar", "múltiples dispositivos", "almacenamiento en la nube"]
+          }
+        ]
+      },
+      {
+        "sectionId": "cryptocurrency-transactions",
+        "sectionTitle": "Transacciones de Criptomonedas",
+        "content": [
+          {
+            "id": "transaction-01",
+            "question": "¿Cómo envío criptomonedas con Palma Wallet?",
+            "answer": "Para enviar criptomonedas: 1) Toca el botón 'Enviar' en la pantalla de Inicio, 2) Ingresa la dirección de billetera del destinatario o escanea su código QR, 3) Ingresa la cantidad que deseas enviar, 4) Selecciona la red (ERC20 o TRC20), 5) Revisa los detalles de la transacción incluyendo las tarifas, 6) Confirma para enviar. La transacción será procesada en la blockchain.",
+            "keywords": ["enviar", "transferir", "pago"]
+          },
+          {
+            "id": "transaction-02",
+            "question": "¿Cómo recibo criptomonedas con Palma Wallet?",
+            "answer": "Para recibir criptomonedas: 1) Toca el botón 'Recibir' en la pantalla de Inicio, 2) Se mostrará tu dirección de billetera junto con un código QR, 3) Comparte esta dirección con el remitente, 4) Asegúrate de que el remitente use la red correcta (ERC20 o TRC20), 5) Una vez que la transacción se confirme en la blockchain, los fondos aparecerán en tu billetera.",
+            "keywords": ["recibir", "depositar", "dirección"]
+          },
+          {
+            "id": "transaction-03",
+            "question": "¿Cuál es la diferencia entre las redes ERC20 y TRC20?",
+            "answer": "ERC20 es el estándar de token en la blockchain de Ethereum, mientras que TRC20 es el estándar en la blockchain de TRON. Las principales diferencias incluyen: 1) Tarifas de transacción: ERC20 típicamente tiene tarifas más altas, 2) Tiempo de confirmación: TRC20 suele ser más rápido, 3) Aspectos de seguridad: ERC20 se considera más establecido. Siempre asegúrate de que el remitente y el receptor estén usando la misma red.",
+            "keywords": ["ERC20", "TRC20", "red", "blockchain", "Ethereum", "TRON"]
+          },
+          {
+            "id": "transaction-04",
+            "question": "¿Cuánto tiempo tardan las transacciones en completarse?",
+            "answer": "Los tiempos de transacción varían según la red: 1) Las transacciones ERC20 (Ethereum) típicamente tardan entre 30 segundos y varios minutos, dependiendo de la congestión de la red y la tarifa de gas pagada, 2) Las transacciones TRC20 (TRON) suelen ser más rápidas, tardando aproximadamente 15-30 segundos. Estos tiempos son para confirmaciones de blockchain, sin incluir el tiempo necesario para preparar y firmar transacciones.",
+            "keywords": ["tiempo", "velocidad", "confirmación", "procesamiento"]
+          },
+          {
+            "id": "transaction-05",
+            "question": "¿Qué son las tarifas de transacción y cómo funcionan?",
+            "answer": "Las tarifas de transacción son pagos a los validadores de la red blockchain que procesan transacciones. 1) Para ERC20 (Ethereum), las tarifas se llaman 'tarifas de gas' y pueden variar significativamente según la congestión de la red, 2) Para TRC20 (TRON), las tarifas son típicamente mucho más bajas y más estables. Palma Wallet muestra la tarifa esperada antes de confirmar una transacción, permitiéndote tomar una decisión informada.",
+            "keywords": ["tarifas", "gas", "costo", "tarifa de red"]
+          },
+          {
+            "id": "transaction-06",
+            "question": "¿Qué es la función de Intercambio en Palma Wallet?",
+            "answer": "La función de Intercambio te permite cambiar una criptomoneda por otra directamente dentro de la aplicación Palma Wallet. Proporciona una forma fácil de convertir entre activos digitales sin usar un intercambio externo. Esta función se ampliará en futuras actualizaciones para admitir más pares de divisas y mejores tasas.",
+            "keywords": ["intercambio", "cambiar", "convertir", "trading"]
+          }
+        ]
+      },
+      {
+        "sectionId": "troubleshooting",
+        "sectionTitle": "Solución de Problemas",
+        "content": [
+          {
+            "id": "trouble-01",
+            "question": "Mi transacción está pendiente durante mucho tiempo. ¿Qué debo hacer?",
+            "answer": "Para transacciones pendientes por mucho tiempo: 1) Verifica el estado de la red: la alta congestión puede retrasar el procesamiento, 2) Para transacciones ERC20, la tarifa de gas podría ser demasiado baja durante períodos de alta demanda, 3) Verifica que tu conexión a internet sea estable, 4) Espera la confirmación de blockchain: a veces tarda más durante períodos pico, 5) Si el problema persiste durante más de unas horas, contacta al soporte con los detalles de tu transacción.",
+            "keywords": ["pendiente", "atascada", "retraso de transacción", "no confirmada"]
+          },
+          {
+            "id": "trouble-02",
+            "question": "Envié fondos a la dirección incorrecta. ¿Puedo recuperarlos?",
+            "answer": "Desafortunadamente, las transacciones de blockchain son irreversibles una vez confirmadas. Si enviaste fondos a una dirección incorrecta: 1) Si conoces al destinatario, contáctalo directamente para solicitar una transacción de devolución, 2) Si enviaste a un intercambio o servicio, contacta su atención al cliente, 3) Si enviaste a una dirección aleatoria, la recuperación generalmente no es posible. Siempre verifica las direcciones antes de confirmar transacciones.",
+            "keywords": ["dirección incorrecta", "equivocada", "error", "recuperación"]
+          },
+          {
+            "id": "trouble-03",
+            "question": "¿Por qué no puedo ver mi saldo después de recibir una transacción?",
+            "answer": "Si tu saldo no se actualiza: 1) Confirma que la transacción tenga suficientes confirmaciones de blockchain (verifica el explorador), 2) Verifica que estés revisando la red correcta (ERC20 vs TRC20), 3) Reinicia la aplicación para actualizar tu saldo, 4) Verifica si el remitente realmente ha completado la transacción por su parte, 5) Si la transacción está confirmada en la blockchain pero no se muestra en la aplicación, contacta al soporte.",
+            "keywords": ["fondos faltantes", "saldo", "no se muestra", "transacción no aparece"]
+          },
+          {
+            "id": "trouble-04",
+            "question": "La aplicación se bloquea cuando intento enviar una transacción. ¿Qué debo hacer?",
+            "answer": "Si la aplicación se bloquea durante las transacciones: 1) Actualiza a la última versión de la aplicación, 2) Reinicia tu dispositivo, 3) Verifica tu conexión a internet, 4) Asegúrate de tener saldo suficiente (incluyendo para las tarifas de transacción), 5) Si el problema persiste, intenta reinstalar la aplicación (¡asegúrate de tener tu copia de seguridad primero!), 6) Contacta al soporte si ninguna de estas soluciones funciona, proporcionando detalles sobre tu dispositivo y las circunstancias del bloqueo.",
+            "keywords": ["bloqueo", "congelar", "error", "no funciona"]
+          }
+        ]
+      },
+      {
+        "sectionId": "technical-details",
+        "sectionTitle": "Detalles Técnicos",
+        "content": [
+          {
+            "id": "tech-01",
+            "question": "¿Qué métodos criptográficos utiliza Palma Wallet?",
+            "answer": "Palma Wallet utiliza criptografía RSA en su versión inicial, transitando a la biblioteca FIO Protocol en versiones más nuevas. Estos métodos criptográficos se utilizan para generar pares de claves, firmar transacciones y verificar firmas. La implementación incluye generación adecuada de claves, procedimientos seguros de firma y métodos robustos de verificación para garantizar la seguridad de las transacciones.",
+            "keywords": ["criptografía", "RSA", "FIO Protocol", "firma"]
+          },
+          {
+            "id": "tech-02",
+            "question": "¿Cómo verifica Palma Wallet las firmas de transacciones?",
+            "answer": "Palma Wallet verifica las firmas usando criptografía de clave pública: 1) Cuando se crea una transacción, se genera una firma digital usando la clave privada del remitente, 2) La firma, junto con los datos de la transacción, se envía al servidor, 3) El servidor recupera la clave pública del usuario de la base de datos, 4) Usando algoritmos de verificación criptográfica, el servidor confirma que la firma es válida para los datos de la transacción y solo podría haber sido creada por el titular de la clave privada correspondiente, sin necesitar acceso a la clave privada.",
+            "keywords": ["verificación de firma", "verificación criptográfica", "seguridad de transacciones"]
+          },
+          {
+            "id": "tech-03",
+            "question": "¿Cuál es la infraestructura backend de Palma Wallet?",
+            "answer": "Palma Wallet utiliza AWS (Amazon Web Services) para su infraestructura backend. Los datos de usuario se almacenan en tablas DynamoDB, con la región configurada en us-east-1 (Ciudad del Cabo). La arquitectura incluye componentes sin servidor con funciones Lambda que manejan el procesamiento de transacciones y la gestión de datos de usuario. Las claves privadas de los usuarios nunca se almacenan en el servidor, solo se almacenan las claves públicas para verificar las firmas de transacciones.",
+            "keywords": ["backend", "servidor", "AWS", "infraestructura", "base de datos"]
+          },
+          {
+            "id": "tech-04",
+            "question": "¿Cómo funciona la generación de claves en Palma Wallet?",
+            "answer": "La generación de claves en Palma Wallet ha evolucionado con diferentes versiones: 1) La versión inicial usaba criptografía RSA con mecanismos de respaldo si RSA no estaba disponible, 2) La última versión usa FIO Protocol para la generación de claves, donde se generan bytes aleatorios como semilla, luego se procesan a través de funciones criptográficas para crear una clave privada, de la cual se deriva una clave pública. Este enfoque garantiza pares de claves seguros, resistentes a colisiones y únicos para cada usuario.",
+            "keywords": ["generación de claves", "clave privada", "clave pública", "criptografía"]
+          }
+        ]
+      },
+      {
+        "sectionId": "upcoming-features",
+        "sectionTitle": "Funciones Próximas",
+        "content": [
+          {
+            "id": "upcoming-01",
+            "question": "¿Qué nuevas criptomonedas se agregarán a Palma Wallet?",
+            "answer": "Palma Wallet planea expandir el soporte más allá de USDT para incluir las principales criptomonedas como Bitcoin (BTC), Ethereum (ETH) y varias monedas estables (USDC, DAI). La hoja de ruta también incluye soporte para tokens populares en las redes Ethereum y TRON.",
+            "keywords": ["nuevas monedas", "monedas adicionales", "tokens próximos", "hoja de ruta"]
+          },
+          {
+            "id": "upcoming-02",
+            "question": "¿Palma Wallet admitirá billeteras de hardware?",
+            "answer": "Sí, Palma Wallet planea agregar soporte para billeteras de hardware populares como Ledger y Trezor en una futura actualización. Esto permitirá a los usuarios conectar sus billeteras de hardware para mayor seguridad mientras disfrutan de la interfaz fácil de usar de Palma Wallet.",
+            "keywords": ["billetera de hardware", "Ledger", "Trezor", "dispositivo de seguridad"]
+          },
+          {
+            "id": "upcoming-03",
+            "question": "¿Hay planes para agregar funciones DeFi a Palma Wallet?",
+            "answer": "Sí, Palma Wallet tiene planes de introducir funciones DeFi (Finanzas Descentralizadas) en futuras actualizaciones. Estas incluirán staking, yield farming e integración con protocolos DeFi populares, permitiendo a los usuarios obtener ingresos pasivos de sus tenencias de cripto directamente desde la billetera.",
+            "keywords": ["DeFi", "staking", "rendimiento", "farming", "interés", "ganar"]
+          },
+          {
+            "id": "upcoming-04",
+            "question": "¿Palma Wallet admitirá NFTs?",
+            "answer": "Sí, el soporte para ver y gestionar NFTs (Tokens No Fungibles) está en la hoja de ruta de Palma Wallet. Esta función permitirá a los usuarios ver sus colecciones de NFT, recibir NFTs y eventualmente comerciar con ellos directamente dentro de la aplicación.",
+            "keywords": ["NFT", "token no fungible", "coleccionables", "arte digital"]
+          }
+        ]
+      }
+    ],
+    "schema_version": "1.0"
+  }
