@@ -1,0 +1,242 @@
+{
+    "metadata": {
+      "documentType": "knowledge_base",
+      "documentId": "palma-wallet-kb-001",
+      "version": "1.0.0",
+      "dateCreated": "2025-05-20",
+      "lastUpdated": "2025-05-20",
+      "source": "Palma Wallet Documentation"
+    },
+    "sections": [
+      {
+        "sectionId": "general-information",
+        "sectionTitle": "Ozi Izugbe (Ihe niile ị kwesịrị ịma)",
+        "content": [
+          {
+            "id": "general-01",
+            "question": "Gịnị bụ Palma Wallet?",
+            "answer": "Palma Wallet bụ ngwa obere akpa ego cryptocurrency nke na-enye ndị ọrụ ohere ịchekwa, izipu, na ịnata akụ dijitalụ n'enweghị nsogbu. Ọ na-elekwasị anya n'inye interface dị mfe iji ebe ọ na-ejigide nchekwa siri ike maka azụmahịa cryptocurrency.",
+            "keywords": ["overview", "introduction", "basics"]
+          },
+          {
+            "id": "general-02",
+            "question": "Kedu cryptocurrencies Palma Wallet na-akwado?",
+            "answer": "Palma Wallet ugbu a na-akwado USDT (Tether) na netwọkụ ERC20 (Ethereum) na TRC20 (TRON). A na-eme atụmatụ nkwado maka cryptocurrencies ndị ọzọ na mmelite n'ọdịnihu.",
+            "keywords": ["currency", "token", "coin", "cryptocurrency", "support", "USDT", "Tether"]
+          },
+          {
+            "id": "general-03",
+            "question": "Palma Wallet ọ bụ n'efu iji?",
+            "answer": "Palma Wallet bụ n'efu ibudata na iji. Enweghị ụgwọ ọ bụla obere akpa ego n'onwe ya na-ana maka ọrụ ndị bụ isi. Agbanyeghị, ụgwọ azụmahịa blockchain (ụgwọ netwọkụ) na-emetụta mgbe ị na-eziga cryptocurrencies, nke na-adịgasị iche dabere na netwọkụ ejiri (ERC20 ma ọ bụ TRC20).",
+            "keywords": ["free", "cost", "fees", "pricing"]
+          }
+        ]
+      },
+      {
+        "sectionId": "account-management",
+        "sectionTitle": "Njikwa Akaụntụ (Kedu ka ị ga-esi jikwaa akaụntụ gị)",
+        "content": [
+          {
+            "id": "account-01",
+            "question": "Kedu ka m ga-esi mepụta akaụntụ Palma Wallet?",
+            "answer": "Ị nwere ike ịmepụta akaụntụ Palma Wallet site na iji Google, Apple, ma ọ bụ nkwenye nọmba ekwentị banye. Mgbe nyocha nke ọma gasịrị, a na-emepụta igodo cryptographic (koodu pụrụ iche) echekwara maka obere akpa ego gị iji hụ na nchekwa azụmahịa gị.",
+            "keywords": ["sign up", "register", "create account", "new user"]
+          },
+          {
+            "id": "account-02",
+            "question": "Kedu ụzọ nyocha nke ọma Palma Wallet na-akwado?",
+            "answer": "Palma Wallet na-akwado ụzọ nyocha nke ọma atọ: Nbanye Google, Nbanye Apple, na nkwenye nọmba ekwentị. Ndị a na-enye ụzọ echekwara ma dị mfe iji nweta obere akpa ego gị.",
+            "keywords": ["login", "sign in", "authentication", "Google", "Apple", "phone"]
+          },
+          {
+            "id": "account-03",
+            "question": "Kedu ka Palma Wallet si echekwa akaụntụ m?",
+            "answer": "Palma Wallet na-eji ọtụtụ usoro nchekwa dịka: ịmepụta igodo cryptographic (igodo ọha na nke nzuzo) maka onye ọrụ ọ bụla, ịchekwa igodo nzuzo n'enweghị nsogbu na nchekwa ezoro ezo na ngwaọrụ gị, iji mbinye aka dijitalụ iji nyochaa izizi azụmahịa, na inye nhọrọ ndabere maka igodo nzuzo gị nke okwuntughe na-echebe.",
+            "keywords": ["security", "protection", "private key", "encryption"]
+          },
+          {
+            "id": "account-04",
+            "question": "Gịnị ga-eme ma ọ bụrụ na enweghị m ike ịnweta ngwaọrụ m (ekwentị m efuola)?",
+            "answer": "Ọ bụrụ na ị mepụtala ndabere nke igodo nzuzo gị na ihuenyo Ntọala, ị nwere ike iweghachi obere akpa ego gị na ngwaọrụ ọhụrụ site na iji ndabere na okwuntughe gị. Na-enweghị ndabere, ị nwere ike tufuo ohere ịnweta ego gị, yabụ ịmepụta ndabere echekwara dị oke mkpa.",
+            "keywords": ["lost device", "new phone", "recovery", "restore", "backup"]
+          },
+          {
+            "id": "account-05",
+            "question": "Kedu ka m ga-esi pụọ na Palma Wallet?",
+            "answer": "Ị nwere ike ịpụ site na ịpị bọtịnụ 'Pụọ' (Sign Out) dị n'elu ihuenyo Mbido (Home screen) ma ọ bụ site na ịga Ntọala > Omume Akaụntụ > Pụọ. Mgbe ị pụrụ, a na-echekwa data obere akpa ego gị na ngwaọrụ gị iji jigide ohere ịnweta igodo nzuzo gị na ozi obere akpa ego.",
+            "keywords": ["logout", "sign out", "exit"]
+          }
+        ]
+      },
+      {
+        "sectionId": "wallet-security",
+        "sectionTitle": "Nchekwa Obere Akpa Ego (Kedu ka Obere Akpa Ego Gị Si Nwee Nchekwa)",
+        "content": [
+          {
+            "id": "security-01",
+            "question": "Kedu ka esi echekwa igodo nzuzo m na Palma Wallet?",
+            "answer": "A na-echekwa igodo nzuzo gị n'enweghị nsogbu site na iji EncryptedStorage nke React Native, nke na-eji usoro ezoro ezo pụrụ iche maka ikpo okwu ọ bụla (Keychain na iOS na Keystore na Android). Igodo nzuzo anaghị ahapụ ngwaọrụ gị na-enweghị ezoro ezo.",
+            "keywords": ["private key", "storage", "encryption", "keychain"]
+          },
+          {
+            "id": "security-02",
+            "question": "Kedu ka m ga-esi chekwaa obere akpa ego m?",
+            "answer": "Iji chekwaa obere akpa ego gị: 1) Gaa na Ntọala, 2) Gaa na ngalaba 'Nchekwa Obere Akpa Ego', 3) Tinye okwuntughe siri ike (ọ dịkarịa ala mkpụrụedemede 8), 4) Kwenye okwuntughe gị, 5) Pịa 'Nchekwa Dị Nchebe'. Chekwaa okwuntughe nchekwa gị na ebe dị nchebe - na-enweghị ya, ị gaghị enwe ike iweghachi obere akpa ego gị.",
+            "keywords": ["backup", "secure backup", "save", "password"]
+          },
+          {
+            "id": "security-03",
+            "question": "Gịnị ga-eme ma ọ bụrụ na echefuru m okwuntughe nchekwa m?",
+            "answer": "Ọ bụrụ na i chefuo okwuntughe nchekwa gị, ị gaghị enwe ike iweghachi obere akpa ego gị site na nchekwa ahụ. Enweghị usoro mgbake okwuntughe maka ebumnuche nchekwa. Nke a bụ ya mere o ji dị oke mkpa ka ị chekwaa okwuntughe nchekwa gị na ebe dị nchebe ma dị mfe icheta.",
+            "keywords": ["forgot password", "password recovery", "reset password"]
+          },
+          {
+            "id": "security-04",
+            "question": "Kedu ka mbinye aka azụmahịa si arụ ọrụ na Palma Wallet?",
+            "answer": "Palma Wallet na-eji mbinye aka cryptographic maka azụmahịa niile. Mgbe ị malitere azụmahịa, ngwa ahụ na-emepụta mbinye aka dijitalụ site na iji igodo nzuzo gị. Mbinye aka a na-egosi na ị nyere ikike azụmahịa ahụ na-ekpugheghị igodo nzuzo gị. A na-enyocha mbinye aka ahụ na blockchain site na iji igodo ọha gị.",
+            "keywords": ["transaction", "signing", "verification", "cryptography"]
+          },
+          {
+            "id": "security-05",
+            "question": "A na-emekọrịta data m (na-emelite ya na ekwentị m niile) na ngwaọrụ dị iche iche?",
+            "answer": "A na-echekwa ozi akaụntụ gị bụ isi na sava Palma, mana igodo nzuzo gị na-anọ naanị na ngwaọrụ gị maka nchekwa. Ọ bụrụ na ịchọrọ iji obere akpa ego gị na ọtụtụ ngwaọrụ, ịkwesịrị iji ọrụ ndabere na mweghachi na ngwaọrụ ọ bụla.",
+            "keywords": ["sync", "multiple devices", "cloud storage"]
+          }
+        ]
+      },
+      {
+        "sectionId": "cryptocurrency-transactions",
+        "sectionTitle": "Azụmahịa Cryptocurrency (Kedu Ka E Si Eme Azụmahịa Crypto)",
+        "content": [
+          {
+            "id": "transaction-01",
+            "question": "Kedu ka m ga-esi zipu cryptocurrency na Palma Wallet?",
+            "answer": "Iji zipu cryptocurrency: 1) Pịa bọtịnụ 'Zipu' na ihuenyo Mbido, 2) Tinye adreesị obere akpa ego onye nnata ma ọ bụ nyochaa koodu QR ha, 3) Tinye ego ole ịchọrọ izipu, 4) Họrọ netwọkụ (ERC20 ma ọ bụ TRC20), 5) Nyochaa nkọwa azụmahịa gụnyere ụgwọ, 6) Kwenye izipu. A ga-ahazi azụmahịa ahụ na blockchain.",
+            "keywords": ["send", "transfer", "payment"]
+          },
+          {
+            "id": "transaction-02",
+            "question": "Kedu ka m ga-esi nata cryptocurrency na Palma Wallet?",
+            "answer": "Iji nata cryptocurrency: 1) Pịa bọtịnụ 'Nata' na ihuenyo Mbido, 2) Adreesị obere akpa ego gị ga-apụta na koodu QR, 3) Kesaa adreesị a na onye na-ezipụ, 4) Gbaa mbọ hụ na onye na-ezipụ na-eji netwọkụ ziri ezi (ERC20 ma ọ bụ TRC20), 5) Ozugbo akwadoro azụmahịa ahụ na blockchain, ego ahụ ga-apụta na obere akpa ego gị.",
+            "keywords": ["receive", "deposit", "address"]
+          },
+          {
+            "id": "transaction-03",
+            "question": "Gịnị bụ ọdịiche dị n'etiti netwọkụ ERC20 na TRC20?",
+            "answer": "ERC20 bụ ọkọlọtọ token na blockchain Ethereum, ebe TRC20 bụ ọkọlọtọ na blockchain TRON. Isi ọdịiche dị na ya gụnyere: 1) Ụgwọ azụmahịa - ERC20 na-enwekarị ụgwọ dị elu, 2) Oge nkwenye - TRC20 na-adịkarị ngwa ngwa, 3) Akụkụ nchekwa - A na-ewere ERC20 dị ka nke guzosiri ike karị (ọ dịla anya). Na-ahụ mgbe niile na onye na-ezipụ na onye nnata na-eji otu netwọkụ.",
+            "keywords": ["ERC20", "TRC20", "network", "blockchain", "Ethereum", "TRON"]
+          },
+          {
+            "id": "transaction-04",
+            "question": "Ogologo oge ole ka azụmahịa na-ewe iji wuchaa?",
+            "answer": "Oge azụmahịa na-adịgasị iche site na netwọkụ: 1) Azụmahịa ERC20 (Ethereum) na-ewekarị n'etiti sekọnd 30 ruo ọtụtụ nkeji, dabere na mkpọchi netwọkụ na ụgwọ gas a kwụrụ, 2) Azụmahịa TRC20 (TRON) na-adịkarị ngwa ngwa, na-ewe ihe dị ka sekọnd 15-30. Oge ndị a bụ maka nkwenye blockchain, ha anaghị agụnye oge achọrọ iji kwadebe na ịbịanye aka na azụmahịa.",
+            "keywords": ["time", "speed", "confirmation", "processing"]
+          },
+          {
+            "id": "transaction-05",
+            "question": "Gịnị bụ ụgwọ azụmahịa ma kedu ka ha si arụ ọrụ?",
+            "answer": "Ụgwọ azụmahịa bụ ịkwụ ụgwọ nye ndị nyocha netwọkụ blockchain ndị na-ahazi azụmahịa. 1) Maka ERC20 (Ethereum), a na-akpọ ụgwọ 'ụgwọ gas' ma ha nwere ike ịdịgasị iche nke ukwuu dabere na mkpọchi netwọkụ, 2) Maka TRC20 (TRON), ụgwọ na-adịkarị ala nke ukwuu ma kwụsie ike karị. Palma Wallet na-egosipụta ụgwọ a na-atụ anya ya tupu ị kwadoro azụmahịa, nke ga-enye gị ohere ime mkpebi ziri ezi.",
+            "keywords": ["fees", "gas", "cost", "network fee"]
+          },
+          {
+            "id": "transaction-06",
+            "question": "Gịnị bụ atụmatụ Mgbanwe (Swap) na Palma Wallet?",
+            "answer": "Atụmatụ Mgbanwe (Swap) na-enye gị ohere ịgbanwe otu cryptocurrency maka nke ọzọ ozugbo n'ime ngwa Palma Wallet. Ọ na-enye ụzọ dị mfe iji gbanwee n'etiti akụ dijitalụ na-ejighị mgbanwe mpụga. A ga-agbasawanye atụmatụ a na mmelite n'ọdịnihu iji kwado ọtụtụ ụzọ abụọ ego na ọnụego ka mma.",
+            "keywords": ["swap", "exchange", "convert", "trading"]
+          }
+        ]
+      },
+      {
+        "sectionId": "troubleshooting",
+        "sectionTitle": "Nchọpụta Nsogbu (Kedu Ka E Si Edozi Nsogbu)",
+        "content": [
+          {
+            "id": "trouble-01",
+            "question": "Azụmahịa m na-echere ogologo oge. Gịnị ka m kwesịrị ime?",
+            "answer": "Maka azụmahịa ndị na-echere ogologo oge: 1) Lelee ọnọdụ netwọkụ - nnukwu mkpọchi nwere ike igbu oge nhazi, 2) Maka azụmahịa ERC20, ụgwọ gas nwere ike ịdị oke ala n'oge oke ọchịchọ, 3) Nyochaa na njikọ ịntanetị gị kwụsiri ike, 4) Chere maka nkwenye blockchain - mgbe ụfọdụ ọ na-ewe ogologo oge n'oge oke mkpọchi, 5) Ọ bụrụ na nsogbu ahụ dịgide karịa awa ole na ole, kpọtụrụ nkwado na nkọwa azụmahịa gị.",
+            "keywords": ["pending", "stuck", "transaction delay", "not confirmed"]
+          },
+          {
+            "id": "trouble-02",
+            "question": "Ezipụrụ m ego na adreesị na-ezighi ezi. Enwere m ike ịnweta ha azụ?",
+            "answer": "N'ụzọ dị mwute, azụmahịa blockchain enweghị ike ịgbanwe ozugbo akwadoro ha. Ọ bụrụ na i zipụrụ ego na adreesị na-ezighi ezi: 1) Ọ bụrụ na ị maara onye nnata, kpọtụrụ ha ozugbo ka ị rịọ ka ha weghachite ego ahụ, 2) Ọ bụrụ na i zipụrụ ya na mgbanwe ma ọ bụ ọrụ, kpọtụrụ nkwado ndị ahịa ha, 3) Ọ bụrụ na i zipụrụ ya na adreesị ị na-amaghị, mgbake anaghị ekwe omume n'ozuzu. Na-elele adreesị ugboro abụọ mgbe niile tupu ị kwadoro azụmahịa.",
+            "keywords": ["wrong address", "incorrect", "mistake", "recovery"]
+          },
+          {
+            "id": "trouble-03",
+            "question": "Gịnị kpatara na enweghị m ike ịhụ itule m mgbe m natara azụmahịa?",
+            "answer": "Ọ bụrụ na itule gị anaghị emelite: 1) Kwenye na azụmahịa ahụ nwere nkwenye blockchain zuru oke (lelee onye nyocha), 2) Nyochaa na ị na-elele netwọkụ ziri ezi (ERC20 vs TRC20), 3) Malitegharịa ngwa ahụ iji mee ka itule gị dị ọhụrụ, 4) Lelee ma onye na-ezipụ emechala azụmahịa ahụ n'ezie n'akụkụ ha, 5) Ọ bụrụ na akwadoro azụmahịa ahụ na blockchain mana ọ naghị apụta na ngwa ahụ, kpọtụrụ nkwado.",
+            "keywords": ["missing funds", "balance", "not showing", "transaction not appearing"]
+          },
+          {
+            "id": "trouble-04",
+            "question": "Ngwa ahụ na-akụda mgbe m na-anwa izipu azụmahịa. Gịnị ka m kwesịrị ime?",
+            "answer": "Ọ bụrụ na ngwa ahụ na-akụda n'oge azụmahịa: 1) Melite na ụdị ngwa kachasị ọhụrụ, 2) Malitegharịa ngwaọrụ gị, 3) Lelee njikọ ịntanetị gị, 4) Gbaa mbọ hụ na ị nwere itule zuru oke (gụnyere maka ụgwọ azụmahịa), 5) Ọ bụrụ na nsogbu ahụ dịgide, nwaa ịwụnye ngwa ahụ ọzọ (gbaa mbọ hụ na ị nwere ndabere gị mbụ!), 6) Kpọtụrụ nkwado ma ọ bụrụ na ọ nweghị nke ọ bụla n'ime ngwọta ndị a rụrụ ọrụ, nye ha nkọwa gbasara ngwaọrụ gị na ọnọdụ ihe mberede ahụ.",
+            "keywords": ["crash", "freeze", "error", "not working"]
+          }
+        ]
+      },
+      {
+        "sectionId": "technical-details",
+        "sectionTitle": "Nkọwa Nka na ụzụ (Kedu Ka Ihe Si Arụ Ọrụ)",
+        "content": [
+          {
+            "id": "tech-01",
+            "question": "Kedu usoro cryptographic Palma Wallet na-eji?",
+            "answer": "Palma Wallet na-eji RSA cryptography na ụdị mbụ ya, wee gbanwee gaa na ọba akwụkwọ FIO Protocol na ụdị ọhụrụ. A na-eji usoro cryptographic ndị a emepụta igodo abụọ, ịbịanye aka na azụmahịa, na ịnyocha mbinye aka. Mmejuputa ahụ gụnyere ịmepụta igodo kwesịrị ekwesị, usoro mbinye aka echekwara, na usoro nyocha siri ike iji hụ na nchekwa azụmahịa.",
+            "keywords": ["cryptography", "RSA", "FIO Protocol", "signing"]
+          },
+          {
+            "id": "tech-02",
+            "question": "Kedu ka Palma Wallet si enyocha mbinye aka azụmahịa?",
+            "answer": "Palma Wallet na-enyocha mbinye aka site na iji cryptography igodo ọha: 1) Mgbe emepụtara azụmahịa, a na-emepụta mbinye aka dijitalụ site na iji igodo nzuzo onye na-ezipụ, 2) A na-eziga mbinye aka ahụ, tinyere data azụmahịa, na sava, 3) Sava ahụ na-eweghachite igodo ọha onye ọrụ site na nchekwa data, 4) Site na iji algọridim nyocha cryptographic (mgbakọ na mwepụ pụrụ iche), sava ahụ na-akwado na mbinye aka ahụ ziri ezi maka data azụmahịa nakwa na ọ bụ naanị onye nwe igodo nzuzo kwekọrọ na ya nwere ike ịmepụta ya, na-enweghị mkpa ịnweta igodo nzuzo n'onwe ya.",
+            "keywords": ["signature verification", "cryptographic verification", "transaction security"]
+          },
+          {
+            "id": "tech-03",
+            "question": "Gịnị bụ akụrụngwa azụ (backend infrastructure) nke Palma Wallet?",
+            "answer": "Palma Wallet na-eji AWS (Amazon Web Services) maka akụrụngwa azụ ya. A na-echekwa data onye ọrụ na tebụl DynamoDB, ebe edobere mpaghara ahụ na us-east-1 (Cape Town). Ihe owuwu ahụ gụnyere ihe ndị na-enweghị sava yana ọrụ Lambda ndị na-ahụ maka nhazi azụmahịa na njikwa data onye ọrụ. A naghị echekwa igodo nzuzo onye ọrụ na sava - ọ bụ naanị igodo ọha ka a na-echekwa iji nyochaa mbinye aka azụmahịa.",
+            "keywords": ["backend", "server", "AWS", "infrastructure", "database"]
+          },
+          {
+            "id": "tech-04",
+            "question": "Kedu ka ịmepụta igodo si arụ ọrụ na Palma Wallet?",
+            "answer": "Ịmepụta igodo na Palma Wallet agbanweela na ụdị dị iche iche: 1) Ụdị mbụ jiri RSA cryptography yana usoro ndabere ndị ọzọ ma ọ bụrụ na RSA adịghị, 2) Ụdị kachasị ọhụrụ na-eji FIO Protocol maka ịmepụta igodo, ebe a na-emepụta bytes na-enweghị usoro dị ka mkpụrụ, wee hazie ha site na ọrụ cryptographic iji mepụta igodo nzuzo, nke a na-enweta igodo ọha site na ya. Ụzọ a na-ahụ na emepụtara igodo abụọ echekwara, na-eguzogide nkukota (ha enweghị ike ịkụkọta na nke onye ọzọ), ma dị iche maka onye ọrụ ọ bụla.",
+            "keywords": ["key generation", "private key", "public key", "cryptography"]
+          }
+        ]
+      },
+      {
+        "sectionId": "upcoming-features",
+        "sectionTitle": "Atụmatụ Ndị Na-abịa n'ihu (Ihe Ndị Ka Na-abịa)",
+        "content": [
+          {
+            "id": "upcoming-01",
+            "question": "Kedu cryptocurrencies ọhụrụ a ga-agbakwunye na Palma Wallet?",
+            "answer": "Palma Wallet na-eme atụmatụ ịgbasa nkwado karịa USDT iji tinye nnukwu cryptocurrencies dịka Bitcoin (BTC), Ethereum (ETH), na stablecoins dị iche iche (USDC, DAI). Usoro ihe omume (atụmatụ) ahụ gụnyekwara nkwado maka token ndị ama ama na netwọkụ Ethereum na TRON.",
+            "keywords": ["new currencies", "additional coins", "upcoming tokens", "roadmap"]
+          },
+          {
+            "id": "upcoming-02",
+            "question": "Palma Wallet ọ ga-akwado obere akpa ego ngwaike (hardware wallets)?",
+            "answer": "Ee, Palma Wallet na-eme atụmatụ ịgbakwunye nkwado maka obere akpa ego ngwaike ndị ama ama dịka Ledger na Trezor na mmelite n'ọdịnihu. Nke a ga-enye ndị ọrụ ohere ijikọ obere akpa ego ngwaike ha maka nchekwa agbakwunyere ebe ha ka na-anụ ụtọ interface dị mfe iji nke Palma Wallet.",
+            "keywords": ["hardware wallet", "Ledger", "Trezor", "security device"]
+          },
+          {
+            "id": "upcoming-03",
+            "question": "Enwere atụmatụ ịgbakwunye atụmatụ DeFi na Palma Wallet?",
+            "answer": "Ee, Palma Wallet nwere atụmatụ iwebata atụmatụ DeFi (Decentralized Finance) na mmelite n'ọdịnihu. Ndị a ga-agụnye staking, yield farming, na njikọta na usoro DeFi ndị ama ama, na-enye ndị ọrụ ohere ịkpata ego na-abata mgbe niile (ego na-abata nwayọọ nwayọọ) na njide crypto ha ozugbo site na obere akpa ego.",
+            "keywords": ["DeFi", "staking", "yield", "farming", "interest", "earning"]
+          },
+          {
+            "id": "upcoming-04",
+            "question": "Palma Wallet ọ ga-akwado NFTs?",
+            "answer": "Ee, nkwado maka ikiri na ijikwa NFTs (Non-Fungible Tokens) dị na usoro ihe omume Palma Wallet. Atụmatụ a ga-enye ndị ọrụ ohere ikiri nchịkọta NFT ha, ịnata NFTs, ma mechaa zụọ ahịa ha ozugbo n'ime ngwa ahụ.",
+            "keywords": ["NFT", "non-fungible token", "collectibles", "digital art"]
+          }
+        ]
+      }
+    ],
+    "schema_version": "1.0"
+  }
+  

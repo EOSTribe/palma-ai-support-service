@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "documentType": "knowledge_base",
+    "documentId": "palma-wallet-kb-001",
+    "version": "1.0.0",
+    "dateCreated": "2025-05-20",
+    "lastUpdated": "2025-05-20",
+    "source": "Palma Wallet Documentation"
+  },
+  "sections": [
+    {
+      "sectionId": "general-information",
+      "sectionTitle": "Habari za Jumla",
+      "content": [
+        {
+          "id": "general-01",
+          "question": "Palma Wallet ni nini?",
+          "answer": "Palma Wallet ni programu ya mkoba wa cryptocurrency inayoruhusu watumiaji kuhifadhi, kutuma, na kupokea mali za kidijitali kwa usalama. Inazingatia kutoa interface rahisi kwa watumiaji wakati wa kudumisha usalama mkubwa kwa shughuli za cryptocurrency.",
+          "keywords": ["muhtasari", "utangulizi", "misingi"]
+        },
+        {
+          "id": "general-02",
+          "question": "Je, Palma Wallet inasaidia cryptocurrencies zipi?",
+          "answer": "Palma Wallet kwa sasa inasaidia USDT (Tether) kwenye mitandao ya ERC20 (Ethereum) na TRC20 (TRON). Usaidizi wa cryptocurrencies za ziada umepangwa kwa sasisho za baadae.",
+          "keywords": ["sarafu", "token", "sarafu", "cryptocurrency", "usaidizi", "USDT", "Tether"]
+        },
+        {
+          "id": "general-03",
+          "question": "Je, Palma Wallet ni bure kutumia?",
+          "answer": "Palma Wallet ni bure kupakua na kutumia. Hakuna ada zinazotozwa na mkoba yenyewe kwa shughuli za kimsingi. Hata hivyo, ada za shughuli za blockchain (ada za mtandao) zinatumika wakati wa kutuma cryptocurrencies, ambazo hutofautiana kulingana na mtandao unaotumika (ERC20 au TRC20).",
+          "keywords": ["bure", "gharama", "ada", "bei"]
+        }
+      ]
+    },
+    {
+      "sectionId": "account-management",
+      "sectionTitle": "Usimamizi wa Akaunti",
+      "content": [
+        {
+          "id": "account-01",
+          "question": "Ninawezaje kuunda akaunti ya Palma Wallet?",
+          "answer": "Unaweza kuunda akaunti ya Palma Wallet kwa kuingia na Google, Apple, au uthibitishaji wa simu. Baada ya uthibitishaji, jozi ya funguo za kriptografia salama hutengenezwa kwa mkoba wako ili kuhakikisha usalama wa shughuli.",
+          "keywords": ["jisajili", "sajili", "unda akaunti", "mtumiaji mpya"]
+        },
+        {
+          "id": "account-02",
+          "question": "Je, Palma Wallet inasaidia njia zipi za uthibitishaji?",
+          "answer": "Palma Wallet inasaidia njia tatu za uthibitishaji: Google Sign-In, Apple Sign-In, na uthibitishaji wa namba ya simu. Hizi zinatoa njia salama na rahisi za kufikia mkoba wako.",
+          "keywords": ["ingia", "saini", "uthibitishaji", "Google", "Apple", "simu"]
+        },
+        {
+          "id": "account-03",
+          "question": "Je, Palma Wallet inahakikishaje usalama wa akaunti yangu?",
+          "answer": "Palma Wallet inatumia hatua kadhaa za usalama ikiwa ni pamoja na: kutengeneza jozi za funguo za kriptografia (funguo za umma na za faragha) kwa kila mtumiaji, kuhifadhi funguo za faragha kwa usalama katika hifadhi iliyosimbwa kwenye kifaa chako, kutumia saini za kidijitali kuthibitisha uhalali wa shughuli, na kutoa chaguo za nakala za funguo zako za faragha zilizolindwa na nenosiri.",
+          "keywords": ["usalama", "ulindaji", "funguo ya faragha", "usimbaji"]
+        },
+        {
+          "id": "account-04",
+          "question": "Nini kinatokea ikiwa nimepoteza ufikiaji wa kifaa changu?",
+          "answer": "Ikiwa umeunda nakala ya funguo yako ya faragha kwenye skrini ya Mipangilio, unaweza kurejesha mkoba wako kwenye kifaa kipya kwa kutumia nakala na nenosiri lako. Bila nakala, unaweza kupoteza ufikiaji wa fedha zako, kwa hivyo kuunda nakala salama ni muhimu.",
+          "keywords": ["kifaa kilichopotea", "simu mpya", "kurudisha", "rejesha", "nakala"]
+        },
+        {
+          "id": "account-05",
+          "question": "Ninawezaje kutoka kwenye Palma Wallet?",
+          "answer": "Unaweza kutoka kwa kubofya kitufe cha 'Sign Out' kwenye kichwa cha skrini ya Nyumbani au kwenda kwenye Mipangilio > Vitendo vya Akaunti > Sign Out. Unapotoka, data ya mkoba wako huhifadhiwa ndani ili kudumisha ufikiaji wa funguo zako za faragha na habari za mkoba.",
+          "keywords": ["toka", "sign out", "ondoka"]
+        }
+      ]
+    },
+    {
+      "sectionId": "wallet-security",
+      "sectionTitle": "Usalama wa Mkoba",
+      "content": [
+        {
+          "id": "security-01",
+          "question": "Je, funguo yangu ya faragha inahifadhiwaje kwenye Palma Wallet?",
+          "answer": "Funguo yako ya faragha inahifadhiwa kwa usalama kwa kutumia EncryptedStorage ya React Native, ambayo inatumia njia za usimbaji maalum za jukwaa (Keychain kwenye iOS na Keystore kwenye Android). Funguo ya faragha haitoki kwenye kifaa chako bila kusimbwa.",
+          "keywords": ["funguo ya faragha", "hifadhi", "usimbaji", "keychain"]
+        },
+        {
+          "id": "security-02",
+          "question": "Ninawezaje kufanya nakala ya mkoba wangu?",
+          "answer": "Kufanya nakala ya mkoba wako: 1) Nenda kwenye Mipangilio, 2) Nenda kwenye sehemu ya 'Usalama wa Mkoba', 3) Weka nenosiri thabiti (angalau herufi 8), 4) Thibitisha nenosiri lako, 5) Bofya 'Nakala Salama'. Hifadhi nenosiri lako la nakala kwa usalama - bila hilo, huwezi kurejesha mkoba wako.",
+          "keywords": ["nakala", "nakala salama", "hifadhi", "nenosiri"]
+        },
+        {
+          "id": "security-03",
+          "question": "Nini kinatokea ikiwa nimesahau nenosiri langu la nakala?",
+          "answer": "Ikiwa umesahau nenosiri lako la nakala, hutaweza kurejesha mkoba wako kutoka kwenye nakala. Hakuna utaratibu wa kurudisha nenosiri kwa sababu za usalama. Hii ndiyo sababu ni muhimu kuhifadhi nenosiri lako la nakala mahali salama na la kukumbukwa.",
+          "keywords": ["umesahau nenosiri", "kurudisha nenosiri", "weka upya nenosiri"]
+        },
+        {
+          "id": "security-04",
+          "question": "Je, saini ya shughuli inafanyikaje kwenye Palma Wallet?",
+          "answer": "Palma Wallet inatumia saini ya kriptografia kwa shughuli zote. Unapoanza shughuli, programu inatengeneza saini ya kidijitali kwa kutumia funguo yako ya faragha. Saini hii inathibitisha kuwa uliidhinisha shughuli bila kufichua funguo yako ya faragha. Saini inathibitishwa kwenye blockchain kwa kutumia funguo yako ya umma.",
+          "keywords": ["shughuli", "saini", "uthibitishaji", "kriptografia"]
+        },
+        {
+          "id": "security-05",
+          "question": "Je, data yangu inalinganishwa kwenye vifaa?",
+          "answer": "Habari zako za msingi za akaunti zinawekwa kwenye seva za Palma, lakini funguo zako za faragha zinaendelea kuwa kwenye kifaa chako tu kwa usalama. Ikiwa unataka kutumia mkoba wako kwenye vifaa vingi, unahitaji kutumia utendaji wa nakala na kurudisha kwenye kila kifaa.",
+          "keywords": ["sawazisha", "vifaa vingi", "hifadhi ya wingu"]
+        }
+      ]
+    },
+    {
+      "sectionId": "cryptocurrency-transactions",
+      "sectionTitle": "Shughuli za Cryptocurrency",
+      "content": [
+        {
+          "id": "transaction-01",
+          "question": "Ninawezaje kutuma cryptocurrency na Palma Wallet?",
+          "answer": "Kutuma cryptocurrency: 1) Bofya kitufe cha 'Tuma' kwenye skrini ya Nyumbani, 2) Weka anwani ya mkoba wa mpokeaji au scan msimbo wao wa QR, 3) Weka kiasi unachotaka kutuma, 4) Chagua mtandao (ERC20 au TRC20), 5) Hakiki maelezo ya shughuli ikiwa ni pamoja na ada, 6) Thibitisha kutuma. Shughuli itachakatwa kwenye blockchain.",
+          "keywords": ["tuma", "hamisha", "malipo"]
+        },
+        {
+          "id": "transaction-02",
+          "question": "Ninawezaje kupokea cryptocurrency na Palma Wallet?",
+          "answer": "Kupokea cryptocurrency: 1) Bofya kitufe cha 'Pokea' kwenye skrini ya Nyumbani, 2) Anwani ya mkoba wako itaonyeshwa pamoja na msimbo wa QR, 3) Shiriki anwani hii na mtumaji, 4) Hakikisha mtumaji anatumia mtandao sahihi (ERC20 au TRC20), 5) Mara tu shughuli itakapothibitishwa kwenye blockchain, fedha zitaonekana kwenye mkoba wako.",
+          "keywords": ["pokea", "weka", "anwani"]
+        },
+        {
+          "id": "transaction-03",
+          "question": "Je, tofauti kati ya mitandao ya ERC20 na TRC20 ni nini?",
+          "answer": "ERC20 ni kiwango cha token kwenye blockchain ya Ethereum, wakati TRC20 ni kiwango kwenye blockchain ya TRON. Tofauti kuu ni pamoja na: 1) Ada za shughuli - ERC20 kwa kawaida ina ada za juu, 2) Muda wa uthibitishaji - TRC20 kwa kawaida ni ya haraka, 3) Vipengele vya usalama - ERC20 inachukuliwa kuwa imeanzishwa zaidi. Hakikisha kila wakati mtumaji na mpokeaji wanatumia mtandao mmoja.",
+          "keywords": ["ERC20", "TRC20", "mtandao", "blockchain", "Ethereum", "TRON"]
+        },
+        {
+          "id": "transaction-04",
+          "question": "Je, shughuli huchukua muda gani kukamilika?",
+          "answer": "Muda wa shughuli hutofautiana kulingana na mtandao: 1) Shughuli za ERC20 (Ethereum) kwa kawaida huchukua kati ya sekunde 30 hadi dakika kadhaa, kulingana na msongamano wa mtandao na ada ya gesi iliyolipwa, 2) Shughuli za TRC20 (TRON) kwa kawaida ni za haraka, zikichukua takriban sekunde 15-30. Muda huu ni kwa uthibitishaji wa blockchain, bila kujumuisha muda unaohitajika kuandaa na kusaini shughuli.",
+          "keywords": ["muda", "kasi", "uthibitishaji", "uchakataji"]
+        },
+        {
+          "id": "transaction-05",
+          "question": "Je, ada za shughuli ni nini na zinafanyikaje?",
+          "answer": "Ada za shughuli ni malipo kwa wathibitishaji wa mtandao wa blockchain wanaochakata shughuli. 1) Kwa ERC20 (Ethereum), ada huitwa 'ada za gesi' na zinaweza kutofautiana kwa kiasi kikubwa kulingana na msongamano wa mtandao, 2) Kwa TRC20 (TRON), ada kwa kawaida ni za chini na thabiti zaidi. Palma Wallet inaonyesha ada inayotarajiwa kabla ya kuthibitisha shughuli, ikikuruhusu kufanya uamuzi wenye taarifa.",
+          "keywords": ["ada", "gesi", "gharama", "ada ya mtandao"]
+        },
+        {
+          "id": "transaction-06",
+          "question": "Je, kipengele cha Swap kwenye Palma Wallet ni nini?",
+          "answer": "Kipengele cha Swap kinakuruhusu kubadilisha cryptocurrency moja hadi nyingine moja kwa moja ndani ya programu ya Palma Wallet. Inatoa njia rahisi ya kubadilisha kati ya mali za kidijitali bila kutumia ubadilishanaji wa nje. Kipengele hiki kitapanuliwa katika sasisho za baadae kusaidia jozi za sarafu zaidi na viwango bora.",
+          "keywords": ["swap", "ubadilishanaji", "badilisha", "biashara"]
+        }
+      ]
+    },
+    {
+      "sectionId": "troubleshooting",
+      "sectionTitle": "Kutatua Matatizo",
+      "content": [
+        {
+          "id": "trouble-01",
+          "question": "Shughuli yangu inasubiri kwa muda mrefu. Nifanye nini?",
+          "answer": "Kwa shughuli zinazosubiri kwa muda mrefu: 1) Angalia hali ya mtandao - msongamano mkubwa unaweza kuchelewesha uchakataji, 2) Kwa shughuli za ERC20, ada ya gesi inaweza kuwa ya chini wakati wa vipindi vya mahitaji makubwa, 3) Thibitisha uhusiano wako wa intaneti ni thabiti, 4) Subiri uthibitishaji wa blockchain - wakati mwingine huchukua muda mrefu wakati wa vipindi vya kilele, 5) Ikiwa tatizo linaendelea kwa zaidi ya saa kadhaa, wasiliana na usaidizi na maelezo ya shughuli yako.",
+          "keywords": ["inasubiri", "imekwama", "kuchelewesha shughuli", "haijathibitishwa"]
+        },
+        {
+          "id": "trouble-02",
+          "question": "Nimetuma fedha kwenye anwani isiyo sahihi. Je, ninaweza kuzipata tena?",
+          "answer": "Kwa bahati mbaya, shughuli za blockchain haziwezi kurudishwa mara tu zikithibitishwa. Ikiwa umetuma fedha kwenye anwani isiyo sahihi: 1) Ikiwa unamjua mpokeaji, wasiliana naye moja kwa moja kuomba shughuli ya kurudisha, 2) Ikiwa umetuma kwenye ubadilishanaji au huduma, wasiliana na usaidizi wao wa wateja, 3) Ikiwa umetuma kwenye anwani ya nasibu, kurudisha kwa kawaida haiwezekani. Hakikisha kila wakati unaangalia anwani mara mbili kabla ya kuthibitisha shughuli.",
+          "keywords": ["anwani isiyo sahihi", "makosa", "kurudisha"]
+        },
+        {
+          "id": "trouble-03",
+          "question": "Kwa nini siwezi kuona salio langu baada ya kupokea shughuli?",
+          "answer": "Ikiwa salio lako halisasishwi: 1) Thibitisha shughuli ina uthibitishaji wa kutosha wa blockchain (angalia explorer), 2) Thibitisha unaangalia mtandao sahihi (ERC20 vs TRC20), 3) Anza upya programu ili kusasisha salio lako, 4) Angalia ikiwa mtumaji amekamilisha shughuli kwa upande wake, 5) Ikiwa shughuli imethibitishwa kwenye blockchain lakini haionekani kwenye programu, wasiliana na usaidizi.",
+          "keywords": ["fedha zilizopotea", "salio", "haionekani", "shughuli haionekani"]
+        },
+        {
+          "id": "trouble-04",
+          "question": "Programu inashindwa wakati ninapojaribu kutuma shughuli. Nifanye nini?",
+          "answer": "Ikiwa programu inashindwa wakati wa shughuli: 1) Sasisha kwa toleo jipya la programu, 2) Anza upya kifaa chako, 3) Angalia uhusiano wako wa intaneti, 4) Hakikisha una salio la kutosha (ikiwa ni pamoja na ada za shughuli), 5) Ikiwa tatizo linaendelea, jaribu kusanidi upya programu (hakikisha una nakala yako kwanza!), 6) Wasiliana na usaidizi ikiwa hakuna mojawapo ya suluhisho hizi zinazofanya kazi, ukitoa maelezo kuhusu kifaa chako na hali ya kushindwa.",
+          "keywords": ["kushindwa", "kukwama", "hitilafu", "haifanyi kazi"]
+        }
+      ]
+    },
+    {
+      "sectionId": "technical-details",
+      "sectionTitle": "Maelezo ya Kiufundi",
+      "content": [
+        {
+          "id": "tech-01",
+          "question": "Je, Palma Wallet inatumia njia zipi za kriptografia?",
+          "answer": "Palma Wallet inatumia kriptografia ya RSA katika toleo lake la awali, ikibadilisha kwa maktaba ya FIO Protocol katika toleo jipya. Njia hizi za kriptografia zinatumika kutengeneza jozi za funguo, kusaini shughuli, na kuthibitisha saini. Utekelezaji unajumuisha utengenezaji sahihi wa funguo, taratibu salama za kusaini, na njia thabiti za uthibitishaji ili kuhakikisha usalama wa shughuli.",
+          "keywords": ["kriptografia", "RSA", "FIO Protocol", "kusaini"]
+        },
+        {
+          "id": "tech-02",
+          "question": "Je, Palma Wallet inathibitishaje saini za shughuli?",
+          "answer": "Palma Wallet inathibitisha saini kwa kutumia kriptografia ya funguo ya umma: 1) Wakati shughuli inapotengenezwa, saini ya kidijitali hutengenezwa kwa kutumia funguo ya faragha ya mtumaji, 2) Saini, pamoja na data ya shughuli, inatumwa kwa seva, 3) Seva inapata funguo ya umma ya mtumiaji kutoka kwa database, 4) Kwa kutumia algorithms za uthibitishaji wa kriptografia, seva inathibitisha kuwa saini ni halali kwa data ya shughuli na ingeweza kutengenezwa tu na mwenye funguo ya faragha inayofanana, bila kuhitaji kamwe ufikiaji wa funguo ya faragha yenyewe.",
+          "keywords": ["uthibitishaji wa saini", "uthibitishaji wa kriptografia", "usalama wa shughuli"]
+        },
+        {
+          "id": "tech-03",
+          "question": "Je, miundombinu ya backend ya Palma Wallet ni nini?",
+          "answer": "Palma Wallet inatumia AWS (Amazon Web Services) kwa miundombinu yake ya backend. Data ya mtumiaji inahifadhiwa kwenye meza za DynamoDB, na eneo limewekwa kuwa us-east-1 (Cape Town). Muundo unajumuisha vipengele visivyo na seva na kazi za Lambda zinazoshughulikia uchakataji wa shughuli na usimamizi wa data ya watumiaji. Funguo za faragha za watumiaji hazihifadhiwi kamwe kwenye seva - funguo za umma tu ndizo zinazohifadhiwa kuthibitisha saini za shughuli.",
+          "keywords": ["backend", "seva", "AWS", "miundombinu", "database"]
+        },
+        {
+          "id": "tech-04",
+          "question": "Je, utengenezaji wa funguo unafanyikaje kwenye Palma Wallet?",
+          "answer": "Utengenezaji wa funguo kwenye Palma Wallet umebadilika na toleo tofauti: 1) Toleo la awali lilitumia kriptografia ya RSA na utaratibu wa kurudi nyuma ikiwa RSA haikuwepo, 2) Toleo jipya linatumia FIO Protocol kwa utengenezaji wa funguo, ambapo baiti za nasibu hutengenezwa kama mbegu, kisha zinafanyiwa kazi kupitia kazi za kriptografia kutengeneza funguo ya faragha, ambayo funguo ya umma inatoka. Njia hii inahakikisha jozi za funguo salama, zinazopingana na mgongano na za kipekee kwa kila mtumiaji.",
+          "keywords": ["utengenezaji wa funguo", "funguo ya faragha", "funguo ya umma", "kriptografia"]
+        }
+      ]
+    },
+    {
+      "sectionId": "upcoming-features",
+      "sectionTitle": "Vipengele Vipya",
+      "content": [
+        {
+          "id": "upcoming-01",
+          "question": "Je, cryptocurrencies zipi mpya zitaongezwa kwenye Palma Wallet?",
+          "answer": "Palma Wallet inapanga kupanua usaidizi zaidi ya USDT kujumuisha cryptocurrencies kuu kama vile Bitcoin (BTC), Ethereum (ETH), na stablecoins mbalimbali (USDC, DAI). Pia inajumuisha usaidizi wa tokens maarufu kwenye mitandao ya Ethereum na TRON.",
+          "keywords": ["sarafu mpya", "sarafu za ziada", "tokens zinazokuja", "ramani ya njia"]
+        },
+        {
+          "id": "upcoming-02",
+          "question": "Je, Palma Wallet itasaidia mikoba ya vifaa?",
+          "answer": "Ndiyo, Palma Wallet inapanga kuongeza usaidizi wa mikoba maarufu ya vifaa kama vile Ledger na Trezor katika sasisho la baadae. Hii itaruhusu watumiaji kuunganisha mikoba yao ya vifaa kwa usalama wa ziada wakati bado wakifurahia interface rahisi ya watumiaji ya Palma Wallet.",
+          "keywords": ["mkoba wa vifaa", "Ledger", "Trezor", "kifaa cha usalama"]
+        },
+        {
+          "id": "upcoming-03",
+          "question": "Je, kuna mpango wa kuongeza vipengele vya DeFi kwenye Palma Wallet?",
+          "answer": "Ndiyo, Palma Wallet ina mipango ya kuanzisha vipengele vya DeFi (Fedha zisizo na kituo cha kati) katika sasisho za baadae. Hizi zitajumuisha staking, yield farming, na ujumuishaji na itifaki maarufu za DeFi, ikiruhusu watumiaji kupata mapato ya kujitegemea kwenye crypto zao moja kwa moja kutoka kwenye mkoba.",
+          "keywords": ["DeFi", "staking", "yield", "farming", "riba", "kupata"]
+        },
+        {
+          "id": "upcoming-04",
+          "question": "Je, Palma Wallet itasaidia NFTs?",
+          "answer": "Ndiyo, usaidizi wa kutazama na kusimamia NFTs (Tokens zisizo za kubadilishana) uko kwenye ramani ya njia ya Palma Wallet. Kipengele hiki kitaruhusu watumiaji kutazama makusanyo yao ya NFT, kupokea NFTs, na hatimaye kuzibadilisha moja kwa moja ndani ya programu.",
+          "keywords": ["NFT", "token isiyo ya kubadilishana", "vifaa vya kukusanya", "sanaa ya kidijitali"]
+        }
+      ]
+    }
+  ],
+  "schema_version": "1.0"
+} 

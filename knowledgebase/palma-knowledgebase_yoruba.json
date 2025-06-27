@@ -1,0 +1,242 @@
+{
+    "metadata": {
+      "documentType": "knowledge_base",
+      "documentId": "palma-wallet-kb-001",
+      "version": "1.0.0",
+      "dateCreated": "2025-05-20",
+      "lastUpdated": "2025-05-20",
+      "source": "Palma Wallet Documentation"
+    },
+    "sections": [
+      {
+        "sectionId": "general-information",
+        "sectionTitle": "Ìsọfúnni Gbogbogbò",
+        "content": [
+          {
+            "id": "general-01",
+            "question": "Kí ni Palma Wallet?",
+            "answer": "Palma Wallet jẹ́ ohun èlò àpamọ́wọ́ fún owó orí ayélujára (cryptocurrency) tó máa ń jẹ́ kí àwọn ènìyàn tọ́jú, fi ránṣẹ́, àti gba àwọn dúkìá onínọ́mbà wọn pẹ̀lú ààbò. Ó gbájú mọ́ pípèsè ọ̀nà tó rọrùn láti lò ṣùgbọ́n tí ó tún ní ààbò tó gírámú fún àwọn ìbáraṣepọ̀ owó orí ayélujára.",
+            "keywords": ["overview", "introduction", "basics"]
+          },
+          {
+            "id": "general-02",
+            "question": "Àwọn owó orí ayélujára wo ni Palma Wallet ṣètìlẹ́yìn fún?",
+            "answer": "Palma Wallet fún àkókò yìí ṣètìlẹ́yìn fún USDT (Tether) lórí àwọn nẹ́tiwọ́kì ERC20 (Ethereum) àti TRC20 (TRON). A ti ṣètò àtìlẹ́yìn fún àwọn owó orí ayélujára mìíràn nínú àwọn àtúnṣe tó ń bọ̀.",
+            "keywords": ["currency", "token", "coin", "cryptocurrency", "support", "USDT", "Tether"]
+          },
+          {
+            "id": "general-03",
+            "question": "Ṣé Palma Wallet jẹ́ ọ̀fẹ́ láti lò?",
+            "answer": "Palma Wallet jẹ́ ọ̀fẹ́ láti ṣe àgbékalẹ̀ àti láti lò. Kò sí owó kankan tí àpamọ́wọ́ fúnra rẹ̀ máa ń gbà fún àwọn ìlò tó ṣe pàtàkì. Síbẹ̀síbẹ̀, àwọn owó ìbáraṣepọ̀ lórí blockchain (network fees) máa ń wà nígbàtí a bá ń fi owó orí ayélujára ránṣẹ́, èyí sì máa ń yàtọ̀ síra gẹ́gẹ́ bí nẹ́tiwọ́kì tí a lò (ERC20 tàbí TRC20).",
+            "keywords": ["free", "cost", "fees", "pricing"]
+          }
+        ]
+      },
+      {
+        "sectionId": "account-management",
+        "sectionTitle": "Ìṣàkóso Àpamọ́",
+        "content": [
+          {
+            "id": "account-01",
+            "question": "Báwo ni mo ṣe lè ṣẹ̀dá àpamọ́ Palma Wallet?",
+            "answer": "O lè ṣẹ̀dá àpamọ́ Palma Wallet nípa wíwọlé pẹ̀lú Google, Apple, tàbí ìfìdíhè nọ́mbà fóònù. Lẹ́yìn ìfìdíhè, a ó ṣẹ̀dá kọ́kọ́rọ́ àṣírí onínọ́mbà tó lágbára fún àpamọ́wọ́ rẹ láti rí i pé àwọn ìbáraṣepọ̀ rẹ wà ní ààbò.",
+            "keywords": ["sign up", "register", "create account", "new user"]
+          },
+          {
+            "id": "account-02",
+            "question": "Àwọn ọ̀nà ìfìdíhè wo ni Palma Wallet ṣètìlẹ́yìn fún?",
+            "answer": "Palma Wallet ṣètìlẹ́yìn fún ọ̀nà ìfìdíhè mẹ́ta: Wíwọlé pẹ̀lú Google, Wíwọlé pẹ̀lú Apple, àti ìfìdíhè nọ́mbà fóònù. Àwọn wọ̀nyí pèsè ọ̀nà tó lágbára àti tó rọrùn láti wọlé sí àpamọ́wọ́ rẹ.",
+            "keywords": ["login", "sign in", "authentication", "Google", "Apple", "phone"]
+          },
+          {
+            "id": "account-03",
+            "question": "Báwo ni Palma Wallet ṣe ń rí i pé àpamọ́ mi wà ní ààbò?",
+            "answer": "Palma Wallet lo ọ̀pọ̀lọpọ̀ ọ̀nà ààbò, tó fi mọ́: ṣíṣẹ̀dá àwọn kọ́kọ́rọ́ àṣírí onínọ́mbà (kọ́kọ́rọ́ gbogbogbò àti kọ́kọ́rọ́ àdáni) fún olúkúlùkù olùlò, títọ́jú àwọn kọ́kọ́rọ́ àdáni sí ààbò nínú ibi ìpamọ́ tí a fi ọ̀rọ̀ àṣírí pamọ́ sára ẹ̀rọ rẹ, lílo àwọn ìfọwọ́sí onínọ́mbà láti fìdí ìbáraṣepọ̀ múlẹ̀, àti pípèsè àwọn ọ̀nà ààbò fún àwọn kọ́kọ́rọ́ àdáni rẹ tí a fi ọ̀rọ̀ àṣírí pamọ́.",
+            "keywords": ["security", "protection", "private key", "encryption"]
+          },
+          {
+            "id": "account-04",
+            "question": "Kí ló máa ṣẹlẹ̀ tí n kò bá rí ẹ̀rọ mi mọ́?",
+            "answer": "Tí o bá ti ṣe ààbò fún kọ́kọ́rọ́ àdáni rẹ láti ojú ìwé Ètò (Settings), o lè mú àpamọ́wọ́ rẹ padà sára ẹ̀rọ mìíràn nípa lílo ààbò náà àti ọ̀rọ̀ àṣírí rẹ. Láìsí ààbò, o lè pàdánù ànfàní sí àwọn owó rẹ, nítorí náà, ṣíṣe ààbò tó lágbára ṣe pàtàkì.",
+            "keywords": ["lost device", "new phone", "recovery", "restore", "backup"]
+          },
+          {
+            "id": "account-05",
+            "question": "Báwo ni mo ṣe lè jáde kúrò ní Palma Wallet?",
+            "answer": "O lè jáde kúrò nípa títẹ bọ́tìnnì 'Jáde Kúrò' (Sign Out) tó wà ní apá òkè ojú ìwé Ilé (Home screen) tàbí nípa lílọ sí Ètò > Àwọn Ìgbésẹ̀ Àpamọ́ > Jáde Kúrò. Nígbàtí o bá jáde kúrò, a ó pa àwọn ìsọfúnni àpamọ́wọ́ rẹ mọ́ sára ẹ̀rọ láti lè máa ní ànfàní sí àwọn kọ́kọ́rọ́ àdáni rẹ àti ìsọfúnni àpamọ́wọ́.",
+            "keywords": ["logout", "sign out", "exit"]
+          }
+        ]
+      },
+      {
+        "sectionId": "wallet-security",
+        "sectionTitle": "Ààbò Àpamọ́wọ́",
+        "content": [
+          {
+            "id": "security-01",
+            "question": "Báwo ni kọ́kọ́rọ́ àdáni mi ṣe wà ní àpamọ́ ní Palma Wallet?",
+            "answer": "A tọ́jú kọ́kọ́rọ́ àdáni rẹ sí ààbò nípa lílo EncryptedStorage ti React Native, èyí tó máa ń lo àwọn ọ̀nà ìpamọ́ tó bá ẹ̀rọ mu (Keychain fún iOS àti Keystore fún Android). Kọ́kọ́rọ́ àdáni kò ní fi ẹ̀rọ rẹ sílẹ̀ láìsí ìpamọ́.",
+            "keywords": ["private key", "storage", "encryption", "keychain"]
+          },
+          {
+            "id": "security-02",
+            "question": "Báwo ni mo ṣe lè ṣe ààbò fún àpamọ́wọ́ mi?",
+            "answer": "Láti ṣe ààbò fún àpamọ́wọ́ rẹ: 1) Lọ sí Ètò (Settings), 2) Lọ sí abala 'Ààbò Àpamọ́wọ́' (Wallet Security), 3) Kọ ọ̀rọ̀ àṣírí tó lágbára (ó kéré jù, kí ó jẹ́ lẹ́tà mẹ́jọ), 4) Tún kọ ọ̀rọ̀ àṣírí náà láti fìdí rẹ̀ múlẹ̀, 5) Tẹ 'Ààbò Tó Dájú' (Secure Backup). Tọ́jú ọ̀rọ̀ àṣírí ààbò rẹ sí ibi tó lágbára – láìsí i, o kò ní lè mú àpamọ́wọ́ rẹ padà.",
+            "keywords": ["backup", "secure backup", "save", "password"]
+          },
+          {
+            "id": "security-03",
+            "question": "Kí ló máa ṣẹlẹ̀ tí mo bá gbàgbé ọ̀rọ̀ àṣírí ààbò mi?",
+            "answer": "Tí o bá gbàgbé ọ̀rọ̀ àṣírí ààbò rẹ, o kò ní lè mú àpamọ́wọ́ rẹ padà láti inú ààbò náà. Kò sí ọ̀nà àtúnṣe ọ̀rọ̀ àṣírí fún ìdí ààbò. Ìdí nìyí tó fi ṣe pàtàkì láti tọ́jú ọ̀rọ̀ àṣírí ààbò rẹ sí ibi tó lágbára àti tí o lè rántí.",
+            "keywords": ["forgot password", "password recovery", "reset password"]
+          },
+          {
+            "id": "security-04",
+            "question": "Báwo ni fífọwọ́sí ìbáraṣepọ̀ ṣe ń ṣiṣẹ́ ní Palma Wallet?",
+            "answer": "Palma Wallet máa ń lo fífọwọ́sí onínọ́mbà fún gbogbo àwọn ìbáraṣepọ̀. Nígbàtí o bá bẹ̀rẹ̀ ìbáraṣepọ̀ kan, ohun èlò náà máa ń ṣẹ̀dá ìfọwọ́sí onínọ́mbà nípa lílo kọ́kọ́rọ́ àdáni rẹ. Ìfọwọ́sí yìí fi hàn pé ìwọ lo fún láṣẹ ìbáraṣepọ̀ náà láìjẹ́ pé ó fi kọ́kọ́rọ́ àdáni rẹ hàn. A máa ń fìdí ìfọwọ́sí náà múlẹ̀ lórí blockchain nípa lílo kọ́kọ́rọ́ gbogbogbò rẹ.",
+            "keywords": ["transaction", "signing", "verification", "cryptography"]
+          },
+          {
+            "id": "security-05",
+            "question": "Ṣé àwọn ìsọfúnni mi máa ń bá ara wọn mu kọjá àwọn ẹ̀rọ?",
+            "answer": "A tọ́jú àwọn ìsọfúnni àpamọ́ rẹ tó ṣe kókó sára àwọn ìpèsè Palma, ṣùgbọ́n àwọn kọ́kọ́rọ́ àdáni rẹ wà sára ẹ̀rọ rẹ nìkan fún ààbò. Tí o bá fẹ́ lo àpamọ́wọ́ rẹ lórí ọ̀pọ̀lọpọ̀ ẹ̀rọ, o gbọ́dọ̀ lo ọ̀nà ààbò àti ìmúpadà sára ẹ̀rọ kọ̀ọ̀kan.",
+            "keywords": ["sync", "multiple devices", "cloud storage"]
+          }
+        ]
+      },
+      {
+        "sectionId": "cryptocurrency-transactions",
+        "sectionTitle": "Àwọn Ìbáraṣepọ̀ Owó Orí Ayélujára",
+        "content": [
+          {
+            "id": "transaction-01",
+            "question": "Báwo ni mo ṣe lè fi owó orí ayélujára ránṣẹ́ pẹ̀lú Palma Wallet?",
+            "answer": "Láti fi owó orí ayélujára ránṣẹ́: 1) Tẹ bọ́tìnnì 'Ránṣẹ́' (Send) lórí ojú ìwé Ilé, 2) Kọ adírẹ́sì àpamọ́wọ́ olùgbà tàbí ṣàyẹ̀wò kóòdù QR wọn, 3) Kọ iye owó tí o fẹ́ fi ránṣẹ́, 4) Yan nẹ́tiwọ́kì (ERC20 tàbí TRC20), 5) Yẹ àwọn kúlẹ̀kúlẹ̀ ìbáraṣepọ̀ wò, tó fi mọ́ àwọn owó tí a ó gbà, 6) Fìdí rẹ̀ múlẹ̀ láti fi ránṣẹ́. A ó ṣe ìlọ́wọ́sí ìbáraṣepọ̀ náà lórí blockchain.",
+            "keywords": ["send", "transfer", "payment"]
+          },
+          {
+            "id": "transaction-02",
+            "question": "Báwo ni mo ṣe lè gba owó orí ayélujára pẹ̀lú Palma Wallet?",
+            "answer": "Láti gba owó orí ayélujára: 1) Tẹ bọ́tìnnì 'Gbà' (Receive) lórí ojú ìwé Ilé, 2) Adírẹ́sì àpamọ́wọ́ rẹ yóò hàn pẹ̀lú kóòdù QR, 3) Pín adírẹ́sì yìí pẹ̀lú olùfiránṣẹ́, 4) Rí i dájú pé olùfiránṣẹ́ lo nẹ́tiwọ́kì tó tọ́ (ERC20 tàbí TRC20), 5) Nígbàtí a bá ti fìdí ìbáraṣepọ̀ náà múlẹ̀ lórí blockchain, àwọn owó náà yóò hàn nínú àpamọ́wọ́ rẹ.",
+            "keywords": ["receive", "deposit", "address"]
+          },
+          {
+            "id": "transaction-03",
+            "question": "Kí ni ìyàtọ̀ tó wà láàárín àwọn nẹ́tiwọ́kì ERC20 àti TRC20?",
+            "answer": "ERC20 ni ìlànà àmì-ìdámọ̀ lórí blockchain Ethereum, nígbàtí TRC20 jẹ́ ìlànà lórí blockchain TRON. Àwọn ìyàtọ̀ pàtàkì pẹ̀lú: 1) Owó ìbáraṣepọ̀ - ERC20 sábà máa ń ní owó tó ga jù, 2) Àkókò ìfìdíhè - TRC20 sábà máa ń yá jù, 3) Àwọn ọ̀ràn ààbò - A ka ERC20 sí èyí tó ti fìdí múlẹ̀ jù. Rí i dájú nígbà gbogbo pé olùfiránṣẹ́ àti olùgbà ń lo nẹ́tiwọ́kì kan náà.",
+            "keywords": ["ERC20", "TRC20", "network", "blockchain", "Ethereum", "TRON"]
+          },
+          {
+            "id": "transaction-04",
+            "question": "Báwo ni àwọn ìbáraṣepọ̀ ṣe máa ń pẹ́ tó láti parí?",
+            "answer": "Àkókò ìbáraṣepọ̀ máa ń yàtọ̀ síra nípa nẹ́tiwọ́kì: 1) Àwọn ìbáraṣepọ̀ ERC20 (Ethereum) sábà máa ń gbà láàárín ìṣẹ́jú àáyá 30 sí ìṣẹ́jú púpọ̀, ó sinmi lórí bí nẹ́tiwọ́kì ṣe kún tó àti owó gáàsì tí a san, 2) Àwọn ìbáraṣepọ̀ TRC20 (TRON) sábà máa ń yá jù, ó máa ń gbà tó nǹkan bí ìṣẹ́jú àáyá 15-30. Àwọn àkókò wọ̀nyí jẹ́ fún ìfìdíhè lórí blockchain, kò kan àkókò tí a nílò láti pèsè àti fọwọ́sí àwọn ìbáraṣepọ̀.",
+            "keywords": ["time", "speed", "confirmation", "processing"]
+          },
+          {
+            "id": "transaction-05",
+            "question": "Kí ni àwọn owó ìbáraṣepọ̀ àti báwo ni wọ́n ṣe ń ṣiṣẹ́?",
+            "answer": "Owó ìbáraṣepọ̀ ni owó tí a san sí àwọn olùfìdíhè lórí nẹ́tiwọ́kì blockchain tí wọ́n ń ṣe ìlọ́wọ́sí àwọn ìbáraṣepọ̀. 1) Fún ERC20 (Ethereum), a máa ń pe owó náà ní 'owó gáàsì' (gas fees) ó sì lè yàtọ̀ síra gidigidi gẹ́gẹ́ bí bí nẹ́tiwọ́kì ṣe kún tó, 2) Fún TRC20 (TRON), owó náà sábà máa ń kéré púpọ̀ ó sì máa ń dúró ṣinṣin. Palma Wallet máa ń fi owó tí a retí hàn kí o tó fìdí ìbáraṣepọ̀ múlẹ̀, èyí tó máa jẹ́ kí o ṣe ìpinnu tó tọ́.",
+            "keywords": ["fees", "gas", "cost", "network fee"]
+          },
+          {
+            "id": "transaction-06",
+            "question": "Kí ni ètò Pàṣípààrọ̀ (Swap) nínú Palma Wallet?",
+            "answer": "Ètò Pàṣípààrọ̀ (Swap) máa ń jẹ́ kí o pàṣípààrọ̀ owó orí ayélujára kan fún èkejì tààrà nínú ohun èlò Palma Wallet. Ó pèsè ọ̀nà tó rọrùn láti ṣe ìyípadà láàárín àwọn dúkìá onínọ́mbà láìlo ibi ìpàṣípààrọ̀ òde. A ó fa ètò yìí gbòòrò síi nínú àwọn àtúnṣe tó ń bọ̀ láti ṣètìlẹ́yìn fún ọ̀pọ̀lọpọ̀ owó àti fún owó tó dára jù.",
+            "keywords": ["swap", "exchange", "convert", "trading"]
+          }
+        ]
+      },
+      {
+        "sectionId": "troubleshooting",
+        "sectionTitle": "Ìṣòro Yíyànjú",
+        "content": [
+          {
+            "id": "trouble-01",
+            "question": "Ìbáraṣepọ̀ mi dúró pẹ́. Kí ni kí n ṣe?",
+            "answer": "Fún àwọn ìbáraṣepọ̀ tó dúró pẹ́: 1) Yẹ ipò nẹ́tiwọ́kì wò - bí nẹ́tiwọ́kì bá kún púpọ̀, ó lè fa ìdíwọ́ fún ìlọ́wọ́sí, 2) Fún àwọn ìbáraṣepọ̀ ERC20, owó gáàsì lè kéré jù ní àkókò tí ọ̀pọ̀ ènìyàn bá ń lò ó, 3) Fìdí rẹ̀ múlẹ̀ pé ìsopọ̀ intanẹ́ẹ̀tì rẹ dúró ṣinṣin, 4) Dúró de ìfìdíhè lórí blockchain - nígbà mìíràn ó máa ń pẹ́ ní àkókò tí nẹ́tiwọ́kì bá dí, 5) Tí ìṣòro náà bá tẹ̀síwájú fún wákàtí díẹ̀, kan sí àtìlẹ́yìn pẹ̀lú àwọn kúlẹ̀kúlẹ̀ ìbáraṣepọ̀ rẹ.",
+            "keywords": ["pending", "stuck", "transaction delay", "not confirmed"]
+          },
+          {
+            "id": "trouble-02",
+            "question": "Mo fi owó ránṣẹ́ sí adírẹ́sì tí kò tọ́. Ṣé mo lè gba owó náà padà?",
+            "answer": "Láìṣe àánú, àwọn ìbáraṣepọ̀ lórí blockchain kò ṣeé yí padà lẹ́yìn ìfìdíhè. Tí o bá fi owó ránṣẹ́ sí adírẹ́sì tí kò tọ́: 1) Tí o bá mọ olùgbà, kan sí wọn tààrà láti béèrè fún ìbáraṣepọ̀ ìdápadà, 2) Tí o bá fi ránṣẹ́ sí ibi ìpàṣípààrọ̀ tàbí iṣẹ́ kan, kan sí àtìlẹ́yìn oníbàárà wọn, 3) Tí o bá fi ránṣẹ́ sí adírẹ́sì lásán, ìgbàpadà kò ṣeé ṣe ní gbogbogbò. Rí i dájú pé o yẹ adírẹ́sì wò lẹ́ẹ̀mejì kí o tó fìdí ìbáraṣepọ̀ múlẹ̀.",
+            "keywords": ["wrong address", "incorrect", "mistake", "recovery"]
+          },
+          {
+            "id": "trouble-03",
+            "question": "Kí nìdí tí n kò fi rí iye owó mi lẹ́yìn gbígba ìbáraṣepọ̀ kan?",
+            "answer": "Tí iye owó rẹ kò bá ń ṣe àtúnṣe: 1) Fìdí rẹ̀ múlẹ̀ pé ìbáraṣepọ̀ náà ti ní ìfìdíhè tó pọ̀ tó lórí blockchain (yẹ ayàwòrán wò), 2) Fìdí rẹ̀ múlẹ̀ pé nẹ́tiwọ́kì tó tọ́ ni ò ń wò (ERC20 tàbí TRC20), 3) Tún ohun èlò náà bẹ̀rẹ̀ láti sọ iye owó rẹ di ọ̀tun, 4) Yẹ ìwò bóyá olùfiránṣẹ́ ti parí ìbáraṣepọ̀ náà ní tiwọn, 5) Tí a bá ti fìdí ìbáraṣepọ̀ náà múlẹ̀ lórí blockchain ṣùgbọ́n kò hàn nínú ohun èlò náà, kan sí àtìlẹ́yìn.",
+            "keywords": ["missing funds", "balance", "not showing", "transaction not appearing"]
+          },
+          {
+            "id": "trouble-04",
+            "question": "Ohun èlò náà máa ń já nígbàtí mo bá gbìyànjú láti fi ìbáraṣepọ̀ ránṣẹ́. Kí ni kí n ṣe?",
+            "answer": "Tí ohun èlò náà bá ń já nígbà ìbáraṣepọ̀: 1) Ṣe àtúnṣe sí ẹ̀yà tuntun ohun èlò náà, 2) Tún ẹ̀rọ rẹ bẹ̀rẹ̀, 3) Yẹ ìsopọ̀ intanẹ́ẹ̀tì rẹ wò, 4) Rí i dájú pé o ní iye owó tó pọ̀ tó (pẹ̀lú fún àwọn owó ìbáraṣepọ̀), 5) Tí ìṣòro náà bá tẹ̀síwájú, gbìyànjú láti tún ohun èlò náà gbé kalẹ̀ (rí i dájú pé o ní ààbò rẹ ní àkọ́kọ́!), 6) Kan sí àtìlẹ́yìn tí kò bá sí ìyànjú kankan lára àwọn wọ̀nyí tó ṣiṣẹ́, pèsè àwọn kúlẹ̀kúlẹ̀ nípa ẹ̀rọ rẹ àti àyíká ìṣẹ̀lẹ̀ ìjà náà.",
+            "keywords": ["crash", "freeze", "error", "not working"]
+          }
+        ]
+      },
+      {
+        "sectionId": "technical-details",
+        "sectionTitle": "Àwọn Kúlẹ̀kúlẹ̀ Onímọ̀-ẹ̀rọ",
+        "content": [
+          {
+            "id": "tech-01",
+            "question": "Àwọn ọ̀nà àṣírí onínọ́mbà wo ni Palma Wallet ń lò?",
+            "answer": "Palma Wallet ń lo ọ̀nà àṣírí RSA nínú ẹ̀yà àkọ́kọ́ rẹ̀, ó sì ń yí padà sí ilé-ìkàwé FIO Protocol nínú àwọn ẹ̀yà tuntun. A ń lo àwọn ọ̀nà àṣírí onínọ́mbà wọ̀nyí fún ṣíṣẹ̀dá àwọn kọ́kọ́rọ́, fífọwọ́sí àwọn ìbáraṣepọ̀, àti fífìdí àwọn ìfọwọ́sí múlẹ̀. Ìmúṣẹ náà pẹ̀lú ṣíṣẹ̀dá kọ́kọ́rọ́ tó tọ́, àwọn ìlànà fífọwọ́sí tó lágbára, àti àwọn ọ̀nà ìfìdíhè tó lágbára láti rí i pé àwọn ìbáraṣepọ̀ wà ní ààbò.",
+            "keywords": ["cryptography", "RSA", "FIO Protocol", "signing"]
+          },
+          {
+            "id": "tech-02",
+            "question": "Báwo ni Palma Wallet ṣe ń fìdí àwọn ìfọwọ́sí ìbáraṣepọ̀ múlẹ̀?",
+            "answer": "Palma Wallet ń fìdí àwọn ìfọwọ́sí múlẹ̀ nípa lílo ọ̀nà àṣírí kọ́kọ́rọ́ gbogbogbò: 1) Nígbàtí a bá ṣẹ̀dá ìbáraṣepọ̀ kan, a máa ń ṣẹ̀dá ìfọwọ́sí onínọ́mbà nípa lílo kọ́kọ́rọ́ àdáni olùfiránṣẹ́, 2) A máa ń fi ìfọwọ́sí náà, pẹ̀lú àwọn ìsọfúnni ìbáraṣepọ̀, ránṣẹ́ sí ìpèsè, 3) Ìpèsè náà máa ń gba kọ́kọ́rọ́ gbogbogbò olùlò láti inú ibi ìpamọ́ dátà, 4) Nípa lílo àwọn ìlànà ìfìdíhè onínọ́mbà, ìpèsè náà máa ń fìdí rẹ̀ múlẹ̀ pé ìfọwọ́sí náà wúlò fún àwọn ìsọfúnni ìbáraṣepọ̀ àti pé ẹni tó ni kọ́kọ́rọ́ àdáni tó bá a mu nìkan ló lè ṣẹ̀dá rẹ̀, láìjẹ́ pé ó nílò ànfàní sí kọ́kọ́rọ́ àdáni fúnra rẹ̀.",
+            "keywords": ["signature verification", "cryptographic verification", "transaction security"]
+          },
+          {
+            "id": "tech-03",
+            "question": "Kí ni ètò amúgbálẹ́gbẹ́ fún Palma Wallet?",
+            "answer": "Palma Wallet ń lo AWS (Amazon Web Services) fún ètò amúgbálẹ́gbẹ́ rẹ̀. A tọ́jú àwọn ìsọfúnni olùlò sínú àwọn tábìlì DynamoDB, pẹ̀lú agbègbè tí a ṣètò sí us-east-1 (Cape Town). Ètò náà pẹ̀lú àwọn èròjà tí kò nílò ìpèsè pẹ̀lú àwọn iṣẹ́ Lambda tí wọ́n ń bójú tó ìlọ́wọ́sí ìbáraṣepọ̀ àti ìṣàkóso ìsọfúnni olùlò. A kò tọ́jú àwọn kọ́kọ́rọ́ àdáni olùlò sára ìpèsè - àwọn kọ́kọ́rọ́ gbogbogbò nìkan ni a tọ́jú láti fìdí àwọn ìfọwọ́sí ìbáraṣepọ̀ múlẹ̀.",
+            "keywords": ["backend", "server", "AWS", "infrastructure", "database"]
+          },
+          {
+            "id": "tech-04",
+            "question": "Báwo ni ṣíṣẹ̀dá kọ́kọ́rọ́ ṣe ń ṣiṣẹ́ ní Palma Wallet?",
+            "answer": "Ṣíṣẹ̀dá kọ́kọ́rọ́ ní Palma Wallet ti yí padà pẹ̀lú àwọn ẹ̀yà ọ̀tọ̀ọ̀tọ̀: 1) Ẹ̀yà àkọ́kọ́ lo ọ̀nà àṣírí RSA pẹ̀lú àwọn ọ̀nà àbùyọ tí RSA kò bá sí, 2) Ẹ̀yà tuntun ń lo FIO Protocol fún ṣíṣẹ̀dá kọ́kọ́rọ́, níbi tí a ti ń ṣẹ̀dá àwọn báìtì lásán gẹ́gẹ́ bí irúgbìn, lẹ́yìn náà a ó ṣe ìlọ́wọ́sí wọn nípasẹ̀ àwọn iṣẹ́ àṣírí onínọ́mbà láti ṣẹ̀dá kọ́kọ́rọ́ àdáni, láti inú èyí tí a ti ń gba kọ́kọ́rọ́ gbogbogbò. Ọ̀nà yìí rí i dájú pé àwọn kọ́kọ́rọ́ tó lágbára, tí kò ṣeé tako, àti tí ó yàtọ̀ sí olúkúlùkù olùlò ni a ṣẹ̀dá.",
+            "keywords": ["key generation", "private key", "public key", "cryptography"]
+          }
+        ]
+      },
+      {
+        "sectionId": "upcoming-features",
+        "sectionTitle": "Àwọn Ètò Tó Ń Bọ̀",
+        "content": [
+          {
+            "id": "upcoming-01",
+            "question": "Àwọn owó orí ayélujára tuntun wo ni a ó fi kún Palma Wallet?",
+            "answer": "Palma Wallet ṣètò láti fa àtìlẹ́yìn gbòòrò síi ju USDT lọ láti fi àwọn owó orí ayélujára pàtàkì bíi Bitcoin (BTC), Ethereum (ETH), àti ọ̀pọ̀lọpọ̀ owó onídúróṣinṣin (stablecoins) (USDC, DAI) kún un. Ètò náà tún pẹ̀lú àtìlẹ́yìn fún àwọn àmì-ìdámọ̀ tó gbajúmọ̀ lórí àwọn nẹ́tiwọ́kì Ethereum àti TRON.",
+            "keywords": ["new currencies", "additional coins", "upcoming tokens", "roadmap"]
+          },
+          {
+            "id": "upcoming-02",
+            "question": "Ǹjẹ́ Palma Wallet yóò ṣètìlẹ́yìn fún àwọn àpamọ́wọ́ oní-ẹ̀rọ (hardware wallets)?",
+            "answer": "Bẹ́ẹ̀ ni, Palma Wallet ń ṣètò láti fi àtìlẹ́yìn fún àwọn àpamọ́wọ́ oní-ẹ̀rọ tó gbajúmọ̀ bíi Ledger àti Trezor kún un nínú àtúnṣe tó ń bọ̀. Èyí yóò jẹ́ kí àwọn olùlò so àwọn àpamọ́wọ́ oní-ẹ̀rọ wọn pọ̀ fún ààbò àfikún nígbàtí wọ́n ṣì ń gbádùn ìwojú tó rọrùn láti lò ti Palma Wallet.",
+            "keywords": ["hardware wallet", "Ledger", "Trezor", "security device"]
+          },
+          {
+            "id": "upcoming-03",
+            "question": "Ṣé ètò kankan wà láti fi àwọn ètò DeFi kún Palma Wallet?",
+            "answer": "Bẹ́ẹ̀ ni, Palma Wallet ní àwọn ètò láti ṣàfihàn àwọn ètò DeFi (Decentralized Finance) nínú àwọn àtúnṣe tó ń bọ̀. Àwọn wọ̀nyí yóò pẹ̀lú dídá owó sí (staking), gbígbìn èlé (yield farming), àti ìsopọ̀ pẹ̀lú àwọn ìlànà DeFi tó gbajúmọ̀, èyí tó máa jẹ́ kí àwọn olùlò máa rí owó èlé lórí àwọn owó crypto wọn tààrà láti inú àpamọ́wọ́.",
+            "keywords": ["DeFi", "staking", "yield", "farming", "interest", "earning"]
+          },
+          {
+            "id": "upcoming-04",
+            "question": "Ǹjẹ́ Palma Wallet yóò ṣètìlẹ́yìn fún àwọn NFT?",
+            "answer": "Bẹ́ẹ̀ ni, àtìlẹ́yìn fún wíwo àti ṣíṣàkóso àwọn NFT (Non-Fungible Tokens) wà lórí ètò Palma Wallet. Ètò yìí yóò jẹ́ kí àwọn olùlò wo àwọn àkójọpọ̀ NFT wọn, gba àwọn NFT, àti nígbẹ̀yìngbẹ́yín, ṣe ìpàṣípààrọ̀ wọn tààrà nínú ohun èlò náà.",
+            "keywords": ["NFT", "non-fungible token", "collectibles", "digital art"]
+          }
+        ]
+      }
+    ],
+    "schema_version": "1.0"
+  }
+  

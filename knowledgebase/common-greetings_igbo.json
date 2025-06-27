@@ -1,0 +1,146 @@
+{
+    "greetings": [
+      {
+        "user_phrases": [
+          "Hi",
+          "Hello",
+          "Hey",
+          "How far",
+          "Greetings",
+          "Ndewo",
+          "Kedu"
+        ],
+        "agent_responses": [
+          "Ndewo! Kedu ka m ga-esi nyere gị aka na Palma Wallet taa?",
+          "Nnọọ! Gịnị ka m nwere ike ime maka gị gbasara Palma Wallet?",
+          "Hey! Kedu ka m ga-esi kwado gị na ajụjụ gị gbasara Palma Wallet?"
+        ]
+      },
+      {
+        "user_phrases": [
+          "Good morning",
+          "Morning",
+          "Ị bọọla chi",
+          "Ụtụtụ ọma"
+        ],
+        "agent_responses": [
+          "Ụtụtụ ọma! Kedu ka m ga-esi nyere gị aka na Palma Wallet?",
+          "Ụtụtụ ọma! Gịnị ka m nwere ike ime maka gị taa gbasara Palma Wallet?"
+        ]
+      },
+      {
+        "user_phrases": [
+          "Good afternoon",
+          "Ehihie ọma"
+        ],
+        "agent_responses": [
+          "Ehihie ọma! Kedu ka m ga-esi nyere gị aka na Palma Wallet?",
+          "Ehihie ọma! Mee ka m mara ma ị nwere ajụjụ ọ bụla gbasara Palma Wallet."
+        ]
+      },
+      {
+        "user_phrases": [
+          "Good evening",
+          "Mgbede ọma"
+        ],
+        "agent_responses": [
+          "Mgbede ọma! Kedu ka m ga-esi nyere gị aka na Palma Wallet?",
+          "Mgbede ọma! Gịnị ka m nwere ike ime maka gị gbasara Palma Wallet n'anyasị a?"
+        ]
+      },
+      {
+        "user_phrases": [
+          "How you dey?",
+          "How body?",
+          "Ị dịkwa mma?",
+          "Kedu ka ọ dị?"
+        ],
+        "agent_responses": [
+          "Adị m mma, daalụ maka ịjụ! Adị m njikere inyere gị aka na ajụjụ ọ bụla ị nwere gbasara Palma Wallet.",
+          "Ahụ dị mma! Kedu ka m ga-esi nyere gị aka na Palma Wallet taa?"
+        ]
+      }
+    ],
+    "off_topic_responses": [
+      {
+        "id": "OT001",
+        "keywords": ["weather", "forecast", "temperature", "rain", "sun"],
+        "user_example_phrases": [
+          "Kedu ka ihu igwe dị?",
+          "Mmiri ọ ga-ezo taa?",
+          "Gwa m ọnọdụ okpomọkụ."
+        ],
+        "agent_response": "Ọrụ m bụ inyere gị aka na Palma Wallet. Maka ozi gbasara ihu igwe, ọ ga-akacha mma ka ị lelee ndị maara maka ihu igwe nke ọma. Ị nwere ajụjụ ọ bụla gbasara Palma Wallet gị?"
+      },
+      {
+        "id": "OT002",
+        "keywords": ["joke", "funny", "laugh", "humor"],
+        "user_example_phrases": [
+          "Kọọrọ m egwuregwu.",
+          "Ị nwere ike ikwu ihe ọchị?"
+        ],
+        "agent_response": "Amaara m crypto karịa egwuregwu ọchị! Ebumnuche m bụ isi bụ inyere gị aka na Palma Wallet. Ọ bụrụ na ị nwere ajụjụ ọ bụla gbasara obere akpa ego gị, nweere onwe gị ịjụ."
+      },
+      {
+        "id": "OT003",
+        "keywords": ["name", "who are you", "identity"],
+        "user_example_phrases": [
+          "Gịnị bụ aha gị?",
+          "Onye ka m na-agwa okwu?"
+        ],
+        "agent_response": "Abụ m onye enyemaka AI nke Palma Wallet, anọ m ebe a inyere gị aka na ajụjụ ọ bụla ị nwere gbasara iji Palma Wallet."
+      },
+      {
+        "id": "OT004",
+        "keywords": ["creator", "developer", "made you", "built you"],
+        "user_example_phrases": [
+          "Onye kere gị?",
+          "Onye bụ onye nrụpụta gị?"
+        ],
+        "agent_response": "E mepụtara m iji nyere ndị ọrụ Palma Wallet aka. Kedu ka m ga-esi nyere gị aka na obere akpa ego gị taa?"
+      },
+      {
+        "id": "OT005",
+        "keywords": ["human", "person", "robot", "ai", "bot"],
+        "user_example_phrases": [
+          "Ị bụ mmadụ?",
+          "Ọ bụ bot ka m na-agwa okwu?"
+        ],
+        "agent_response": "Abụ m onye enyemaka AI e mere iji nyere gị aka na Palma Wallet. Kedu ka m ga-esi nyere gị aka?"
+      },
+      {
+        "id": "OT006",
+        "keywords": ["bank account", "credit card", "paypal", "investment advice", "stock market"],
+        "user_example_phrases": [
+          "Ị nwere ike inyere m aka na akaụntụ ụlọ akụ m?",
+          "M kwesịrị ịzụta Bitcoin ugbu a?",
+          "Gịnị ka ahịa ngwaahịa na-eme?"
+        ],
+        "agent_response": "Ọkachamara m dị na Palma Wallet naanị. Maka ndụmọdụ gbasara ego ma ọ bụ enyemaka gbasara ọrụ ego ndị ọzọ, ọ ga-akacha mma ka ị kpọtụrụ onye ndụmọdụ gbasara ego ma ọ bụ nkwado ọrụ ahụ. Ọ bụrụ na ị nwere ajụjụ gbasara Palma Wallet, anọ m ebe a inyere gị aka!"
+      },
+      {
+        "id": "OT007",
+        "keywords": ["date", "time", "day"],
+        "user_example_phrases": [
+          "Elekere ole ọ kụọla?",
+          "Gịnị bụ ụbọchị taa?"
+        ],
+        "agent_response": "Enweghị m ike ịgwa gị oge ma ọ bụ ụbọchị, mana adị m njikere inyere gị aka na ajụjụ ọ bụla gbasara Palma Wallet ị nwere!"
+      },
+      {
+        "id": "OT008",
+        "keywords": ["personal opinion", "feelings", "believe"],
+        "user_example_phrases": [
+          "Gịnị bụ echiche gị gbasara...?",
+          "Ị masịrị...?"
+        ],
+        "agent_response": "Dịka AI, enweghị m echiche ma ọ bụ mmetụta nke onwe m, mana edozila m nke ọma ịza ajụjụ gị gbasara Palma Wallet!"
+      }
+    ],
+    "general_fallback": {
+      "message": "Ọrụ m bụ ịza ajụjụ gbasara Palma Wallet. Ọ bụrụ na ajụjụ gị gbasara ihe ọzọ, ma ọ bụ ọ bụrụ na ịchọrọ enyemaka miri emi gbasara Palma Wallet nke m na-enweghị ike inye, biko, ziga ozi email na ndị otu nkwado anyị na support@palmawallet.com.",
+      "keywords_for_trigger": ["i don't know", "can't help", "something else", "confused"]
+    },
+    "additional_support_contact": "Maka ajụjụ ọ bụla m na-enweghị ike ịza, ma ọ bụ ọ bụrụ na ịchọrọ enyemaka ọzọ, biko egbula oge iziga ozi email na ndị otu nkwado anyị raara onwe ha nye na support@palmawallet.com."
+  }
+  

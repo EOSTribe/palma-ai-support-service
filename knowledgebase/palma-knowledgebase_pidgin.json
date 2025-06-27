@@ -1,0 +1,242 @@
+{
+    "metadata": {
+      "documentType": "knowledge_base",
+      "documentId": "palma-wallet-kb-001",
+      "version": "1.0.0",
+      "dateCreated": "2025-05-20",
+      "lastUpdated": "2025-05-20",
+      "source": "Palma Wallet Documentation"
+    },
+    "sections": [
+      {
+        "sectionId": "general-information",
+        "sectionTitle": "General Information (Gbogbo Nkan Wey You Suppose Know)",
+        "content": [
+          {
+            "id": "general-01",
+            "question": "Wetin be Palma Wallet?",
+            "answer": "Palma Wallet na cryptocurrency wallet app wey dey let users keep, send, and receive digital money (assets) safe safe. E focus on to give user-friendly interface (wey easy to use) and still maintain strong security for cryptocurrency transactions.",
+            "keywords": ["overview", "introduction", "basics"]
+          },
+          {
+            "id": "general-02",
+            "question": "Which cryptocurrencies Palma Wallet dey support?",
+            "answer": "Palma Wallet for now dey support USDT (Tether) for both ERC20 (Ethereum) and TRC20 (TRON) networks. Support for other cryptocurrencies dey planned for future updates (things wey dem go add later).",
+            "keywords": ["currency", "token", "coin", "cryptocurrency", "support", "USDT", "Tether"]
+          },
+          {
+            "id": "general-03",
+            "question": "Palma Wallet free to use?",
+            "answer": "Palma Wallet free to download and use. Dem no dey charge any fees by the wallet itself for basic things wey you dey do. But, blockchain transaction fees (network fees) dey apply when you dey send cryptocurrencies, and e dey vary (dey different) depending on the network wey you use (ERC20 or TRC20).",
+            "keywords": ["free", "cost", "fees", "pricing"]
+          }
+        ]
+      },
+      {
+        "sectionId": "account-management",
+        "sectionTitle": "Account Management (How You Fit Manage Your Account)",
+        "content": [
+          {
+            "id": "account-01",
+            "question": "How I fit create Palma Wallet account?",
+            "answer": "You fit create Palma Wallet account by signing in with Google, Apple, or phone verification. After authentication (dem confirm say na you), dem go generate secure cryptographic key pair (special code) for your wallet to make sure your transaction dey secure.",
+            "keywords": ["sign up", "register", "create account", "new user"]
+          },
+          {
+            "id": "account-02",
+            "question": "Which authentication methods Palma Wallet dey support?",
+            "answer": "Palma Wallet dey support three authentication methods: Google Sign-In, Apple Sign-In, and phone number verification. Dis ones dey provide secure and easy ways to access your wallet.",
+            "keywords": ["login", "sign in", "authentication", "Google", "Apple", "phone"]
+          },
+          {
+            "id": "account-03",
+            "question": "How Palma Wallet dey make sure say my account dey secure?",
+            "answer": "Palma Wallet dey use several security measures (ways to protect you) like: generating cryptographic key pairs (public and private keys) for each user, keeping private keys safe for inside encrypted storage for your device, using digital signatures to check say transaction na original, and providing backup options for your private keys wey password dey protect.",
+            "keywords": ["security", "protection", "private key", "encryption"]
+          },
+          {
+            "id": "account-04",
+            "question": "Wetin go happen if I lose access to my device (my phone loss)?",
+            "answer": "If you don create backup of your private key for Settings screen, you fit restore your wallet for new device using the backup and your password. Without backup, you fit lose access to your money, so to create secure backup dey very important.",
+            "keywords": ["lost device", "new phone", "recovery", "restore", "backup"]
+          },
+          {
+            "id": "account-05",
+            "question": "How I fit sign out of Palma Wallet?",
+            "answer": "You fit sign out by either tapping the 'Sign Out' button for the header of the Home screen or by going to Settings > Account Actions > Sign Out. When you sign out, your wallet data dey preserved (dem go keep am) locally to maintain access to your private keys and wallet information.",
+            "keywords": ["logout", "sign out", "exit"]
+          }
+        ]
+      },
+      {
+        "sectionId": "wallet-security",
+        "sectionTitle": "Wallet Security (How Your Wallet Take Secure)",
+        "content": [
+          {
+            "id": "security-01",
+            "question": "How dem dey store my private key for Palma Wallet?",
+            "answer": "Dem dey store your private key securely using React Native EncryptedStorage, wey dey use platform-specific encryption methods (Keychain on iOS and Keystore on Android). The private key no dey ever leave your device unencrypted (without security cover).",
+            "keywords": ["private key", "storage", "encryption", "keychain"]
+          },
+          {
+            "id": "security-02",
+            "question": "How I fit back up my wallet?",
+            "answer": "To back up your wallet: 1) Go to Settings, 2) Navigate to the 'Wallet Security' section, 3) Enter strong password (minimum 8 characters), 4) Confirm your password, 5) Tap 'Secure Backup'. Store your backup password safe safe – without am, you no fit restore your wallet.",
+            "keywords": ["backup", "secure backup", "save", "password"]
+          },
+          {
+            "id": "security-03",
+            "question": "Wetin go happen if I forget my backup password?",
+            "answer": "If you forget your backup password, you no go fit restore your wallet from the backup. No password recovery mechanism (way to get password back) for security reasons. Na why e dey crucial (very important) to store your backup password for safe and memorable place.",
+            "keywords": ["forgot password", "password recovery", "reset password"]
+          },
+          {
+            "id": "security-04",
+            "question": "How transaction signing dey work for Palma Wallet?",
+            "answer": "Palma Wallet dey use cryptographic signing for all transactions. When you start transaction, the app dey create digital signature using your private key. Dis signature dey prove say you authorize the transaction without showing your private key. Dem dey verify the signature for blockchain using your public key.",
+            "keywords": ["transaction", "signing", "verification", "cryptography"]
+          },
+          {
+            "id": "security-05",
+            "question": "My data dey synchronized (dey update for all my phone) across devices?",
+            "answer": "Your basic account information dey stored on Palma servers, but your private keys dey remain only on your device for security. If you wan use your wallet on multiple devices, you need to use the backup and restore functionality on each device.",
+            "keywords": ["sync", "multiple devices", "cloud storage"]
+          }
+        ]
+      },
+      {
+        "sectionId": "cryptocurrency-transactions",
+        "sectionTitle": "Cryptocurrency Transactions (How You Dey Do Crypto Transaction)",
+        "content": [
+          {
+            "id": "transaction-01",
+            "question": "How I fit send cryptocurrency with Palma Wallet?",
+            "answer": "To send cryptocurrency: 1) Tap the 'Send' button for Home screen, 2) Enter the recipient wallet address or scan their QR code, 3) Enter the amount wey you wan send, 4) Select the network (ERC20 or TRC20), 5) Review the transaction details including fees, 6) Confirm to send. Dem go process the transaction for blockchain.",
+            "keywords": ["send", "transfer", "payment"]
+          },
+          {
+            "id": "transaction-02",
+            "question": "How I fit receive cryptocurrency with Palma Wallet?",
+            "answer": "To receive cryptocurrency: 1) Tap the 'Receive' button for Home screen, 2) Your wallet address go display with QR code, 3) Share dis address with the sender, 4) Make sure the sender use the correct network (ERC20 or TRC20), 5) Once dem confirm the transaction for blockchain, the money go appear for your wallet.",
+            "keywords": ["receive", "deposit", "address"]
+          },
+          {
+            "id": "transaction-03",
+            "question": "Wetin be the difference between ERC20 and TRC20 networks?",
+            "answer": "ERC20 na the token standard for Ethereum blockchain, while TRC20 na the standard for TRON blockchain. The main differences include: 1) Transaction fees - ERC20 normally get higher fees, 2) Confirmation time - TRC20 usually dey faster, 3) Security aspects - Dem see ERC20 as more established (e don tey). Always make sure say sender and receiver dey use the same network.",
+            "keywords": ["ERC20", "TRC20", "network", "blockchain", "Ethereum", "TRON"]
+          },
+          {
+            "id": "transaction-04",
+            "question": "How long transactions dey take to complete?",
+            "answer": "Transaction times dey vary by network: 1) ERC20 (Ethereum) transactions normally dey take between 30 seconds to several minutes, depending on network congestion (how busy network be) and the gas fee wey dem pay, 2) TRC20 (TRON) transactions usually dey faster, dey take like 15-30 seconds. Dis times na for blockchain confirmations, e no include time wey you need to prepare and sign transactions.",
+            "keywords": ["time", "speed", "confirmation", "processing"]
+          },
+          {
+            "id": "transaction-05",
+            "question": "Wetin be transaction fees and how dem dey work?",
+            "answer": "Transaction fees na payments to blockchain network validators (people wey dey check transaction) wey dey process transactions. 1) For ERC20 (Ethereum), dem dey call fees 'gas fees' and e fit vary well well based on network congestion, 2) For TRC20 (TRON), fees normally dey much lower and more stable. Palma Wallet dey display the expected fee before you confirm transaction, wey go let you make informed decision (know wetin you dey do).",
+            "keywords": ["fees", "gas", "cost", "network fee"]
+          },
+          {
+            "id": "transaction-06",
+            "question": "Wetin be the Swap feature for Palma Wallet?",
+            "answer": "The Swap feature dey allow you exchange one cryptocurrency for another directly inside the Palma Wallet app. E dey provide easy way to convert between digital assets (money) without using external exchange. Dem go expand dis feature for future updates to support more currency pairs and better rates.",
+            "keywords": ["swap", "exchange", "convert", "trading"]
+          }
+        ]
+      },
+      {
+        "sectionId": "troubleshooting",
+        "sectionTitle": "Troubleshooting (How To Solve Problem)",
+        "content": [
+          {
+            "id": "trouble-01",
+            "question": "My transaction dey pending for long time. Wetin I suppose do?",
+            "answer": "For long-pending transactions: 1) Check the network status - high congestion (network busy) fit delay processing, 2) For ERC20 transactions, the gas fee fit be too low during high demand periods (when plenty people dey use am), 3) Verify say your internet connection dey stable, 4) Wait for blockchain confirmation - sometimes e dey take longer during peak periods, 5) If the problem still dey after more than few hours, contact support with your transaction details.",
+            "keywords": ["pending", "stuck", "transaction delay", "not confirmed"]
+          },
+          {
+            "id": "trouble-02",
+            "question": "I send money go wrong address. I fit get am back?",
+            "answer": "Unfortunately, blockchain transactions dey irreversible (you no fit change am) once dem confirm am. If you send money go incorrect address: 1) If you know the person wey receive am, contact dem directly make dem send am back, 2) If you send am to exchange or service, contact their customer support, 3) If you send am to random address, to recover am generally no possible. Always double-check addresses before you confirm transactions.",
+            "keywords": ["wrong address", "incorrect", "mistake", "recovery"]
+          },
+          {
+            "id": "trouble-03",
+            "question": "Why I no fit see my balance after I receive transaction?",
+            "answer": "If your balance no dey update: 1) Confirm say the transaction get enough blockchain confirmations (check the explorer), 2) Verify say na correct network you dey check (ERC20 vs TRC20), 3) Restart the app to refresh your balance, 4) Check if the sender don actually complete the transaction for their end, 5) If dem don confirm the transaction for blockchain but e no dey show for app, contact support.",
+            "keywords": ["missing funds", "balance", "not showing", "transaction not appearing"]
+          },
+          {
+            "id": "trouble-04",
+            "question": "The app dey crash when I try send transaction. Wetin I suppose do?",
+            "answer": "If the app dey crash during transactions: 1) Update to the latest app version, 2) Restart your device, 3) Check your internet connection, 4) Make sure say you get sufficient balance (including for transaction fees), 5) If the problem still dey, try reinstalling the app (make sure say you get your backup first!), 6) Contact support if none of these solutions work, give dem details about your device and wetin happen when e crash.",
+            "keywords": ["crash", "freeze", "error", "not working"]
+          }
+        ]
+      },
+      {
+        "sectionId": "technical-details",
+        "sectionTitle": "Technical Details (Nitty Gritty Of How E Be)",
+        "content": [
+          {
+            "id": "tech-01",
+            "question": "Which cryptographic methods Palma Wallet dey use?",
+            "answer": "Palma Wallet dey use RSA cryptography for im initial version, e con dey transition (dey change) to FIO Protocol library for newer versions. Dem dey use dis cryptographic methods to generate key pairs, sign transactions, and verify signatures. The implementation include proper key generation, secure signing procedures, and strong verification methods to make sure transaction dey secure.",
+            "keywords": ["cryptography", "RSA", "FIO Protocol", "signing"]
+          },
+          {
+            "id": "tech-02",
+            "question": "How Palma Wallet dey verify transaction signatures?",
+            "answer": "Palma Wallet dey verify signatures using public key cryptography: 1) When dem create transaction, dem dey generate digital signature using the sender private key, 2) Dem dey send the signature, with the transaction data, go server, 3) The server go retrieve the user public key from database, 4) Using cryptographic verification algorithms (special maths), the server go confirm say the signature valid for the transaction data and na only person wey get the corresponding private key fit create am, without ever needing to access the private key itself.",
+            "keywords": ["signature verification", "cryptographic verification", "transaction security"]
+          },
+          {
+            "id": "tech-03",
+            "question": "Wetin be the backend infrastructure for Palma Wallet?",
+            "answer": "Palma Wallet dey use AWS (Amazon Web Services) for im backend infrastructure. User data dey stored for DynamoDB tables, with the region set to us-east-1 (Cape Town). The architecture include serverless components with Lambda functions wey dey handle transaction processing and user data management. Dem no dey ever store user private keys for server - na only public keys dem dey store to verify transaction signatures.",
+            "keywords": ["backend", "server", "AWS", "infrastructure", "database"]
+          },
+          {
+            "id": "tech-04",
+            "question": "How key generation dey work for Palma Wallet?",
+            "answer": "Key generation for Palma Wallet don evolve (change) with different versions: 1) Initial version use RSA cryptography with fallback mechanisms (other ways) if RSA no dey available, 2) Latest version dey use FIO Protocol for key generation, where dem dey generate random bytes as seed, then dem go process am through cryptographic functions to create private key, from which dem go derive public key. Dis approach dey make sure say key pairs wey secure, collision-resistant (e no fit clash with another person own), and unique to each user na im dem dey create.",
+            "keywords": ["key generation", "private key", "public key", "cryptography"]
+          }
+        ]
+      },
+      {
+        "sectionId": "upcoming-features",
+        "sectionTitle": "Upcoming Features (Things Wey Still Dey Come)",
+        "content": [
+          {
+            "id": "upcoming-01",
+            "question": "Which new cryptocurrencies dem go add to Palma Wallet?",
+            "answer": "Palma Wallet dey plan to expand support pass USDT to include major cryptocurrencies like Bitcoin (BTC), Ethereum (ETH), and different stablecoins (USDC, DAI). The roadmap (plan) also include support for popular tokens for both Ethereum and TRON networks.",
+            "keywords": ["new currencies", "additional coins", "upcoming tokens", "roadmap"]
+          },
+          {
+            "id": "upcoming-02",
+            "question": "Palma Wallet go support hardware wallets?",
+            "answer": "Yes, Palma Wallet dey plan to add support for popular hardware wallets like Ledger and Trezor for future update. Dis go allow users connect their hardware wallets for additional security while dem still dey enjoy the user-friendly interface of Palma Wallet.",
+            "keywords": ["hardware wallet", "Ledger", "Trezor", "security device"]
+          },
+          {
+            "id": "upcoming-03",
+            "question": "Plan dey to add DeFi features to Palma Wallet?",
+            "answer": "Yes, Palma Wallet get plans to introduce DeFi (Decentralized Finance) features for future updates. Dis ones go include staking, yield farming, and integration with popular DeFi protocols, wey go allow users earn passive income (money wey dey enter steady) on their crypto holdings directly from the wallet.",
+            "keywords": ["DeFi", "staking", "yield", "farming", "interest", "earning"]
+          },
+          {
+            "id": "upcoming-04",
+            "question": "Palma Wallet go support NFTs?",
+            "answer": "Yes, support for viewing and managing NFTs (Non-Fungible Tokens) dey on the Palma Wallet roadmap. Dis feature go allow users view their NFT collections, receive NFTs, and eventually trade them directly inside the app.",
+            "keywords": ["NFT", "non-fungible token", "collectibles", "digital art"]
+          }
+        ]
+      }
+    ],
+    "schema_version": "1.0"
+  }
+  
