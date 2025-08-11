@@ -5,6 +5,7 @@ import numpy as np
 from datetime import datetime
 import uuid
 import logging
+import re
 
 # Configure logging
 logger = logging.getLogger()
@@ -116,9 +117,19 @@ def get_embeddings(text):
         logger.warning("Falling back to simple embedding method")
         return create_simple_embedding(text)
 
-def chunk_document(content):
+def chunk_document(content, document_key=''):
     """Split document into smaller chunks for processing."""
     chunks = []
+    
+    # Extract language code from document key (e.g., "raw-documents/palma-knowledgebase_es.json" -> "es")
+    language_code = 'en'  # default
+    if document_key:
+        import re
+        match = re.search(r'_([a-z]{2,3})\.json$', document_key)
+        if match:
+            language_code = match.group(1)
+    
+    logger.info(f"Processing document with language code: {language_code}")
     
     # Check if the content follows the expected structure
     if 'sections' not in content:
@@ -135,9 +146,10 @@ def chunk_document(content):
             # Combine question and answer with section context
             text = f"Section: {section_title}\nQuestion: {item.get('question', '')}\nAnswer: {item.get('answer', '')}"
             
-            # Add metadata to each chunk
+            # Add metadata to each chunk WITH LANGUAGE PREFIX IN ID
+            original_id = item.get('id', str(uuid.uuid4()))
             chunk = {
-                "chunk_id": item.get('id', str(uuid.uuid4())),
+                "chunk_id": f"{language_code}_{original_id}",  # Add language prefix to prevent overwrites
                 "text": text,
                 "section_id": section_id,
                 "section_title": section_title,
@@ -145,11 +157,12 @@ def chunk_document(content):
                 "answer": item.get('answer', ''),
                 "keywords": item.get('keywords', []),
                 "source_document": content.get('metadata', {}).get('documentId', 'unknown'),
-                "document_title": content.get('metadata', {}).get('source', 'Palma Wallet Knowledge Base')
+                "document_title": content.get('metadata', {}).get('source', 'Palma Wallet Knowledge Base'),
+                "language": language_code  # Add language field for filtering
             }
             chunks.append(chunk)
     
-    logger.info(f"Document split into {len(chunks)} chunks")
+    logger.info(f"Document split into {len(chunks)} chunks for language: {language_code}")
     return chunks
 
 def update_faq_table(chunks):
@@ -213,8 +226,8 @@ def process_document(event, context):
         response = s3.get_object(Bucket=bucket, Key=key)
         document_content = json.loads(response['Body'].read().decode('utf-8'))
         
-        # Process the document into chunks
-        chunks = chunk_document(document_content)
+        # Process the document into chunks - PASS THE KEY TO EXTRACT LANGUAGE
+        chunks = chunk_document(document_content, key)
         
         if not chunks:
             logger.warning(f"No chunks were created from document: {key}")
@@ -231,13 +244,18 @@ def process_document(event, context):
             f"processed-{file_basename}-{timestamp}.json"
         )
         
-        s3.put_object(
-            Body=json.dumps(chunks, indent=2),
+        # FIX: Convert to bytes and ensure content is saved
+        processed_content = json.dumps(chunks, indent=2)
+        logger.info(f"Saving {len(processed_content)} bytes to {processed_key}")
+        
+        s3_response = s3.put_object(
+            Body=processed_content.encode('utf-8'),  # Ensure it's bytes
             Bucket=bucket,
             Key=processed_key,
             ContentType='application/json'
         )
         
+        logger.info(f"S3 put_object response: {s3_response['ResponseMetadata']['HTTPStatusCode']}")
         logger.info(f"Saved processed chunks to {processed_key}")
         
         # Create embeddings for each chunk and store in S3
@@ -264,13 +282,18 @@ def process_document(event, context):
             f"embeddings-{file_basename}-{timestamp}.json"
         )
         
-        s3.put_object(
-            Body=json.dumps(all_embeddings, indent=2),
+        # FIX: Convert to bytes and ensure content is saved
+        embeddings_content = json.dumps(all_embeddings, indent=2)
+        logger.info(f"Saving {len(embeddings_content)} bytes to {embeddings_key}")
+        
+        s3_response = s3.put_object(
+            Body=embeddings_content.encode('utf-8'),  # Ensure it's bytes
             Bucket=bucket,
             Key=embeddings_key,
             ContentType='application/json'
         )
         
+        logger.info(f"S3 put_object response: {s3_response['ResponseMetadata']['HTTPStatusCode']}")
         logger.info(f"Saved embeddings to {embeddings_key}")
         
         # Update the FAQ table for direct matching

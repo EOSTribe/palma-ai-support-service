@@ -135,162 +135,136 @@ def cosine_similarity(vec_a, vec_b):
         
     return dot_product / (norm_a * norm_b)
 
+
+def detect_language(query):
+    """
+    Detect the language of the query.
+    KEEPING THIS FOR FUTURE USE - currently returns 'en' always.
+    """
+    # For now, always return English
+    # Keep the detection logic commented for future use
+    
+    """
+    # Future use - uncomment when ready to support multiple languages
+    query_lower = query.lower()
+    
+    # Check for unique character sets first (most reliable)
+    if any(char in query for char in 'абвгдежзийклмнопрстуфхцчшщъыьэюя'):
+        return 'ru'
+    
+    # Check for specific language markers...
+    # ... rest of language detection logic ...
+    """
+    
+    logger.info(f"Language detection disabled - defaulting to English")
+    return 'en'
+
 def search_faq_table(query):
-    """Search for exact matches in the FAQ DynamoDB table."""
+    """Search for matches in the FAQ DynamoDB table - English only."""
     try:
         table = dynamodb.Table(FAQ_TABLE)
         
-        # Try to find an exact match first (case-insensitive)
+        # Always use English
+        detected_language = 'en'
+        logger.info(f"Searching English FAQs for query: '{query[:50]}...'")
+        
+        # Prepare query for matching
         query_lower = query.lower()
         
-        # Extract key action words from the query
-        action_words = ['send', 'receive', 'buy', 'sell', 'swap', 'backup', 'restore', 'create', 'secure', 'transfer', 'exchange', 'convert']
-        query_actions = [word for word in action_words if word in query_lower]
+        # Scan with filter for English entries only
+        filter_expression = "begins_with(id, :lang_prefix)"
+        expression_values = {":lang_prefix": "en_"}
         
-        # Extract key topic words
-        topic_words = ['cryptocurrency', 'crypto', 'wallet', 'fee', 'security', 'private key', 'transaction', 'usdt', 'usdc', 'network']
-        query_topics = [word for word in topic_words if word in query_lower]
+        response = table.scan(
+            FilterExpression=filter_expression,
+            ExpressionAttributeValues=expression_values
+        )
         
-        # Scan for matching question (simple approach - could use GSI for better performance)
-        response = table.scan()
+        items = response.get('Items', [])
+        
+        # Handle pagination
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(
+                FilterExpression=filter_expression,
+                ExpressionAttributeValues=expression_values,
+                ExclusiveStartKey=response['LastEvaluatedKey']
+            )
+            items.extend(response.get('Items', []))
+        
+        logger.info(f"Found {len(items)} English FAQ items")
+        
+        if not items:
+            logger.warning(f"No English FAQ items found")
+            return []
         
         exact_matches = []
-        partial_matches = []
-        keyword_matches = []
+        high_matches = []
+        medium_matches = []
         
-        for item in response.get('Items', []):
+        for item in items:
             question = item.get('question', '').lower()
-            keywords = [k.lower() for k in item.get('keywords', [])]
+            answer = item.get('answer', '').lower()
             
             # Calculate match score
-            match_score = 0
-            match_type = None
+            score = 0
             
-            # Check for exact question match
+            # Exact match
             if query_lower == question:
                 exact_matches.append(item)
                 continue
             
-            # Check if the core intent matches
-            # For "How do I send cryptocurrency", we want to match questions about sending
-            if query_actions:
-                for action in query_actions:
-                    if action in question:
-                        match_score += 3  # High score for action match
-                        match_type = 'action_match'
+            # Query is substring of question or vice versa
+            if query_lower in question:
+                score += 10
+            elif question in query_lower:
+                score += 8
             
-            # Check if significant portion of words match
+            # Check important words overlap
             query_words = set(query_lower.split())
             question_words = set(question.split())
-            common_words = query_words.intersection(question_words)
             
-            # Remove common words that don't add meaning
-            stop_words = {'i', 'do', 'how', 'what', 'the', 'a', 'an', 'is', 'are', 'with', 'wallet', 'palma'}
-            meaningful_common = common_words - stop_words
+            # Remove English stop words
+            stop_words = {'what', 'which', 'does', 'do', 'the', 'a', 'an', 'is', 'are', 
+                         'it', 'how', 'can', 'i', 'my', 'to', 'with', 'for', 'of', 
+                         'in', 'on', 'at', 'from', 'by', 'about', 'palma', 'wallet'}
             
-            if len(meaningful_common) >= 2:  # At least 2 meaningful words match
-                match_score += len(meaningful_common)
-                if match_type is None:
-                    match_type = 'word_match'
+            meaningful_query_words = query_words - stop_words
+            meaningful_question_words = question_words - stop_words
             
-            # Check keywords but with lower priority
-            keyword_match_count = 0
-            for keyword in keywords:
-                if keyword in query_lower and keyword not in stop_words:
-                    keyword_match_count += 1
+            common_words = meaningful_query_words.intersection(meaningful_question_words)
+            if common_words:
+                score += len(common_words) * 2
             
-            if keyword_match_count > 0 and match_score == 0:
-                match_score += keyword_match_count * 0.5  # Lower score for keyword-only matches
-                match_type = 'keyword_only'
+            # Check if key terms match
+            key_terms = ['cryptocurrency', 'cryptocurrencies', 'crypto', 'support', 'accept',
+                        'send', 'receive', 'transfer', 'fee', 'fees', 'security', 'backup',
+                        'restore', 'create', 'usdt', 'usdc', 'bitcoin', 'ethereum']
             
-            # Add to appropriate list based on score
-            if match_score >= 3:
-                partial_matches.append({
-                    'item': item,
-                    'score': match_score,
-                    'type': match_type
-                })
-            elif match_score > 0 and match_type == 'keyword_only':
-                keyword_matches.append({
-                    'item': item,
-                    'score': match_score,
-                    'type': match_type
-                })
+            for term in key_terms:
+                if term in query_lower and term in question:
+                    score += 3
+            
+            if score >= 8:
+                high_matches.append((item, score))
+            elif score >= 4:
+                medium_matches.append((item, score))
         
-        # Handle pagination
-        while 'LastEvaluatedKey' in response:
-            response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
-            
-            for item in response.get('Items', []):
-                question = item.get('question', '').lower()
-                keywords = [k.lower() for k in item.get('keywords', [])]
-                
-                # Same matching logic as above
-                match_score = 0
-                match_type = None
-                
-                if query_lower == question:
-                    exact_matches.append(item)
-                    continue
-                
-                if query_actions:
-                    for action in query_actions:
-                        if action in question:
-                            match_score += 3
-                            match_type = 'action_match'
-                
-                query_words = set(query_lower.split())
-                question_words = set(question.split())
-                common_words = query_words.intersection(question_words)
-                stop_words = {'i', 'do', 'how', 'what', 'the', 'a', 'an', 'is', 'are', 'with', 'wallet', 'palma'}
-                meaningful_common = common_words - stop_words
-                
-                if len(meaningful_common) >= 2:
-                    match_score += len(meaningful_common)
-                    if match_type is None:
-                        match_type = 'word_match'
-                
-                keyword_match_count = 0
-                for keyword in keywords:
-                    if keyword in query_lower and keyword not in stop_words:
-                        keyword_match_count += 1
-                
-                if keyword_match_count > 0 and match_score == 0:
-                    match_score += keyword_match_count * 0.5
-                    match_type = 'keyword_only'
-                
-                if match_score >= 3:
-                    partial_matches.append({
-                        'item': item,
-                        'score': match_score,
-                        'type': match_type
-                    })
-                elif match_score > 0 and match_type == 'keyword_only':
-                    keyword_matches.append({
-                        'item': item,
-                        'score': match_score,
-                        'type': match_type
-                    })
-        
-        # Return matches in order of preference
+        # Return best matches
         if exact_matches:
-            logger.info(f"Found {len(exact_matches)} exact matches in FAQ table")
-            return exact_matches
+            logger.info(f"Returning {len(exact_matches)} exact matches")
+            return exact_matches[:3]
         
-        if partial_matches:
-            # Sort by score
-            partial_matches.sort(key=lambda x: x['score'], reverse=True)
-            logger.info(f"Found {len(partial_matches)} partial matches in FAQ table")
-            return [match['item'] for match in partial_matches]
+        if high_matches:
+            high_matches.sort(key=lambda x: x[1], reverse=True)
+            logger.info(f"Returning {len(high_matches)} high-score matches")
+            return [match[0] for match in high_matches[:3]]
         
-        if keyword_matches:
-            # Only return keyword matches if we have no better matches
-            keyword_matches.sort(key=lambda x: x['score'], reverse=True)
-            logger.info(f"Found {len(keyword_matches)} keyword-only matches in FAQ table")
-            # Only return the best keyword match to avoid irrelevant results
-            return [keyword_matches[0]['item']] if keyword_matches else []
+        if medium_matches:
+            medium_matches.sort(key=lambda x: x[1], reverse=True)
+            logger.info(f"Returning {len(medium_matches)} medium-score matches")
+            return [match[0] for match in medium_matches[:1]]
         
-        logger.info("No matches found in FAQ table")
+        logger.info("No matches found")
         return []
         
     except Exception as e:
@@ -404,53 +378,43 @@ def search_embeddings_s3(query, query_embedding):
         logger.error(f"Error searching embeddings in S3: {str(e)}")
         return []
 
+
 def generate_ai_response(query, context_items):
-    """Generate an AI response using Bedrock Claude."""
+    """Generate an AI response using Bedrock Claude - English only."""
     try:
+        # Always use English
+        system_prompt = "You are a helpful assistant for Palma Wallet. Answer the following question based on the provided context. If the context doesn't contain relevant information, provide a general helpful response about Palma Wallet features."
+        
         # Extract relevant context from the retrieved items
         context = ""
         for item in context_items:
             context_item = item.get('item', {})
-            context += f"Section: {context_item.get('section_title', '')}\n"
-            context += f"Question: {context_item.get('question', '')}\n"
-            context += f"Answer: {context_item.get('answer', '')}\n\n"
+            # Only include English content
+            item_id = context_item.get('id', '')
+            if item_id.startswith('en_'):
+                context += f"Question: {context_item.get('question', '')}\n"
+                context += f"Answer: {context_item.get('answer', '')}\n\n"
         
-        # Prepare the Claude message format with language instruction
+        # If no context found
+        if not context:
+            logger.info(f"No English context found, using default response")
+            return "I don't have specific information about that in my knowledge base. I can help with questions about sending/receiving cryptocurrency, wallet security, transaction fees, and general Palma Wallet features. Would you like to know more about any of these topics?"
+        
+        # Prepare the Claude message format
         messages = [
             {
                 "role": "user",
                 "content": [
                     {
                         "type": "text",
-                        "text": f"""
-                        <context>
-                        {context}
-                        </context>
-                        
-                        The above context contains information about Palma Wallet, a cryptocurrency wallet application.
-                        Based ONLY on this context, please answer the following user question:
-                        
-                        User Question: {query}
-                        
-                        CRITICAL INSTRUCTION: You MUST respond in the EXACT SAME LANGUAGE as the user's question above. 
-                        - If the user asks in English, respond in English.
-                        - If the user asks in Spanish, respond in Spanish.
-                        - If the user asks in any other language, respond in that same language.
-                        - Even if the context contains information in multiple languages, your response must be in the language of the user's question.
-                        
-                        If the context doesn't contain the information needed to answer the question confidently, 
-                        acknowledge that and suggest what the user might want to know instead (in the same language as their question).
-                        
-                        Respond in a friendly, helpful tone as a customer support agent for Palma Wallet.
-                        Keep your response concise but thorough.
-                        
-                        Rules:
-                        1. Never mention that you're an AI or that you're using context to answer.
-                        2. Don't apologize excessively.
-                        3. Use a conversational tone that's professional but friendly.
-                        4. Format your response for readability with appropriate spacing.
-                        5. ALWAYS respond in the same language as the user's question, regardless of the language of the context.
-                        """
+                        "text": f"""{system_prompt}
+
+Context:
+{context}
+
+User Question: {query}
+
+Please provide a clear and helpful response in English."""
                     }
                 ]
             }
@@ -462,7 +426,7 @@ def generate_ai_response(query, context_items):
             body=json.dumps({
                 "anthropic_version": "bedrock-2023-05-31",
                 "max_tokens": 500,
-                "temperature": 0.2,
+                "temperature": 0.3,
                 "top_p": 0.9,
                 "messages": messages
             })
@@ -478,7 +442,7 @@ def generate_ai_response(query, context_items):
     
     except Exception as e:
         logger.error(f"Error generating AI response: {str(e)}")
-        return "I'm sorry, I encountered an error while processing your question. Please try asking again or contact our support team for assistance."
+        return "I apologize, but I'm having trouble processing your request. Please try again or contact support."
 
 
 def log_query(query, response, found_items, user_id=None, session_id=None, feedback=None):
@@ -586,9 +550,7 @@ def check_or_create_table(table_name):
         return False
 
 def query_knowledge_base(event, context):
-    """
-    Main Lambda handler to process incoming query requests.
-    """
+    """Main Lambda handler to process incoming query requests - English only."""
     try:
         # First ensure the tables exist
         check_or_create_table(FAQ_TABLE)
@@ -621,18 +583,12 @@ def query_knowledge_base(event, context):
         
         # If we found exact matches, return them directly
         if faq_matches:
-            # Format the response
-            response_text = ""
-            for match in faq_matches[:MAX_RESULTS]:
-                # Instead of showing as Q&A format, generate a more natural response
-                response_text = match.get('answer', '')
-                # If multiple matches, we just take the first one for now
-                break
+            # Use the first match
+            match = faq_matches[0]
+            response_text = match.get('answer', '')
             
-            # Log the query
-            query_id = log_query(query, response_text, 
-                     [{'item': {'chunk_id': m.get('id')}, 'similarity': 1.0} for m in faq_matches], 
-                     user_id, session_id)
+            # Log the query (no query_id for direct FAQ matches)
+            logger.info(f"Returning FAQ match: {match.get('id')}")
             
             return {
                 'statusCode': 200,
@@ -643,14 +599,17 @@ def query_knowledge_base(event, context):
                 'body': json.dumps({
                     'response': response_text,
                     'source': 'faq_direct_match',
-                    'query_id': query_id
+                    'query_id': None
                 })
             }
+        
+        # No FAQ match found - generate embedding and search
+        logger.info("No FAQ match found, trying semantic search")
         
         # Generate embeddings for the query
         query_embedding = get_embeddings(query)
         
-        # First try semantic search in the FAQ table
+        # Try semantic search in the FAQ table
         search_results = semantic_search_faq_table(query_embedding)
         
         # If no results in FAQ table, try search in S3 embeddings
@@ -659,12 +618,7 @@ def query_knowledge_base(event, context):
         
         # If we don't find any relevant content
         if not search_results:
-            default_response = (
-                "I don't have specific information about that in my knowledge base. "
-                "I can help with questions about sending/receiving cryptocurrency, "
-                "wallet security, transaction fees, and general Palma Wallet features. "
-                "Would you like to know more about any of these topics?"
-            )
+            default_response = "I don't have specific information about that in my knowledge base. I can help with questions about sending/receiving cryptocurrency, wallet security, transaction fees, and general Palma Wallet features. Would you like to know more about any of these topics?"
             
             # Log the query
             query_id = log_query(query, default_response, [], user_id, session_id)
@@ -715,6 +669,7 @@ def query_knowledge_base(event, context):
                 'error': f'Error processing your query: {str(e)}'
             })
         }
+
 
 def process_feedback(event, context):
     """

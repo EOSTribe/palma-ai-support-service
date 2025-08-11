@@ -125,6 +125,8 @@ Resources:
       CodeUri: ./lambda/query_processor/
       Handler: app.query_knowledge_base
       Runtime: python3.9
+      MemorySize: 1024  
+      Timeout: 30  
       Policies:
         - S3ReadPolicy:
             BucketName: !Ref KnowledgeBaseBucket
