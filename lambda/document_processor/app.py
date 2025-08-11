@@ -5,6 +5,7 @@ import numpy as np
 from datetime import datetime
 import uuid
 import logging
+from decimal import Decimal
 
 # Configure logging
 logger = logging.getLogger()
@@ -23,37 +24,26 @@ BUCKET_NAME = os.environ.get('KNOWLEDGE_BASE_BUCKET', 'palma-wallet-knowledge-ba
 RAW_PREFIX = os.environ.get('RAW_DOCUMENT_PREFIX', 'raw-documents/')
 PROCESSED_PREFIX = os.environ.get('PROCESSED_DOCUMENT_PREFIX', 'processed-documents/')
 EMBEDDINGS_PREFIX = os.environ.get('EMBEDDING_PREFIX', 'embeddings/')
-FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq')
+FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq-new')
 
 # Constants
 CHUNK_SIZE = 1000  # Characters per chunk
 CHUNK_OVERLAP = 200  # Overlap between chunks
-MODEL_ID = 'anthropic.claude-3-sonnet-20240229-v1:0'  # Use the granted model
+# Use Amazon Titan Embeddings model instead
+EMBEDDING_MODEL_ID = 'amazon.titan-embed-text-v1'
 
-def get_embedding_anthropic(text):
-    """Generate embeddings using Anthropic Claude model."""
+def get_embedding_bedrock(text):
+    """Generate embeddings using Amazon Titan Embeddings model."""
     try:
-        # Correct format for Claude 3 Sonnet
+        # Format for Titan Embeddings
         payload = {
-            "anthropic_version": "bedrock-2023-05-31",
-            "max_tokens": 1,  # Minimal tokens since we only want embeddings
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": text
-                        }
-                    ]
-                }
-            ],
-            "embedding": True  # Request embeddings
+            "inputText": text[:8192]  # Titan has 8K token limit
         }
         
         response = bedrock_runtime.invoke_model(
-            modelId=MODEL_ID,
-            body=json.dumps(payload)
+            modelId=EMBEDDING_MODEL_ID,
+            body=json.dumps(payload),
+            contentType='application/json'
         )
         
         response_body = json.loads(response['body'].read())
@@ -66,7 +56,7 @@ def get_embedding_anthropic(text):
             raise ValueError("No embedding in response")
             
     except Exception as e:
-        logger.error(f"Error generating embeddings: {str(e)}")
+        logger.error(f"Error generating embeddings with Bedrock: {str(e)}")
         raise
 
 def create_simple_embedding(text, dimension=1536):
@@ -110,11 +100,22 @@ def create_simple_embedding(text, dimension=1536):
 def get_embeddings(text):
     """Generate embeddings with fallback to simple embedding if needed."""
     try:
-        return get_embedding_anthropic(text)
+        return get_embedding_bedrock(text)
     except Exception as e:
         logger.warning(f"Error generating embeddings with Bedrock: {str(e)}")
         logger.warning("Falling back to simple embedding method")
         return create_simple_embedding(text)
+
+def convert_floats_to_decimals(obj):
+    """Convert all float values in a nested structure to Decimal for DynamoDB."""
+    if isinstance(obj, list):
+        return [convert_floats_to_decimals(item) for item in obj]
+    elif isinstance(obj, dict):
+        return {key: convert_floats_to_decimals(value) for key, value in obj.items()}
+    elif isinstance(obj, float):
+        return Decimal(str(obj))
+    else:
+        return obj
 
 def chunk_document(content):
     """Split document into smaller chunks for processing."""
@@ -155,7 +156,11 @@ def chunk_document(content):
 def update_faq_table(chunks):
     """Update the FAQ DynamoDB table with the processed chunks."""
     try:
-        faq_table = dynamodb.Table(FAQ_TABLE)
+        # Check that the table name uses the environment variable
+        table_name = os.environ.get('FAQ_TABLE', 'palma-wallet-faq-new')
+        logger.info(f"FAQ table {table_name} exists")
+        
+        faq_table = dynamodb.Table(table_name)
         items_added = 0
         
         for chunk in chunks:
@@ -170,9 +175,12 @@ def update_faq_table(chunks):
                 'updated_at': datetime.now().isoformat()
             }
             
-            # If the chunk has an embedding, store it in the faq item
+            # If the chunk has an embedding, convert floats to Decimals and store it
             if 'embedding' in chunk:
-                faq_item['embedding'] = chunk['embedding']
+                faq_item['embedding'] = convert_floats_to_decimals(chunk['embedding'])
+            
+            # Convert the entire item to handle any other float values
+            faq_item = convert_floats_to_decimals(faq_item)
             
             faq_table.put_item(Item=faq_item)
             items_added += 1
@@ -231,13 +239,18 @@ def process_document(event, context):
             f"processed-{file_basename}-{timestamp}.json"
         )
         
-        s3.put_object(
-            Body=json.dumps(chunks, indent=2),
+        # FIX: Convert to bytes and ensure content is saved
+        processed_content = json.dumps(chunks, indent=2)
+        logger.info(f"Saving {len(processed_content)} bytes to {processed_key}")
+        
+        s3_response = s3.put_object(
+            Body=processed_content.encode('utf-8'),  # Ensure it's bytes
             Bucket=bucket,
             Key=processed_key,
             ContentType='application/json'
         )
         
+        logger.info(f"S3 put_object response: {s3_response['ResponseMetadata']['HTTPStatusCode']}")
         logger.info(f"Saved processed chunks to {processed_key}")
         
         # Create embeddings for each chunk and store in S3
@@ -264,13 +277,18 @@ def process_document(event, context):
             f"embeddings-{file_basename}-{timestamp}.json"
         )
         
-        s3.put_object(
-            Body=json.dumps(all_embeddings, indent=2),
+        # FIX: Convert to bytes and ensure content is saved
+        embeddings_content = json.dumps(all_embeddings, indent=2)
+        logger.info(f"Saving {len(embeddings_content)} bytes to {embeddings_key}")
+        
+        s3_response = s3.put_object(
+            Body=embeddings_content.encode('utf-8'),  # Ensure it's bytes
             Bucket=bucket,
             Key=embeddings_key,
             ContentType='application/json'
         )
         
+        logger.info(f"S3 put_object response: {s3_response['ResponseMetadata']['HTTPStatusCode']}")
         logger.info(f"Saved embeddings to {embeddings_key}")
         
         # Update the FAQ table for direct matching

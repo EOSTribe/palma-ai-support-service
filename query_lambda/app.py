@@ -22,8 +22,8 @@ bedrock_runtime = boto3.client(
 # Get environment variables
 BUCKET_NAME = os.environ.get('KNOWLEDGE_BASE_BUCKET', 'palma-wallet-knowledge-base')
 EMBEDDINGS_PREFIX = os.environ.get('EMBEDDING_PREFIX', 'embeddings/')
-FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq')
-QUERY_LOG_TABLE = os.environ.get('QUERY_LOG_TABLE', 'palma-wallet-query-logs')
+FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq-new')
+QUERY_LOG_TABLE = os.environ.get('QUERY_LOG_TABLE', 'palma-wallet-query-logs-new')
 SIMILARITY_THRESHOLD = float(os.environ.get('SIMILARITY_THRESHOLD', '0.6'))
 MAX_RESULTS = int(os.environ.get('MAX_RESULTS', '3'))
 MODEL_ID = 'anthropic.claude-3-sonnet-20240229-v1:0'  # Use the granted model
@@ -203,24 +203,79 @@ def search_faq_table(query):
         # Try to find an exact match first (case-insensitive)
         query_lower = query.lower()
         
+        # Extract key action words from the query
+        action_words = ['send', 'receive', 'buy', 'sell', 'swap', 'backup', 'restore', 'create', 'secure', 'transfer', 'exchange', 'convert']
+        query_actions = [word for word in action_words if word in query_lower]
+        
+        # Extract key topic words
+        topic_words = ['cryptocurrency', 'crypto', 'wallet', 'fee', 'security', 'private key', 'transaction', 'usdt', 'usdc', 'network']
+        query_topics = [word for word in topic_words if word in query_lower]
+        
         # Scan for matching question (simple approach - could use GSI for better performance)
         response = table.scan()
         
-        matches = []
+        exact_matches = []
+        partial_matches = []
+        keyword_matches = []
+        
         for item in response.get('Items', []):
             question = item.get('question', '').lower()
             keywords = [k.lower() for k in item.get('keywords', [])]
             
-            # Check for exact match or if query is contained in question or keywords
-            if query_lower == question or query_lower in question:
-                matches.append(item)
+            # Calculate match score
+            match_score = 0
+            match_type = None
+            
+            # Check for exact question match
+            if query_lower == question:
+                exact_matches.append(item)
                 continue
-                
-            # Check keywords
+            
+            # Check if the core intent matches
+            # For "How do I send cryptocurrency", we want to match questions about sending
+            if query_actions:
+                for action in query_actions:
+                    if action in question:
+                        match_score += 3  # High score for action match
+                        match_type = 'action_match'
+            
+            # Check if significant portion of words match
+            query_words = set(query_lower.split())
+            question_words = set(question.split())
+            common_words = query_words.intersection(question_words)
+            
+            # Remove common words that don't add meaning
+            stop_words = {'i', 'do', 'how', 'what', 'the', 'a', 'an', 'is', 'are', 'with', 'wallet', 'palma'}
+            meaningful_common = common_words - stop_words
+            
+            if len(meaningful_common) >= 2:  # At least 2 meaningful words match
+                match_score += len(meaningful_common)
+                if match_type is None:
+                    match_type = 'word_match'
+            
+            # Check keywords but with lower priority
+            keyword_match_count = 0
             for keyword in keywords:
-                if keyword in query_lower:
-                    matches.append(item)
-                    break
+                if keyword in query_lower and keyword not in stop_words:
+                    keyword_match_count += 1
+            
+            if keyword_match_count > 0 and match_score == 0:
+                match_score += keyword_match_count * 0.5  # Lower score for keyword-only matches
+                match_type = 'keyword_only'
+            
+            # Add to appropriate list based on score
+            if match_score >= 3:
+                partial_matches.append({
+                    'item': item,
+                    'score': match_score,
+                    'type': match_type
+                })
+            elif match_score > 0 and match_type == 'keyword_only':
+                keyword_matches.append({
+                    'item': item,
+                    'score': match_score,
+                    'type': match_type
+                })
         
         # Handle pagination
         while 'LastEvaluatedKey' in response:
@@ -230,17 +285,73 @@ def search_faq_table(query):
                 question = item.get('question', '').lower()
                 keywords = [k.lower() for k in item.get('keywords', [])]
                 
-                if query_lower == question or query_lower in question:
-                    matches.append(item)
+                # Same matching logic as above
+                match_score = 0
+                match_type = None
+                
+                if query_lower == question:
+                    exact_matches.append(item)
                     continue
-                    
+                
+                if query_actions:
+                    for action in query_actions:
+                        if action in question:
+                            match_score += 3
+                            match_type = 'action_match'
+                
+                query_words = set(query_lower.split())
+                question_words = set(question.split())
+                common_words = query_words.intersection(question_words)
+                stop_words = {'i', 'do', 'how', 'what', 'the', 'a', 'an', 'is', 'are', 'with', 'wallet', 'palma'}
+                meaningful_common = common_words - stop_words
+                
+                if len(meaningful_common) >= 2:
+                    match_score += len(meaningful_common)
+                    if match_type is None:
+                        match_type = 'word_match'
+                
+                keyword_match_count = 0
                 for keyword in keywords:
-                    if keyword in query_lower:
-                        matches.append(item)
-                        break
+                    if keyword in query_lower and keyword not in stop_words:
+                        keyword_match_count += 1
+                
+                if keyword_match_count > 0 and match_score == 0:
+                    match_score += keyword_match_count * 0.5
+                    match_type = 'keyword_only'
+                
+                if match_score >= 3:
+                    partial_matches.append({
+                        'item': item,
+                        'score': match_score,
+                        'type': match_type
+                    })
+                elif match_score > 0 and match_type == 'keyword_only':
+                    keyword_matches.append({
+                        'item': item,
+                        'score': match_score,
+                        'type': match_type
+                    })
         
-        logger.info(f"Found {len(matches)} exact matches in FAQ table")
-        return matches
+        # Return matches in order of preference
+        if exact_matches:
+            logger.info(f"Found {len(exact_matches)} exact matches in FAQ table")
+            return exact_matches
+        
+        if partial_matches:
+            # Sort by score
+            partial_matches.sort(key=lambda x: x['score'], reverse=True)
+            logger.info(f"Found {len(partial_matches)} partial matches in FAQ table")
+            return [match['item'] for match in partial_matches]
+        
+        if keyword_matches:
+            # Only return keyword matches if we have no better matches
+            keyword_matches.sort(key=lambda x: x['score'], reverse=True)
+            logger.info(f"Found {len(keyword_matches)} keyword-only matches in FAQ table")
+            # Only return the best keyword match to avoid irrelevant results
+            return [keyword_matches[0]['item']] if keyword_matches else []
+        
+        logger.info("No matches found in FAQ table")
+        return []
         
     except Exception as e:
         logger.error(f"Error searching FAQ table: {str(e)}")
@@ -429,7 +540,7 @@ def generate_ai_response(query, context_items):
         logger.error(f"Error generating AI response: {str(e)}")
         return "I'm sorry, I encountered an error while processing your question. Please try asking again or contact our support team for assistance."
 
-        
+
 def log_query(query, response, found_items, user_id=None, session_id=None, feedback=None):
     """Log the query and response to improve the system over time."""
     try:

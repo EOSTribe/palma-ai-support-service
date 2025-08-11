@@ -18,14 +18,14 @@ Globals:
       Variables:
         KNOWLEDGE_BASE_BUCKET:
           Ref: KnowledgeBaseBucket
-        FAQ_TABLE: palma-wallet-faq
-        QUERY_LOG_TABLE: palma-wallet-query-logs
+        FAQ_TABLE: palma-wallet-faq-new
+        QUERY_LOG_TABLE: palma-wallet-query-logs-new
         EMBEDDING_PREFIX: embeddings/
 Resources:
   FaqTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: palma-wallet-faq
+      TableName: palma-wallet-faq-new
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
       - AttributeName: id
@@ -41,7 +41,7 @@ Resources:
   QueryLogTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: palma-wallet-query-logs
+      TableName: palma-wallet-query-logs-new
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
       - AttributeName: query_id

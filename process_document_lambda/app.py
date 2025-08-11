@@ -25,7 +25,7 @@ BUCKET_NAME = os.environ.get('KNOWLEDGE_BASE_BUCKET', 'palma-wallet-knowledge-ba
 RAW_PREFIX = os.environ.get('RAW_DOCUMENT_PREFIX', 'raw-documents/')
 PROCESSED_PREFIX = os.environ.get('PROCESSED_DOCUMENT_PREFIX', 'processed-documents/')
 EMBEDDINGS_PREFIX = os.environ.get('EMBEDDING_PREFIX', 'embeddings/')
-FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq')
+FAQ_TABLE = os.environ.get('FAQ_TABLE', 'palma-wallet-faq-new')
 
 # Constants
 CHUNK_SIZE = 1000  # Characters per chunk
