@@ -21,7 +21,7 @@
           {
             "id": "general-02",
             "question": "Which cryptocurrencies Palma Wallet dey support?",
-            "answer": "Palma Wallet for now dey support USDT (Tether) for both ERC20 (Ethereum) and TRC20 (TRON) networks. Support for other cryptocurrencies dey planned for future updates (things wey dem go add later).",
+            "answer": "Palma Wallet yana goyon bayan USDT (Tether) a kan cibiyoyin sadarwa na ERC20 (Ethereum) da TRC20 (TRON). Yana goyon bayan USDC (USD Coin) a kan cibiyar sadarwa ta ERC20. Shirye-shiryen ƙara wasu nau'ikan cryptocurrencies suna nan a nan gaba.",
             "keywords": ["currency", "token", "coin", "cryptocurrency", "support", "USDT", "Tether"]
           },
           {
@@ -233,6 +233,138 @@
             "question": "Palma Wallet go support NFTs?",
             "answer": "Yes, support for viewing and managing NFTs (Non-Fungible Tokens) dey on the Palma Wallet roadmap. Dis feature go allow users view their NFT collections, receive NFTs, and eventually trade them directly inside the app.",
             "keywords": ["NFT", "non-fungible token", "collectibles", "digital art"]
+          }
+        ]
+      },
+      {
+        "sectionId": "swap-feature",
+        "sectionTitle": "Fasalin Musanya",
+        "content": [
+          {
+            "id": "swap-01",
+            "question": "Menene fasalin musanya na Palma Wallet?",
+            "answer": "Fasalin musanya a Palma Wallet yana baka damar musanya wata cryptocurrency da wata a take a cikin app ɗin. Yana haɗuwa da Changelly, sabis na musanya amintacce, don samar da farashi masu kyau da tallafi ga nau'ikan cryptocurrencies da yawa. Kuna iya musanya tsakanin USDT, USDC, ETH, BTC, da sauran cryptocurrencies da ake tallafawa ba tare da barin app ɗin Palma Wallet ba.",
+            "keywords": ["musanya", "canji", "gyarawa", "ciniki", "Changelly"]
+          },
+          {
+            "id": "swap-02",
+            "question": "Yaya zan musanya cryptocurrencies a Palma Wallet?",
+            "answer": "Don musanya cryptocurrencies: 1) Danna maɓallin 'Musanya' a kan allon Farko, 2) Zaɓi cryptocurrency da kake son musanyawa daga (misali, USDT), 3) Zaɓi cryptocurrency da kake son karɓa (misali, ETH), 4) Shigar da adadin da kake son musanyawa, 5) Duba farashin musanya da kuɗin da aka nuna, 6) Tabbatar da bayanan musanya, 7) Za a sarrafa ma'amala ta hanyar ingantaccen tsarin Changelly. Sabon cryptocurrency ɗinka zai bayyana a cikin walat ɗinka da zarar an gama musanya.",
+            "keywords": ["yadda za a musanya", "tsarin musanya", "gyara crypto", "matakan musanya"]
+          },
+          {
+            "id": "swap-03",
+            "question": "Wadanne cryptocurrencies zan iya musanya a Palma Wallet?",
+            "answer": "Palma Wallet yana tallafawa musanya tsakanin manyan cryptocurrencies ciki har da: 1) USDT (duka ERC20 da TRC20), 2) USDC (ERC20), 3) Ethereum (ETH), 4) Bitcoin (BTC), da sauran shahararrun cryptocurrencies da yawa. Ana ci gaba da sabunta nau'ikan ciniki da ake samu bisa ga kasuwa ta hanyar haɗinmu da Changelly. Kuna iya duba nau'ikan da ake samu a cikin fasalin Musanya.",
+            "keywords": ["kuɗaɗe da ake tallafawa", "nau'ikan ciniki", "coins da ake samu", "zaɓuɓɓukan musanya"]
+          },
+          {
+            "id": "swap-04",
+            "question": "Menene kuɗin musanya cryptocurrencies?",
+            "answer": "Kuɗin musanya sun haɗa da: 1) Palma Wallet yana cajin kuɗin ma'amala na 0.5% a kan duk musanya, 2) kuɗin musanya na Changelly (yawanci 0.25-0.5%), 3) kuɗin cibiyar sadarwa don ma'amala na blockchain (yana bambanta da cibiyar sadarwa da cunkoso). An nuna jimlar kuɗin a sarari kafin ku tabbatar da musanya, don haka kuna san ainihin abin da za ku biya. Babu kuɗin ɓoye.",
+            "keywords": ["kuɗin musanya", "kuɗin canji", "kuɗin ma'amala", "farashi"]
+          },
+          {
+            "id": "swap-05",
+            "question": "Yaya tsawon lokacin da musanya ke ɗauka don kammalawa?",
+            "answer": "Lokutan kammalawa na musanya sun dogara da abubuwa da yawa: 1) Musanya na yau da kullun yana ɗaukar minti 5-30, 2) ma'amala na Bitcoin na iya ɗaukar lokaci mai tsawo (har zuwa minti 60) saboda tabbatarwa na cibiyar sadarwa, 3) musanya na Ethereum da ERC20 yawanci yana kammalawa cikin minti 5-15, 4) musanya na TRC20 yawanci ya fi sauri (minti 3-10). Kuna iya bibiyar matsayin musanya a cikin app ɗin a ainihin lokaci.",
+            "keywords": ["lokacin musanya", "tsawon canji", "lokacin sarrafawa", "kammalawa"]
+          },
+          {
+            "id": "swap-06",
+            "question": "Menene mafi ƙaranci da matsakaicin adadin da zan iya musanyawa?",
+            "answer": "Iyakokin musanya suna bambanta da cryptocurrency: 1) Adadin mafi ƙaranci Changelly ne ke saita su kuma yawanci suna tsakanin $10-$50 USD daidai, 2) adadin matsakaici na iya hawa har zuwa $50,000 USD daidai da ma'amala ga masu amfani da aka tabbatar, 3) iyakokin yau da kullun na iya aiki bisa ga matakin tabbatarwa na asusunku. An nuna iyakokin daidai don nau'in da ka zaɓa a cikin fasalin Musanya kafin ka tabbatar da ma'amala.",
+            "keywords": ["iyakokin musanya", "mafi ƙaranci adadi", "mafi girma adadi", "iyakokin ma'amala"]
+          },
+          {
+            "id": "swap-07",
+            "question": "Zan iya soke musanya bayan fara shi?",
+            "answer": "Da zarar an tabbatar da musanya kuma an miƙa shi zuwa blockchain, ba za a iya soke shi ba saboda halin da ma'amala na blockchain ke da shi na rashin iya juyawa. Duk da haka: 1) Kuna iya soke shi kafin tabbatarwa ta ƙarshe a cikin app ɗin, 2) Idan musanya ya gaza saboda matsalolin cibiyar sadarwa, za a dawo da kuɗin asalin ku, 3) Koyaushe duba adadin da adiresoshin sau biyu kafin tabbatarwa. Tuntuɓi tallafi idan kun fuskanci kowace matsala da musanya.",
+            "keywords": ["soke musanya", "canji na baya", "soke musanya", "juyawa"]
+          },
+          {
+            "id": "swap-08",
+            "question": "Me ya sa musanya na ke ɗaukar lokaci fiye da yadda ake tsammani?",
+            "answer": "Musanya na iya ɗaukar lokaci mai tsawo saboda: 1) Babban cunkoson cibiyar sadarwa a kan blockchain, 2) ƙarin tabbatarwa da ake buƙata don manyan adadi, 3) jinkiri na ɗan lokaci a ƙarshen sarrafawa na Changelly, 4) kulawa ko sabuntawa na cibiyar sadarwa. Idan musanya ɗinka bai kammala ba a cikin awanni 2, tuntuɓi tallafi tare da ID na musanya ɗinka. Kuna iya ko da yaushe bibiyar matsayin musanya ɗinka a cikin tarihin ma'amala.",
+            "keywords": ["jinkiri na musanya", "jinkirin canji", "musanya mai jiran gado", "matsalolin sarrafawa"]
+          }
+        ]
+      },
+      {
+        "sectionId": "fiat-onramp",
+        "sectionTitle": "Fiat On-Ramp (Siyan Crypto)",
+        "content": [
+          {
+            "id": "fiat-01",
+            "question": "Menene fasalin Fiat On-Ramp a Palma Wallet?",
+            "answer": "Fasalin Fiat On-Ramp yana baka damar siyan cryptocurrency kai tsaye da kuɗin ƙasarku (kamar USD, EUR, NGN, da dai sauransu) ta amfani da hanyoyin biyan kuɗi daban-daban. Palma Wallet yana haɗin gwiwa tare da masu samar da biyan kuɗi da yawa ciki har da MoonPay, Mercuryo, da sauran su ta hanyar tsarin Changelly don samar da farashi masu kyau da babban ɓangaren yankin, musamman mayar da hankali ga kasuwannin Afirka.",
+            "keywords": ["siyan crypto", "fiat on-ramp", "siyan cryptocurrency", "kuɗin gida"]
+          },
+          {
+            "id": "fiat-02",
+            "question": "Yaya zan sayi cryptocurrency da kuɗin gida?",
+            "answer": "Don siyan cryptocurrency: 1) Danna maɓallin 'Saye' a kan allon Farko, 2) Zaɓi ƙasarka (ana gano ta ta atomatik a matsayin tsoho), 3) Zaɓi yawan kuɗin da kake son kashewa a cikin kuɗin gida, 4) Zaɓi mai samar da biyan kuɗi da ka fi so daga zaɓuɓɓukan da ake samu, 5) Duba adadin cryptocurrency da za ka karɓa da kuɗin, 6) Danna 'Saye Yanzu' don ci gaba zuwa wurin biyan kuɗi na mai samarwa, 7) Kammala biyan kuɗi a kan gidan yanar gizon mai samarwa, 8) Za a saka cryptocurrency a cikin Palma Wallet ɗinka ta atomatik.",
+            "keywords": ["yadda za a saya", "tsarin saya", "matakan saya", "fiat zuwa crypto"]
+          },
+          {
+            "id": "fiat-03",
+            "question": "Wadanne hanyoyin biyan kuɗi ake tallafawa?",
+            "answer": "Hanyoyin biyan kuɗi da ake tallafawa sun bambanta da ƙasa da mai samarwa amma yawanci sun haɗa da: 1) Katunan Bashi/Debit (Visa, Mastercard), 2) Canja wurin banki (ACH, SEPA, Wire), 3) Kudaden wayar hannu (M-PESA, Airtel Money a yankunan da ake tallafawa), 4) Wallets na dijital (Apple Pay, Google Pay), 5) Hanyoyin biyan kuɗi na gida da ke da alaƙa da ƙasarka. An nuna hanyoyin da ake samu lokacin da ka zaɓi mai samarwa.",
+            "keywords": ["hanyoyin biyan kuɗi", "zaɓuɓɓukan biyan kuɗi", "biyan kuɗi da katin", "canja wurin banki"]
+          },
+          {
+            "id": "fiat-04",
+            "question": "Menene kuɗin siyan cryptocurrency?",
+            "answer": "Kuɗin siyan cryptocurrency sun haɗa da: 1) Kuɗin mai samarwa (yawanci 1-4% dangane da hanyar biyan kuɗi), 2) Kuɗin cibiyar sadarwa don saka crypto a cikin walat ɗinka, 3) Kuɗin sarrafa biyan kuɗi (na iya aiki don wasu hanyoyi). Palma Wallet baya cajin ƙarin kuɗi a kan farashin mai samarwa. An nuna duk kuɗin a sarari kafin ku tabbatar da siyan ku.",
+            "keywords": ["kuɗin siye", "farashin saya", "kuɗin fiat on-ramp", "cajin kuɗi"]
+          },
+          {
+            "id": "fiat-05",
+            "question": "Wadanne ƙasashe ake tallafawa don siyan crypto?",
+            "answer": "Fiat on-ramp na Palma Wallet yana tallafawa ƙasashe sama da 150 tare da mai da hankali kan kasuwannin Afirka ciki har da: Najeriya, Kenya, Afirka ta Kudu, Ghana, Uganda, Tanzania, da sauran su da yawa. Masu samar da biyan kuɗi da hanyoyin da ake samu sun dogara da inda kake. Lokacin da ka buɗe fasalin Saye, yana gano ƙasarka ta atomatik kuma yana nuna zaɓuɓɓukan da ake samu. Wasu masu samarwa na iya buƙatar takamaiman takardun da suka danganci dokokin gida.",
+            "keywords": ["ƙasashe da ake tallafawa", "ɓangaren yankin", "samuwa", "yankuna"]
+          },
+          {
+            "id": "fiat-06",
+            "question": "Menene iyakokin siye don siyan crypto?",
+            "answer": "Iyakokin siye sun bambanta da mai samarwa da ƙasa: 1) Siyan mafi ƙaranci yawanci yana da $10-$50 USD daidai, 2) iyakar iyaka tana tsakanin $500-$10,000 a kowace ma'amala ga sabbin masu amfani, 3) iyakokin yau da kullun/wata-wata na iya aiki bisa ga matakin tabbatarwa, 4) iyaka mafi girma tana samuwa bayan kammala tabbatarwa na KYC tare da mai samarwa. An nuna iyakokin daidai ga kowane mai samarwa kafin ku ci gaba.",
+            "keywords": ["iyakokin siye", "iyakokin siye", "siyan mafi ƙaranci", "siyan mafi girma"]
+          },
+          {
+            "id": "fiat-07",
+            "question": "Yaya tsawon lokaci ake ɗauka don karɓar cryptocurrency da aka saya?",
+            "answer": "Lokutan kammalawa na siye sun bambanta da hanyar biyan kuɗi: 1) Biyan kuɗi da katin: Yawanci minti 10-30, 2) Canja wurin banki: Kwanaki 1-5 na aiki dangane da bankin ku, 3) Kudaden wayar hannu: Yawanci cikin minti 30, 4) Wallets na dijital: Yawanci nan da nan zuwa minti 15. Bayan an tabbatar da biyan kuɗi ta mai samarwa, isar da cryptocurrency zuwa Palma Wallet ɗinka yawanci yana faruwa cikin minti.",
+            "keywords": ["lokacin saya", "lokacin isarwa", "tsawon sarrafawa", "kammalawar saya"]
+          },
+          {
+            "id": "fiat-08",
+            "question": "Shin ina buƙatar tabbatar da ainihina don siyan cryptocurrency?",
+            "answer": "Bukatu na tabbatar da ainihi sun dogara da: 1) Mai samar da biyan kuɗi da ka zaɓa, 2) adadin siyan ku, 3) dokokin ƙasarku. Ƙananan sayayya (ƙasa da $150) galibi basa buƙatar tabbatarwa. Manyan adadi yawanci suna buƙatar: 1) Tabbatar da imel, 2) tabbatar da lambar waya, 3) loda ID na gwamnati, 4) tabbatarwa ta hanyar selfie. An nuna buƙatun kowane mai samarwa kafin ka ci gaba.",
+            "keywords": ["KYC", "tabbatar da ainihi", "bukatu na tabbatarwa", "duba ID"]
+          },
+          {
+            "id": "fiat-09",
+            "question": "Me zan yi idan siyan na ya gaza?",
+            "answer": "Idan siyan ka ya gaza: 1) Duba idan bankin ku/mai ba da katin ku ya ƙi biyan kuɗin, 2) Tabbatar cewa kun shigar da bayanan biyan kuɗi daidai, 3) Tabbatar cewa siyan ku bai wuce iyakoki ba, 4) Gwada wata hanyar biyan kuɗi ko wani mai samarwa, 5) Idan an ɗauki biyan kuɗi amma ba a karɓi crypto ba, ajiye ID na odarka kuma tuntuɓi tallafi na mai samarwa kai tsaye, 6) Tallafi na Palma Wallet na iya taimakawa wajen bibiyar matsayin odarka.",
+            "keywords": ["siyan ya gaza", "kuskuren biyan kuɗi", "matsalar siye", "ma'amala ta gaza"]
+          },
+          {
+            "id": "fiat-10",
+            "question": "Zan iya siyar da cryptocurrency don kuɗin gida (Off-Ramp)?",
+            "answer": "A halin yanzu, Palma Wallet yana mai da hankali kan taimaka wa masu amfani su sayi cryptocurrency (on-ramp). An shirya fasalin siyarwa (off-ramp) don fitarwa a nan gaba kuma zai baka damar: 1) Siyar da crypto don kuɗin gida, 2) Cirewa zuwa asusun banki, 3) Amfani da cire kudaden wayar hannu a yankunan da ake tallafawa, 4) Samun damar abokan musayar gida. Duba app ɗin don sabuntawa kan lokacin da wannan fasalin zai kasance a yankinku.",
+            "keywords": ["siyar da crypto", "off-ramp", "cire fiat", "cire kuɗi"]
+          },
+          {
+            "id": "fiat-11",
+            "question": "Me ya sa ake nuna masu samarwa daban-daban ga ƙasashe daban-daban?",
+            "answer": "Masu samar da biyan kuɗi suna da ɓangaren yankin daban-daban dangane da: 1) Bin dokokin gida da lasisi, 2) Haɗin gwiwa da bankuna a kowace ƙasa, 3) Samun tsarin biyan kuɗi, 4) Taimako na kuɗin gida. Palma Wallet yana nuna masu samarwa waɗanda suka fi aiki a yankinku ta atomatik, yana tabbatar da cewa kun sami sabis amintacce da farashi masu kyau don takamaiman ƙasarku.",
+            "keywords": ["samuwar mai samarwa", "masu samarwa na ƙasa", "bambance-bambance na yanki", "ɓangaren yankin"]
+          },
+          {
+            "id": "fiat-12",
+            "question": "Shin siyan cryptocurrency ta hanyar Palma Wallet yana da aminci?",
+            "answer": "I, siyan crypto ta hanyar Palma Wallet yana da aminci saboda: 1) Muna haɗin gwiwa ne kawai tare da masu samar da biyan kuɗi masu lasisi da aka tsara, 2) duk ma'amala suna amfani da ingantaccen rufi, 3) sarrafa biyan kuɗi yana faruwa a kan amintaccen dandamali na mai samarwa, 4) an samar da adireshin Palma Wallet ɗinka ta atomatik don tabbatar da isarwa daidai, 5) muna lura da duk sayayya don nasarar kammalawa. Koyaushe tabbatar da cewa kuna kan gidan yanar gizon mai samarwa daidai lokacin da kuke biyan kuɗi.",
+            "keywords": ["tsaro", "siyan aminci", "siyan lafiya", "tsaro na ma'amala"]
           }
         ]
       }

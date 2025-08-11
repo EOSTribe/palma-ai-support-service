@@ -21,7 +21,7 @@
         {
           "id": "general-02",
           "question": "Je, Palma Wallet inasaidia cryptocurrencies zipi?",
-          "answer": "Palma Wallet kwa sasa inasaidia USDT (Tether) kwenye mitandao ya ERC20 (Ethereum) na TRC20 (TRON). Usaidizi wa cryptocurrencies za ziada umepangwa kwa sasisho za baadae.",
+          "answer": "Palma Wallet inasaidia USDT (Tether) kwenye mitandao ya ERC20 (Ethereum) na TRC20 (TRON). Pia inasaidia USDC (USD Coin) kwenye mtandao wa ERC20. Msaada kwa ajili ya sarafu-fiche za ziada umepangwa kwa ajili ya sasisho za baadaye.",
           "keywords": ["sarafu", "token", "sarafu", "cryptocurrency", "usaidizi", "USDT", "Tether"]
         },
         {
@@ -233,6 +233,138 @@
           "question": "Je, Palma Wallet itasaidia NFTs?",
           "answer": "Ndiyo, usaidizi wa kutazama na kusimamia NFTs (Tokens zisizo za kubadilishana) uko kwenye ramani ya njia ya Palma Wallet. Kipengele hiki kitaruhusu watumiaji kutazama makusanyo yao ya NFT, kupokea NFTs, na hatimaye kuzibadilisha moja kwa moja ndani ya programu.",
           "keywords": ["NFT", "token isiyo ya kubadilishana", "vifaa vya kukusanya", "sanaa ya kidijitali"]
+        }
+      ]
+    },
+    {
+      "sectionId": "swap-feature",
+      "sectionTitle": "Kipengele cha Kubadilisha",
+      "content": [
+        {
+          "id": "swap-01",
+          "question": "Kipengele cha Kubadilisha cha Palma Wallet ni nini?",
+          "answer": "Kipengele cha Kubadilisha katika Palma Wallet kinakuruhusu kubadilisha papo hapo cryptocurrency moja kwa nyingine moja kwa moja ndani ya programu. Inajumuisha na Changelly, huduma ya kubadilisha fedha inayoaminika, kutoa viwango vya ushindani na msaada kwa jozi nyingi za cryptocurrency. Unaweza kubadilisha kati ya USDT, USDC, ETH, BTC, na cryptocurrencies zingine zinazoungwa mkono bila kuondoka kwenye programu ya Palma Wallet.",
+          "keywords": ["badili", "kubadilisha", "geuza", "biashara", "Changelly"]
+        },
+        {
+          "id": "swap-02",
+          "question": "Jinsi ya kubadilisha cryptocurrencies katika Palma Wallet?",
+          "answer": "Ili kubadilisha cryptocurrencies: 1) Gusa kitufe cha 'Badilisha' kwenye skrini ya Nyumbani, 2) Chagua cryptocurrency unayotaka kubadilisha kutoka (k.m., USDT), 3) Chagua cryptocurrency unayotaka kupokea (k.m., ETH), 4) Ingiza kiasi unachotaka kubadilisha, 5) Pitia kiwango cha ubadilishaji na ada zilizoonyeshwa, 6) Thibitisha maelezo ya ubadilishaji, 7) Muamala utachakatwa kupitia miundombinu salama ya Changelly. Cryptocurrency yako mpya itaonekana kwenye pochi yako mara tu ubadilishaji utakapokamilika.",
+          "keywords": ["jinsi ya kubadilisha", "mchakato wa kubadilisha", "geuza crypto", "hatua za kubadilisha"]
+        },
+        {
+          "id": "swap-03",
+          "question": "Ni cryptocurrencies gani ninaweza kubadilisha katika Palma Wallet?",
+          "answer": "Palma Wallet inasaidia kubadilisha kati ya cryptocurrencies kuu ikiwa ni pamoja na: 1) USDT (zote mbili ERC20 na TRC20), 2) USDC (ERC20), 3) Ethereum (ETH), 4) Bitcoin (BTC), na cryptocurrencies nyingine nyingi maarufu. Jozi za biashara zinazopatikana zinasasishwa kila wakati kulingana na upatikanaji wa soko kupitia ujumuishaji wetu na Changelly. Unaweza kuangalia jozi zinazopatikana kwenye kiolesura cha Kubadilisha.",
+          "keywords": ["sarafu zinazoungwa mkono", "jozi za biashara", "sarafu zinazopatikana", "chaguzi za kubadilisha"]
+        },
+        {
+          "id": "swap-04",
+          "question": "Ni ada gani za kubadilisha cryptocurrencies?",
+          "answer": "Ada za kubadilisha zinajumuisha: 1) Palma Wallet inatoza ada ya muamala ya 0.5% kwa mabadiliko yote, 2) ada ya ubadilishaji ya Changelly (kwa kawaida 0.25-0.5%), 3) ada za mtandao kwa miamala ya blockchain (hutofautiana kulingana na mtandao na msongamano). Jumla ya ada huonyeshwa wazi kabla ya kuthibitisha ubadilishaji, kwa hivyo unajua haswa utakacholipa. Hakuna ada zilizofichwa.",
+          "keywords": ["ada za kubadilisha", "gharama za kubadilisha", "ada za muamala", "bei"]
+        },
+        {
+          "id": "swap-05",
+          "question": "Ubadilishaji unachukua muda gani kukamilika?",
+          "answer": "Muda wa kukamilika kwa ubadilishaji hutegemea mambo kadhaa: 1) Mabadiliko ya kawaida huchukua dakika 5-30, 2) miamala ya Bitcoin inaweza kuchukua muda mrefu (hadi dakika 60) kutokana na uthibitisho wa mtandao, 3) mabadiliko ya tokeni za Ethereum na ERC20 kawaida hukamilika ndani ya dakika 5-15, 4) mabadiliko ya TRC20 huwa ya haraka zaidi (dakika 3-10). Unaweza kufuatilia hali ya ubadilishaji wako kwa wakati halisi ndani ya programu.",
+          "keywords": ["muda wa kubadilisha", "muda wa kubadilisha", "muda wa kuchakata", "kukamilika"]
+        },
+        {
+          "id": "swap-06",
+          "question": "Kiasi cha chini na cha juu ninachoweza kubadilisha ni kipi?",
+          "answer": "Mipaka ya kubadilisha hutofautiana na cryptocurrency: 1) Kiasi cha chini huwekwa na Changelly na kwa kawaida huanzia $10-50 USD sawa, 2) kiasi cha juu kinaweza kufikia hadi $50,000 USD sawa kwa kila muamala kwa watumiaji waliothibitishwa, 3) mipaka ya kila siku inaweza kutumika kulingana na kiwango chako cha uthibitishaji wa akaunti. Mipaka halisi ya jozi uliyochagua huonyeshwa kwenye kiolesura cha Kubadilisha kabla ya kuthibitisha muamala.",
+          "keywords": ["mipaka ya kubadilisha", "kiasi cha chini", "kiasi cha juu", "mipaka ya muamala"]
+        },
+        {
+          "id": "swap-07",
+          "question": "Je, ninaweza kughairi ubadilishaji baada ya kuanzisha?",
+          "answer": "Mara tu ubadilishaji unapothibitishwa na kuwasilishwa kwa blockchain, hauwezi kughairiwa kwa sababu ya asili isiyoweza kutenduliwa ya miamala ya blockchain. Hata hivyo: 1) Unaweza kughairi kabla ya uthibitisho wa mwisho katika programu, 2) Ikiwa ubadilishaji utashindwa kutokana na masuala ya mtandao, fedha zako za asili zitarudishwa, 3) Daima angalia tena kiasi na anwani kabla ya kuthibitisha. Wasiliana na msaada ikiwa unapata masuala yoyote na ubadilishaji.",
+          "keywords": ["ghairi ubadilishaji", "badili nyuma", "ughairi wa ubadilishaji", "tengua"]
+        },
+        {
+          "id": "swap-08",
+          "question": "Kwa nini ubadilishaji wangu unachukua muda mrefu kuliko ilivyotarajiwa?",
+          "answer": "Mabadiliko yanaweza kuchukua muda mrefu kutokana na: 1) Msongamano mkubwa wa mtandao kwenye blockchain, 2) uthibitisho wa ziada unaohitajika kwa kiasi kikubwa, 3) ucheleweshaji wa muda mfupi katika uchakataji wa Changelly, 4) matengenezo au visasisho vya mtandao. Ikiwa ubadilishaji wako haujakamilika ndani ya saa 2, wasiliana na msaada na kitambulisho chako cha ubadilishaji. Unaweza kufuatilia hali ya ubadilishaji wako kila wakati kwenye historia ya muamala.",
+          "keywords": ["kuchelewa kwa ubadilishaji", "ubadilishaji polepole", "ubadilishaji unasubiri", "masuala ya uchakataji"]
+        }
+      ]
+    },
+    {
+      "sectionId": "fiat-onramp",
+      "sectionTitle": "Fiat On-Ramp (Nunua Crypto)",
+      "content": [
+        {
+          "id": "fiat-01",
+          "question": "Kipengele cha Fiat On-Ramp katika Palma Wallet ni nini?",
+          "answer": "Kipengele cha Fiat On-Ramp kinakuruhusu kununua cryptocurrency moja kwa moja na sarafu yako ya ndani (kama USD, EUR, NGN, n.k.) kwa kutumia njia mbalimbali za malipo. Palma Wallet inashirikiana na watoa huduma wa malipo wengi ikiwemo MoonPay, Mercuryo, na wengine kupitia miundombinu ya Changelly ili kutoa viwango vya ushindani na chanjo pana ya kijiografia, haswa ikiwa inazingatia masoko ya Afrika.",
+          "keywords": ["nunua crypto", "fiat on-ramp", "nunua cryptocurrency", "sarafu ya ndani"]
+        },
+        {
+          "id": "fiat-02",
+          "question": "Jinsi ya kununua cryptocurrency na sarafu ya fiat?",
+          "answer": "Ili kununua cryptocurrency: 1) Gusa kitufe cha 'Nunua' kwenye skrini ya Nyumbani, 2) Chagua nchi yako (inagunduliwa kiotomatiki kwa chaguo-msingi), 3) Chagua kiasi unachotaka kutumia katika sarafu yako ya ndani, 4) Chagua mtoa huduma wa malipo unayependelea kutoka kwa chaguo zinazopatikana, 5) Pitia kiasi cha cryptocurrency utakachopokea na ada, 6) Gusa 'Nunua Sasa' ili kuendelea na malipo salama ya mtoa huduma, 7) Kamilisha malipo kwenye tovuti ya mtoa huduma, 8) Cryptocurrency itawekwa kwenye Palma Wallet yako kiotomatiki.",
+          "keywords": ["jinsi ya kununua", "mchakato wa kununua", "hatua za kununua", "fiat hadi crypto"]
+        },
+        {
+          "id": "fiat-03",
+          "question": "Ni njia gani za malipo zinazoungwa mkono?",
+          "answer": "Njia za malipo zinazoungwa mkono hutofautiana na nchi na mtoa huduma lakini kwa kawaida hujumuisha: 1) Kadi za mkopo/debit (Visa, Mastercard), 2) Uhamisho wa benki (ACH, SEPA, Wire), 3) Pesa za simu (M-PESA, Airtel Money katika maeneo yanayoungwa mkono), 4) Pozi za kidijitali (Apple Pay, Google Pay), 5) Njia za malipo za ndani mahususi kwa nchi yako. Njia zinazopatikana huonyeshwa unapochagua mtoa huduma.",
+          "keywords": ["njia za malipo", "chaguzi za malipo", "malipo ya kadi", "uhamisho wa benki"]
+        },
+        {
+          "id": "fiat-04",
+          "question": "Ni ada gani za kununua cryptocurrency?",
+          "answer": "Ada za kununua cryptocurrency zinajumuisha: 1) Ada za mtoa huduma (kwa kawaida 1-4% kulingana na njia ya malipo), 2) Ada za mtandao kwa kuweka crypto kwenye pochi yako, 3) Ada za uchakataji wa malipo (zinaweza kutumika kwa njia fulani). Palma Wallet haitozi ada za ziada juu ya viwango vya mtoa huduma. Ada zote huonyeshwa kwa uwazi kabla ya kuthibitisha ununuzi wako.",
+          "keywords": ["ada za kununua", "gharama za ununuzi", "ada za fiat on-ramp", "gharama"]
+        },
+        {
+          "id": "fiat-05",
+          "question": "Ni nchi gani zinazoungwa mkono kwa kununua crypto?",
+          "answer": "Fiat on-ramp ya Palma Wallet inasaidia zaidi ya nchi 150 na umakini maalum kwenye masoko ya Afrika ikiwa ni pamoja na: Nigeria, Kenya, Afrika Kusini, Ghana, Uganda, Tanzania, na nyingine nyingi. Watoa huduma wa malipo na njia zinazopatikana hutegemea eneo lako. Unapofungua kipengele cha Nunua, hugundua kiotomatiki nchi yako na kuonyesha chaguo zinazopatikana. Baadhi ya watoa huduma wanaweza kuhitaji nyaraka maalum kulingana na kanuni za ndani.",
+          "keywords": ["nchi zinazoungwa mkono", "chanjo ya kijiografia", "upatikanaji", "mikoa"]
+        },
+        {
+          "id": "fiat-06",
+          "question": "Ni mipaka gani ya ununuzi kwa kununua crypto?",
+          "answer": "Mipaka ya ununuzi hutofautiana na mtoa huduma na nchi: 1) Ununuzi wa chini ni kwa kawaida $10-50 USD sawa, 2) mipaka ya juu inaanzia $500-$10,000 kwa kila muamala kwa watumiaji wapya, 3) mipaka ya kila siku/mwezi inaweza kutumika kulingana na kiwango cha uthibitishaji, 4) mipaka ya juu inapatikana baada ya kukamilisha uthibitishaji wa KYC na mtoa huduma. Mipaka halisi huonyeshwa kwa kila mtoa huduma kabla ya kuendelea.",
+          "keywords": ["mipaka ya ununuzi", "mipaka ya kununua", "ununuzi wa chini", "ununuzi wa juu"]
+        },
+        {
+          "id": "fiat-07",
+          "question": "Inachukua muda gani kupokea cryptocurrency iliyonunuliwa?",
+          "answer": "Muda wa kukamilisha ununuzi hutofautiana na njia ya malipo: 1) Malipo ya kadi: Kawaida dakika 10-30, 2) Uhamisho wa benki: Siku 1-5 za biashara kulingana na benki yako, 3) Pesa za simu: Kawaida ndani ya dakika 30, 4) Pozi za kidijitali: Kawaida papo hapo hadi dakika 15. Baada ya malipo kuthibitishwa na mtoa huduma, utoaji wa cryptocurrency kwa Palma Wallet yako huwa ndani ya dakika chache.",
+          "keywords": ["muda wa ununuzi", "muda wa utoaji", "muda wa uchakataji", "kukamilika kwa ununuzi"]
+        },
+        {
+          "id": "fiat-08",
+          "question": "Je, ninahitaji kuthibitisha kitambulisho changu ili kununua cryptocurrency?",
+          "answer": "Mahitaji ya uthibitishaji wa kitambulisho hutegemea: 1) Mtoa huduma wa malipo unayechagua, 2) kiasi chako cha ununuzi, 3) kanuni za nchi yako. Ununuzi mdogo (chini ya $150) mara nyingi hauhitaji uthibitishaji. Kiasi kikubwa kwa kawaida kinahitaji: 1) Uthibitishaji wa barua pepe, 2) uthibitisho wa nambari ya simu, 3) upakiaji wa kitambulisho cha serikali, 4) uthibitishaji wa picha ya selfie. Mahitaji ya kila mtoa huduma huonyeshwa kabla ya kuendelea.",
+          "keywords": ["KYC", "uthibitishaji wa kitambulisho", "mahitaji ya uthibitishaji", "ukaguzi wa kitambulisho"]
+        },
+        {
+          "id": "fiat-09",
+          "question": "Nifanye nini ikiwa ununuzi wangu utashindwa?",
+          "answer": "Ikiwa ununuzi wako utashindwa: 1) Angalia ikiwa malipo yako yalikataliwa na benki/mtoa kadi yako, 2) Hakikisha umeweka maelezo sahihi ya malipo, 3) Thibitisha kuwa ununuzi wako hauzidi mipaka, 4) Jaribu njia nyingine ya malipo au mtoa huduma, 5) Ikiwa malipo yalichukuliwa lakini crypto haikupokelewa, hifadhi kitambulisho chako cha agizo na wasiliana na msaada wa mtoa huduma moja kwa moja, 6) Msaada wa Palma Wallet pia unaweza kusaidia kufuatilia hali ya agizo lako.",
+          "keywords": ["ununuzi umeshindwa", "kosa la malipo", "tatizo la kununua", "muamala umeshindwa"]
+        },
+        {
+          "id": "fiat-10",
+          "question": "Je, ninaweza kuuza cryptocurrency kwa sarafu ya fiat (Off-Ramp)?",
+          "answer": "Kwa sasa, Palma Wallet inazingatia kusaidia watumiaji kununua cryptocurrency (on-ramp). Kipengele cha kuuza (off-ramp) kimepangwa kutolewa baadaye na kitakuruhusu: 1) Kuuza crypto kwa sarafu ya ndani, 2) Kutoa pesa kwa akaunti za benki, 3) Kutumia uondoaji wa pesa za simu katika maeneo yanayoungwa mkono, 4) Kupata washirika wa ubadilishaji wa ndani. Angalia programu kwa visasisho kuhusu wakati kipengele hiki kitapatikana katika eneo lako.",
+          "keywords": ["uza crypto", "off-ramp", "ondoa fiat", "toa pesa"]
+        },
+        {
+          "id": "fiat-11",
+          "question": "Kwa nini watoa huduma tofauti wanaonyeshwa kwa nchi tofauti?",
+          "answer": "Watoa huduma wa malipo wana chanjo tofauti ya kijiografia kulingana na: 1) Uzingatiaji wa kanuni za ndani na leseni, 2) Ushirikiano wa kibenki katika kila nchi, 3) Miundombinu ya malipo inayopatikana, 4) Msaada wa sarafu ya ndani. Palma Wallet huonyesha kiotomatiki watoa huduma wanaofanya kazi vizuri zaidi katika eneo lako, kuhakikisha unapata huduma ya kuaminika na viwango vya ushindani kwa nchi yako maalum.",
+          "keywords": ["upatikanaji wa mtoa huduma", "watoa huduma wa nchi", "tofauti za kikanda", "chanjo ya kijiografia"]
+        },
+        {
+          "id": "fiat-12",
+          "question": "Je, kununua cryptocurrency kupitia Palma Wallet ni salama?",
+          "answer": "Ndiyo, kununua crypto kupitia Palma Wallet ni salama kwa sababu: 1) Tunashirikiana tu na watoa huduma wa malipo wenye leseni na waliorekebishwa, 2) miamala yote hutumia usimbaji fiche salama, 3) uchakataji wa malipo hufanyika kwenye jukwaa salama la mtoa huduma, 4) anwani yako ya Palma Wallet hutolewa kiotomatiki ili kuhakikisha utoaji sahihi, 5) tunafuatilia manunuzi yote kwa kukamilika kwa mafanikio. Daima thibitisha kuwa uko kwenye tovuti sahihi ya mtoa huduma unapofanya malipo.",
+          "keywords": ["usalama", "ununuzi salama", "nunua kwa usalama", "usalama wa muamala"]
         }
       ]
     }

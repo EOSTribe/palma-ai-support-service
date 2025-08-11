@@ -21,7 +21,7 @@
           {
             "id": "general-02",
             "question": "Àwọn owó orí ayélujára wo ni Palma Wallet ṣètìlẹ́yìn fún?",
-            "answer": "Palma Wallet fún àkókò yìí ṣètìlẹ́yìn fún USDT (Tether) lórí àwọn nẹ́tiwọ́kì ERC20 (Ethereum) àti TRC20 (TRON). A ti ṣètò àtìlẹ́yìn fún àwọn owó orí ayélujára mìíràn nínú àwọn àtúnṣe tó ń bọ̀.",
+            "answer": "Apamọwọ Palma n ṣe atilẹyin USDT (Tether) lori awọn nẹtiwọki ERC20 (Ethereum) ati TRC20 (TRON). O tun ṣe atilẹyin USDC (USD Coin) lori nẹtiwọki ERC20. A gbero lati fi awọn owo-iworo crypto miiran kun ni awọn imudojuiwọn iwaju.",
             "keywords": ["currency", "token", "coin", "cryptocurrency", "support", "USDT", "Tether"]
           },
           {
@@ -233,6 +233,138 @@
             "question": "Ǹjẹ́ Palma Wallet yóò ṣètìlẹ́yìn fún àwọn NFT?",
             "answer": "Bẹ́ẹ̀ ni, àtìlẹ́yìn fún wíwo àti ṣíṣàkóso àwọn NFT (Non-Fungible Tokens) wà lórí ètò Palma Wallet. Ètò yìí yóò jẹ́ kí àwọn olùlò wo àwọn àkójọpọ̀ NFT wọn, gba àwọn NFT, àti nígbẹ̀yìngbẹ́yín, ṣe ìpàṣípààrọ̀ wọn tààrà nínú ohun èlò náà.",
             "keywords": ["NFT", "non-fungible token", "collectibles", "digital art"]
+          }
+        ]
+      },
+      {
+        "sectionId": "swap-feature",
+        "sectionTitle": "Ẹya Ipaṣipaaro",
+        "content": [
+          {
+            "id": "swap-01",
+            "question": "Kini ẹya Ipaṣipaaro Palma Wallet?",
+            "answer": "Ẹya Ipaṣipaaro ninu Palma Wallet n gba ọ laaye lati paṣipaaro cryptocurrency kan fun ekeji lẹsẹkẹsẹ taara ninu ohun elo naa. O darapọ mọ Changelly, iṣẹ paṣipaaro igbẹkẹle, lati pese awọn oṣuwọn ifigagbaga ati atilẹyin fun ọpọlọpọ awọn orisii cryptocurrency. O le ṣe paṣipaaro laarin USDT, USDC, ETH, BTC, ati awọn cryptocurrencies miiran ti o ni atilẹyin laisi fifi ohun elo Palma Wallet silẹ.",
+            "keywords": ["ipaṣipaaro", "ṣe paṣipaaro", "yi pada", "iṣowo", "Changelly"]
+          },
+          {
+            "id": "swap-02",
+            "question": "Bawo ni mo ṣe le paṣipaaro awọn cryptocurrencies ninu Palma Wallet?",
+            "answer": "Lati paṣipaaro awọn cryptocurrencies: 1) Tẹ bọtini 'Paṣipaaro' lori iboju Ile, 2) Yan cryptocurrency ti o fẹ paṣipaaro lati (fun apẹẹrẹ, USDT), 3) Yan cryptocurrency ti o fẹ gba (fun apẹẹrẹ, ETH), 4) Tẹ iye ti o fẹ paṣipaaro, 5) Ṣayẹwo oṣuwọn paṣipaaro ati awọn owo-ọya ti o han, 6) Jẹrisi awọn alaye paṣipaaro, 7) Idunadura naa yoo ṣee ṣe nipasẹ amayederun aabo ti Changelly. Cryptocurrency tuntun rẹ yoo han ninu apamọwọ rẹ ni kete ti paṣipaaro naa ba ti pari.",
+            "keywords": ["bi o ṣe le paṣipaaro", "ilana paṣipaaro", "yi crypto pada", "awọn igbesẹ paṣipaaro"]
+          },
+          {
+            "id": "swap-03",
+            "question": "Awọn cryptocurrencies wo ni mo le paṣipaaro ninu Palma Wallet?",
+            "answer": "Palma Wallet ṣe atilẹyin paṣipaaro laarin awọn cryptocurrencies pataki pẹlu: 1) USDT (mejeeji ERC20 ati TRC20), 2) USDC (ERC20), 3) Ethereum (ETH), 4) Bitcoin (BTC), ati ọpọlọpọ awọn cryptocurrencies olokiki miiran. A n ṣe imudojuiwọn awọn orisii iṣowo ti o wa ni imudojuiwọn nigbagbogbo da lori wiwa ọja nipasẹ isopọmọ wa pẹlu Changelly. O le ṣayẹwo awọn orisii ti o wa ninu wiwo Ipaṣipaaro.",
+            "keywords": ["awọn owo ti o ni atilẹyin", "awọn orisii iṣowo", "awọn owó ti o wa", "awọn aṣayan paṣipaaro"]
+          },
+          {
+            "id": "swap-04",
+            "question": "Kini awọn owo-ọya fun paṣipaaro awọn cryptocurrencies?",
+            "answer": "Awọn owo-ọya paṣipaaro pẹlu: 1) Palma Wallet n gba owo-ọya idunadura 0.5% lori gbogbo awọn paṣipaaro, 2) owo-ọya paṣipaaro Changelly (ni deede 0.25-0.5%), 3) awọn owo-ọya nẹtiwọki fun awọn idunadura blockchain (yatọ nipasẹ nẹtiwọki ati ifọwọkan). Apapọ owo-ọya naa jẹ afihan ni gbangba ṣaaju ki o to jẹrisi paṣipaaro naa, nitorinaa o mọ gangan ohun ti iwọ yoo san. Ko si awọn owo-ọya ti o farapamọ.",
+            "keywords": ["awọn owo-ọya paṣipaaro", "awọn idiyele paṣipaaro", "awọn owo-ọya idunadura", "iṣowo owo"]
+          },
+          {
+            "id": "swap-05",
+            "question": "Igba melo ni o gba lati pari paṣipaaro?",
+            "answer": "Awọn akoko ipari paṣipaaro da lori ọpọlọpọ awọn ifosiwewe: 1) Awọn paṣipaaro deede gba iṣẹju 5-30, 2) awọn idunadura Bitcoin le gba to gun (to iṣẹju 60) nitori awọn ifọwọsi nẹtiwọki, 3) awọn paṣipaaro token Ethereum ati ERC20 maa n pari laarin iṣẹju 5-15, 4) awọn paṣipaaro TRC20 maa n yara (iṣẹju 3-10). O le tọpinpin ipo paṣipaaro rẹ ni akoko gidi ninu ohun elo naa.",
+            "keywords": ["akoko paṣipaaro", "iṣẹju paṣipaaro", "akoko ṣiṣe", "ipari"]
+          },
+          {
+            "id": "swap-06",
+            "question": "Kini iye ti o kere julọ ati ti o pọ julọ ti mo le paṣipaaro?",
+            "answer": "Awọn ihamọ paṣipaaro yatọ nipasẹ cryptocurrency: 1) Awọn iye ti o kere julọ ni Changelly ṣeto wọn ati pe wọn maa n wa laarin $10-50 USD deede, 2) awọn iye ti o pọ julọ le lọ to $50,000 USD deede fun idunadura fun awọn olumulo ti a ti fidi rẹ mulẹ, 3) awọn ihamọ ojoojumọ le waye da lori ipele ijẹrisi akọọlẹ rẹ. Awọn ihamọ gangan fun orisii ti o yan ni a fihan ninu wiwo Ipaṣipaaro ṣaaju ki o to jẹrisi idunadura naa.",
+            "keywords": ["awọn ihamọ paṣipaaro", "iye ti o kere julọ", "iye ti o pọ julọ", "awọn ihamọ idunadura"]
+          },
+          {
+            "id": "swap-07",
+            "question": "Ṣe mo le fagilee paṣipaaro kan lẹhin ti mo ti bẹrẹ rẹ?",
+            "answer": "Ni kete ti paṣipaaro kan ba ti fidi rẹ mulẹ ti o si ti fi ranṣẹ si blockchain, ko le fagilee nitori iseda ti ko le yiyipada ti awọn idunadura blockchain. Sibẹsibẹ: 1) O le fagilee ṣaaju ifọwọsi ikẹhin ninu ohun elo naa, 2) Ti paṣipaaro ba kuna nitori awọn ọran nẹtiwọki, awọn owo atilẹba rẹ yoo da pada, 3) Nigbagbogbo ṣayẹwo lẹẹmeji awọn iye ati awọn adirẹsi ṣaaju ki o to jẹrisi. Kan si atilẹyin ti o ba ni iriri eyikeyi awọn ọran pẹlu paṣipaaro kan.",
+            "keywords": ["fagilee paṣipaaro", "yiyipada paṣipaaro", "ifagile paṣipaaro", "fagilee"]
+          },
+          {
+            "id": "swap-08",
+            "question": "Kini idi ti paṣipaaro mi n gba akoko to gun ju ti a reti lọ?",
+            "answer": "Awọn paṣipaaro le gba akoko to gun nitori: 1) Iṣọn-ọrọ nẹtiwọki giga lori blockchain, 2) awọn ifọwọsi afikun ti o nilo fun awọn iye nla, 3) awọn idaduro igba diẹ ni opin ṣiṣe ti Changelly, 4) itọju nẹtiwọki tabi awọn igbesoke. Ti paṣipaaro rẹ ko ba ti pari laarin awọn wakati 2, kan si atilẹyin pẹlu ID paṣipaaro rẹ. O le tọpinpin ipo paṣipaaro rẹ nigbagbogbo ninu itan-akọọlẹ idunadura.",
+            "keywords": ["idagba paṣipaaro", "paṣipaaro ti o lọra", "paṣipaaro to n duro", "awọn ọran ṣiṣe"]
+          }
+        ]
+      },
+      {
+        "sectionId": "fiat-onramp",
+        "sectionTitle": "Fiat On-Ramp (Ra Crypto)",
+        "content": [
+          {
+            "id": "fiat-01",
+            "question": "Kini ẹya Fiat On-Ramp ninu Palma Wallet?",
+            "answer": "Ẹya Fiat On-Ramp n gba ọ laaye lati ra cryptocurrency taara pẹlu owo agbegbe rẹ (bi USD, EUR, NGN, bbl) nipa lilo ọpọlọpọ awọn ọna isanwo. Palma Wallet ṣe ajọṣepọ pẹlu ọpọlọpọ awọn olupese isanwo pẹlu MoonPay, Mercuryo, ati awọn miiran nipasẹ amayederun Changelly lati pese awọn oṣuwọn ifigagbaga ati agbegbe ilẹ-aye gbooro, paapaa ni idojukọ lori awọn ọja Afirika.",
+            "keywords": ["ra crypto", "fiat on-ramp", "ra cryptocurrency", "owo agbegbe"]
+          },
+          {
+            "id": "fiat-02",
+            "question": "Bawo ni mo ṣe le ra cryptocurrency pẹlu owo fiat?",
+            "answer": "Lati ra cryptocurrency: 1) Tẹ bọtini 'Ra' lori iboju Ile, 2) Yan orilẹ-ede rẹ (a ṣe awari rẹ laifọwọyi nipasẹ aiyipada), 3) Yan iye ti o fẹ lati na ni owo agbegbe rẹ, 4) Yan olupese isanwo ti o fẹran lati awọn aṣayan ti o wa, 5) Ṣayẹwo iye cryptocurrency ti iwọ yoo gba ati awọn owo-ọya, 6) Tẹ 'Ra Bayi' lati tẹsiwaju si iṣowo aabo ti olupese, 7) Pari isanwo lori oju-iwe ayelujara olupese, 8) Cryptocurrency yoo fi kun si Palma Wallet rẹ laifọwọyi.",
+            "keywords": ["bi o ṣe le ra", "ilana rira", "awọn igbesẹ rira", "fiat si crypto"]
+          },
+          {
+            "id": "fiat-03",
+            "question": "Awọn ọna isanwo wo ni o ni atilẹyin?",
+            "answer": "Awọn ọna isanwo ti o ni atilẹyin yatọ nipasẹ orilẹ-ede ati olupese ṣugbọn wọn maa n pẹlu: 1) Awọn kaadi Kirẹditi/Debit (Visa, Mastercard), 2) Awọn gbigbe owo banki (ACH, SEPA, Wire), 3) Owo alagbeka (M-PESA, Airtel Money ni awọn agbegbe ti o ni atilẹyin), 4) Awọn apamọwọ oni-nọmba (Apple Pay, Google Pay), 5) Awọn ọna isanwo agbegbe ti o jẹ pataki si orilẹ-ede rẹ. Awọn ọna ti o wa ni a fihan nigbati o ba yan olupese kan.",
+            "keywords": ["awọn ọna isanwo", "awọn aṣayan isanwo", "isanwo kaadi", "gbigbe owo banki"]
+          },
+          {
+            "id": "fiat-04",
+            "question": "Kini awọn owo-ọya fun rira cryptocurrency?",
+            "answer": "Awọn owo-ọya fun rira cryptocurrency pẹlu: 1) Awọn owo-ọya olupese (ni deede 1-4% da lori ọna isanwo), 2) Awọn owo-ọya nẹtiwọki fun fifi crypto kun si apamọwọ rẹ, 3) Awọn owo-ọya ṣiṣe isanwo (le waye fun awọn ọna kan). Palma Wallet ko gba awọn owo-ọya afikun lori awọn oṣuwọn olupese. Gbogbo awọn owo-ọya ni a fihan ni gbangba ṣaaju ki o to jẹrisi rira rẹ.",
+            "keywords": ["awọn owo-ọya rira", "awọn idiyele rira", "awọn owo-ọya fiat on-ramp", "awọn idiyele"]
+          },
+          {
+            "id": "fiat-05",
+            "question": "Awọn orilẹ-ede wo ni o ni atilẹyin fun rira crypto?",
+            "answer": "Fiat on-ramp ti Palma Wallet ṣe atilẹyin ju awọn orilẹ-ede 150 lọ pẹlu idojukọ pataki lori awọn ọja Afirika pẹlu: Nigeria, Kenya, South Africa, Ghana, Uganda, Tanzania, ati ọpọlọpọ awọn miiran. Awọn olupese isanwo ati awọn ọna ti o wa da lori ipo rẹ. Nigbati o ba ṣii ẹya Ra, o ṣe awari orilẹ-ede rẹ laifọwọyi o si fihan awọn aṣayan ti o wa. Diẹ ninu awọn olupese le nilo awọn iwe aṣẹ kan pato da lori awọn ilana agbegbe.",
+            "keywords": ["awọn orilẹ-ede ti o ni atilẹyin", "agbegbe ilẹ-aye", "wiwa", "awọn agbegbe"]
+          },
+          {
+            "id": "fiat-06",
+            "question": "Kini awọn ihamọ rira fun rira crypto?",
+            "answer": "Awọn ihamọ rira yatọ nipasẹ olupese ati orilẹ-ede: 1) Rira ti o kere julọ ni deede $10-50 USD deede, 2) awọn ihamọ ti o pọ julọ wa lati $500-$10,000 fun idunadura fun awọn olumulo tuntun, 3) awọn ihamọ ojoojumọ/oṣooṣu le waye da lori ipele ijẹrisi, 4) awọn ihamọ ti o ga julọ wa lẹhin ipari ijẹrisi KYC pẹlu olupese. Awọn ihamọ gangan ni a fihan fun olupese kọọkan ṣaaju ki o to tẹsiwaju.",
+            "keywords": ["awọn ihamọ rira", "awọn ihamọ rira", "rira ti o kere julọ", "rira ti o pọ julọ"]
+          },
+          {
+            "id": "fiat-07",
+            "question": "Igba melo ni o gba lati gba cryptocurrency ti a ra?",
+            "answer": "Awọn akoko ipari rira yatọ nipasẹ ọna isanwo: 1) Awọn isanwo kaadi: Ni deede iṣẹju 10-30, 2) Awọn gbigbe owo banki: 1-5 ọjọ iṣowo da lori banki rẹ, 3) Owo alagbeka: Ni deede laarin iṣẹju 30, 4) Awọn apamọwọ oni-nọmba: Ni deede lẹsẹkẹsẹ si iṣẹju 15. Lẹhin ti olupese ba ti fi idi isanwo mulẹ, ifijiṣẹ cryptocurrency si Palma Wallet rẹ ni deede laarin iṣẹju diẹ.",
+            "keywords": ["akoko rira", "akoko ifijiṣẹ", "iṣẹju ṣiṣe", "ipari rira"]
+          },
+          {
+            "id": "fiat-08",
+            "question": "Ṣe mo nilo lati fidi idanimọ mi mulẹ lati ra cryptocurrency?",
+            "answer": "Awọn ibeere ijẹrisi idanimọ da lori: 1) Olupese isanwo ti o yan, 2) iye rira rẹ, 3) awọn ilana orilẹ-ede rẹ. Awọn rira kekere (labẹ $150) nigbagbogbo ko nilo ijẹrisi. Awọn iye nla ni deede nilo: 1) Ijẹrisi imeeli, 2) ifọwọsi nọmba foonu, 3) ikojọpọ ID ijọba, 4) ijẹrisi selfie. Awọn ibeere olupese kọọkan ni a fihan ṣaaju ki o to tẹsiwaju.",
+            "keywords": ["KYC", "ijẹrisi idanimọ", "awọn ibeere ijẹrisi", "ayẹwo ID"]
+          },
+          {
+            "id": "fiat-09",
+            "question": "Kini o yẹ ki n ṣe ti rira mi ba kuna?",
+            "answer": "Ti rira rẹ ba kuna: 1) Ṣayẹwo boya banki/olupese kaadi rẹ kọ isanwo rẹ, 2) Rii daju pe o ti tẹ awọn alaye isanwo to tọ, 3) Fidi rẹ mulẹ pe rira rẹ ko kọja awọn ihamọ, 4) Gbiyanju ọna isanwo miiran tabi olupese, 5) Ti a ba ti gba isanwo ṣugbọn a ko gba crypto, fi ID aṣẹ rẹ pamọ ki o kan si atilẹyin olupese taara, 6) Atilẹyin Palma Wallet tun le ṣe iranlọwọ lati tọpinpin ipo aṣẹ rẹ.",
+            "keywords": ["rira kuna", "aṣiṣe isanwo", "iṣoro rira", "idunadura kuna"]
+          },
+          {
+            "id": "fiat-10",
+            "question": "Ṣe mo le ta cryptocurrency fun owo fiat (Off-Ramp)?",
+            "answer": "Lọwọlọwọ, Palma Wallet n dojukọ lori iranlọwọ awọn olumulo lati ra cryptocurrency (on-ramp). A ti ṣe eto ẹya tita (off-ramp) fun itusilẹ iwaju ati pe yoo gba ọ laaye lati: 1) Ta crypto fun owo agbegbe, 2) Yọ owo kuro si awọn akọọlẹ banki, 3) Lo yiyọ owo alagbeka ni awọn agbegbe ti o ni atilẹyin, 4) Wọle si awọn alabaṣiṣẹpọ paṣipaaro agbegbe. Ṣayẹwo ohun elo naa fun awọn imudojuiwọn lori nigbati ẹya yii yoo wa ni agbegbe rẹ.",
+            "keywords": ["ta crypto", "off-ramp", "yọ fiat kuro", "gba owo"]
+          },
+          {
+            "id": "fiat-11",
+            "question": "Kini idi ti awọn olupese oriṣiriṣi ṣe han fun awọn orilẹ-ede oriṣiriṣi?",
+            "answer": "Awọn olupese isanwo ni agbegbe ilẹ-aye oriṣiriṣi da lori: 1) Ibamu pẹlu awọn ilana agbegbe ati awọn iwe-aṣẹ, 2) Awọn ajọṣepọ banki ni orilẹ-ede kọọkan, 3) Amayederun isanwo ti o wa, 4) Atilẹyin owo agbegbe. Palma Wallet ṣe afihan awọn olupese ti o ṣiṣẹ dara julọ ni ipo rẹ laifọwọyi, ni idaniloju pe o gba iṣẹ igbẹkẹle ati awọn oṣuwọn ifigagbaga fun orilẹ-ede rẹ pato.",
+            "keywords": ["wiwa olupese", "awọn olupese orilẹ-ede", "awọn iyatọ agbegbe", "agbegbe ilẹ-aye"]
+          },
+          {
+            "id": "fiat-12",
+            "question": "Ṣe rira cryptocurrency nipasẹ Palma Wallet jẹ ailewu?",
+            "answer": "Bẹẹni, rira crypto nipasẹ Palma Wallet jẹ ailewu nitori: 1) A n ṣe ajọṣepọ pẹlu awọn olupese isanwo ti o ni iwe-aṣẹ ati ti a ti ṣe ilana, 2) Gbogbo awọn idunadura lo ifipamọ aabo, 3) Ṣiṣe isanwo waye lori pẹpẹ aabo ti olupese, 4) A pese adirẹsi Palma Wallet rẹ laifọwọyi lati rii daju ifijiṣẹ to tọ, 5) A n ṣetọju gbogbo awọn rira fun ipari aṣeyọri. Nigbagbogbo rii daju pe o wa lori oju-iwe ayelujara olupese to tọ nigbati o ba n sanwo.",
+            "keywords": ["aabo", "rira aabo", "ra ni aabo", "aabo idunadura"]
           }
         ]
       }

@@ -21,7 +21,7 @@
           {
             "id": "general-02",
             "question": "Kedu cryptocurrencies Palma Wallet na-akwado?",
-            "answer": "Palma Wallet ugbu a na-akwado USDT (Tether) na netwọkụ ERC20 (Ethereum) na TRC20 (TRON). A na-eme atụmatụ nkwado maka cryptocurrencies ndị ọzọ na mmelite n'ọdịnihu.",
+            "answer": "Palma Wallet na-akwado USDT (Tether) na netwọkụ ERC20 (Ethereum) na TRC20 (TRON). Ọ na-akwadokwa USDC (USD Coin) na netwọkụ ERC20. A na-atụ anya ịgbakwunye ego cryptocurrency ndị ọzọ n'ọdịniihu.",
             "keywords": ["currency", "token", "coin", "cryptocurrency", "support", "USDT", "Tether"]
           },
           {
@@ -233,6 +233,138 @@
             "question": "Palma Wallet ọ ga-akwado NFTs?",
             "answer": "Ee, nkwado maka ikiri na ijikwa NFTs (Non-Fungible Tokens) dị na usoro ihe omume Palma Wallet. Atụmatụ a ga-enye ndị ọrụ ohere ikiri nchịkọta NFT ha, ịnata NFTs, ma mechaa zụọ ahịa ha ozugbo n'ime ngwa ahụ.",
             "keywords": ["NFT", "non-fungible token", "collectibles", "digital art"]
+          }
+        ]
+      },
+      {
+        "sectionId": "swap-feature",
+        "sectionTitle": "Njirimara Nke Mgbanwe",
+        "content": [
+          {
+            "id": "swap-01",
+            "question": "Gịnị bụ njirimara nke mgbanwe nke Palma Wallet?",
+            "answer": "Njirimara nke mgbanwe dị na Palma Wallet na-enye gị ohere ịgbanwe otu cryptocurrency maka ọzọ ozugbo n'ime ngwa ahụ. O jikọtara ya na Changelly, ọrụ mgbanwe a tụkwasịrị obi, iji nye ọnụego asọmpi na nkwado maka ọtụtụ ụzọ cryptocurrency abụọ. Ị nwere ike ịgbanwe n'etiti USDT, USDC, ETH, BTC, na cryptocurrencies ndị ọzọ a kwadoro na-ahapụghị ngwa Palma Wallet.",
+            "keywords": ["mgbanwe", "gbanwee", "tụgharịa", "azụmahịa", "Changelly"]
+          },
+          {
+            "id": "swap-02",
+            "question": "Olee otú m ga-esi gbanwee cryptocurrencies na Palma Wallet?",
+            "answer": "Iji gbanwee cryptocurrencies: 1) Pịa bọtịnụ 'Gbanwee' na ihuenyo Ụlọ, 2) Họrọ cryptocurrency ịchọrọ ịgbanwe site na ya (dịka ọmụmaatụ, USDT), 3) Họrọ cryptocurrency ịchọrọ ịnata (dịka ọmụmaatụ, ETH), 4) Tinye ego ịchọrọ ịgbanwe, 5) Lelee ọnụego mgbanwe na ụgwọ e gosiri, 6) Kwenye nkọwa mgbanwe ahụ, 7) A ga-edozi azụmahịa ahụ site na ngwaọrụ echekwara nke Changelly. Cryptocurrency ọhụrụ gị ga-apụta na obere akpa gị ozugbo mgbanwe ahụ zuru ezu.",
+            "keywords": ["otu esi agbanwe", "usoro mgbanwe", "tụgharịa crypto", "nzọụkwụ mgbanwe"]
+          },
+          {
+            "id": "swap-03",
+            "question": "Kedu cryptocurrencies m nwere ike ịgbanwe na Palma Wallet?",
+            "answer": "Palma Wallet na-akwado mgbanwe n'etiti nnukwu cryptocurrencies gụnyere: 1) USDT (ma ERC20 na TRC20), 2) USDC (ERC20), 3) Ethereum (ETH), 4) Bitcoin (BTC), na ọtụtụ cryptocurrencies ndị ọzọ a ma ama. A na-emelite ụzọ azụmahịa abụọ dịnụ mgbe niile dabere na nnweta ahịa site na njikọ anyị na Changelly. Ị nwere ike ịlele ụzọ abụọ dịnụ na interface nke mgbanwe.",
+            "keywords": ["ego a kwadoro", "ụzọ azụmahịa abụọ", "ego dịnụ", "nhọrọ mgbanwe"]
+          },
+          {
+            "id": "swap-04",
+            "question": "Kedu ụgwọ maka ịgbanwe cryptocurrencies?",
+            "answer": "Ụgwọ mgbanwe gụnyere: 1) Palma Wallet na-ana ụgwọ azụmahịa 0.5% na mgbanwe niile, 2) ụgwọ mgbanwe nke Changelly (na-abụkarị 0.25-0.5%), 3) ụgwọ netwọk maka azụmahịa blockchain (na-agbanwe agbanwe site na netwọk na mkpọchi). A na-egosipụta ụgwọ ahụ zuru ezu n'ụzọ doro anya tupu ị kwado mgbanwe ahụ, yabụ ị ga-ama kpọmkwem ihe ị ga-akwụ. Enweghị ụgwọ zoro ezo.",
+            "keywords": ["ụgwọ mgbanwe", "ọnụ ahịa mgbanwe", "ụgwọ azụmahịa", "ọnụahịa"]
+          },
+          {
+            "id": "swap-05",
+            "question": "Ogologo oge ole ka mgbanwe na-ewe iji zuo ezu?",
+            "answer": "Oge mmezu mgbanwe dabere n'ọtụtụ ihe: 1) Mgbanwe ndị dị mfe na-ewe 5-30 nkeji, 2) azụmahịa Bitcoin nwere ike were ogologo oge (ruo 60 nkeji) n'ihi nkwenye netwọk, 3) mgbanwe Ethereum na ERC20 token na-adịkarị n'ime 5-15 nkeji, 4) mgbanwe TRC20 na-adịkarị ngwa ngwa (3-10 nkeji). Ị nwere ike soro ọnọdụ mgbanwe gị ozugbo n'ime ngwa ahụ.",
+            "keywords": ["oge mgbanwe", "ogologo oge mgbanwe", "oge nhazi", "mmezu"]
+          },
+          {
+            "id": "swap-06",
+            "question": "Gịnị bụ ego kacha nta na kacha elu m nwere ike ịgbanwe?",
+            "answer": "Oke mgbanwe dị iche site na cryptocurrency: 1) Ego kacha nta bụ Changelly setịpụrụ ma na-adịkarị site na $10-50 USD ruru ya, 2) ego kacha elu nwere ike ịga ruo $50,000 USD ruru ya kwa azụmahịa maka ndị ọrụ enyochara, 3) oke kwa ụbọchị nwere ike itinye dabere na ọkwa nyocha akaụntụ gị. A na-egosipụta oke kpọmkwem maka ụzọ abụọ ị họọrọ na interface nke mgbanwe tupu ị kwado azụmahịa ahụ.",
+            "keywords": ["oke mgbanwe", "ego kacha nta", "ego kacha elu", "oke azụmahịa"]
+          },
+          {
+            "id": "swap-07",
+            "question": "M nwere ike ịkagbu mgbanwe mgbe m malitere ya?",
+            "answer": "Ozugbo a kwadoro ma nyefee mgbanwe na blockchain, enweghị ike ịkagbu ya n'ihi agwa azụmahịa blockchain na-adịghị agbanwe agbanwe. Agbanyeghị: 1) Ị nwere ike ịkagbu tupu nkwenye ikpeazụ na ngwa ahụ, 2) Ọ bụrụ na mgbanwe adaa n'ihi nsogbu netwọk, a ga-eweghachi ego mbụ gị, 3) Na-elele ego na adreesị ugboro abụọ tupu ị kwado. Kpọtụrụ nkwado ma ọ bụrụ na ị na-enweta nsogbu ọ bụla na mgbanwe.",
+            "keywords": ["kagbuo mgbanwe", "tụgharịa mgbanwe", "ịkagbu mgbanwe", "ịkagbu"]
+          },
+          {
+            "id": "swap-08",
+            "question": "Gịnị kpatara mgbanwe m ji na-ewe ogologo oge karịa ka a tụrụ anya ya?",
+            "answer": "Mgbanwe nwere ike were ogologo oge n'ihi: 1) Nnukwu mkpọchi netwọk na blockchain, 2) nkwenye ndị ọzọ achọrọ maka nnukwu ego, 3) igbu oge nwa oge na njedebe nhazi nke Changelly, 4) mmezi netwọk ma ọ bụ mmelite. Ọ bụrụ na mgbanwe gị ezughị ezu n'ime awa 2, kpọtụrụ nkwado na ID mgbanwe gị. Ị nwere ike soro ọnọdụ mgbanwe gị mgbe niile n'ime akụkọ azụmahịa.",
+            "keywords": ["igbu oge mgbanwe", "mgbanwe nwayọ", "mgbanwe na-echere", "nsogbu nhazi"]
+          }
+        ]
+      },
+      {
+        "sectionId": "fiat-onramp",
+        "sectionTitle": "Fiat On-Ramp (Zụta Crypto)",
+        "content": [
+          {
+            "id": "fiat-01",
+            "question": "Gịnị bụ njirimara Fiat On-Ramp na Palma Wallet?",
+            "answer": "Njirimara Fiat On-Ramp na-enye gị ohere ịzụta cryptocurrency ozugbo site na iji ego obodo gị (dịka USD, EUR, NGN, wdg) na-eji ụzọ ịkwụ ụgwọ dị iche iche. Palma Wallet na-emekọ ihe na ọtụtụ ndị na-enye ọrụ ịkwụ ụgwọ gụnyere MoonPay, Mercuryo, na ndị ọzọ site na ngwaọrụ Changelly iji nye ọnụego asọmpi na oke mkpuchi ala, na-elekwasị anya karịsịa na ahịa Africa.",
+            "keywords": ["zụta crypto", "fiat on-ramp", "zụta cryptocurrency", "ego obodo"]
+          },
+          {
+            "id": "fiat-02",
+            "question": "Olee otú m ga-esi zụta cryptocurrency site na iji ego fiat?",
+            "answer": "Iji zụta cryptocurrency: 1) Pịa bọtịnụ 'Zụta' na ihuenyo Ụlọ, 2) Họrọ obodo gị (a na-achọpụta ya na akpaghị aka site na ndabara), 3) Họrọ ego ịchọrọ imefu n'ime ego obodo gị, 4) Họrọ onye na-enye ọrụ ịkwụ ụgwọ kacha amasị gị site na nhọrọ dịnụ, 5) Lelee ego cryptocurrency ị ga-anata na ụgwọ, 6) Pịa 'Zụta Ugbu a' iji gaa n'ihu na ndenye ego echekwara nke onye na-enye ọrụ, 7) Mezue ịkwụ ụgwọ na ebe nrụọrụ weebụ onye na-enye ọrụ, 8) A ga-etinye cryptocurrency na Palma Wallet gị na akpaghị aka.",
+            "keywords": ["otu esi azụta", "usoro ịzụ ahịa", "nzọụkwụ ịzụta", "fiat gaa crypto"]
+          },
+          {
+            "id": "fiat-03",
+            "question": "Kedu ụzọ ịkwụ ụgwọ a kwadoro?",
+            "answer": "Ụzọ ịkwụ ụgwọ a kwadoro dị iche site na obodo na onye na-enye ọrụ mana ha na-adịkarị gụnyere: 1) Kaadị Ebe E Si Nweta/Debit (Visa, Mastercard), 2) Nyefe ego site na ụlọ akụ (ACH, SEPA, Wire), 3) Ego ekwentị (M-PESA, Airtel Money na mpaghara a kwadoro), 4) Obere akpa dijitalụ (Apple Pay, Google Pay), 5) Ụzọ ịkwụ ụgwọ obodo akọwapụtara na obodo gị. A na-egosipụta ụzọ dịnụ mgbe ị na-ahọrọ onye na-enye ọrụ.",
+            "keywords": ["ụzọ ịkwụ ụgwọ", "nhọrọ ịkwụ ụgwọ", "ịkwụ ụgwọ kaadị", "nyefe ego site na ụlọ akụ"]
+          },
+          {
+            "id": "fiat-04",
+            "question": "Kedu ụgwọ maka ịzụta cryptocurrency?",
+            "answer": "Ụgwọ maka ịzụta cryptocurrency gụnyere: 1) Ụgwọ onye na-enye ọrụ (na-abụkarị 1-4% dabere na ụzọ ịkwụ ụgwọ), 2) Ụgwọ netwọk maka itinye crypto na obere akpa gị, 3) Ụgwọ nhazi ịkwụ ụgwọ (nwere ike itinye maka ụfọdụ ụzọ). Palma Wallet anaghị ana ụgwọ ọzọ na mgbakwunye na ọnụego onye na-enye ọrụ. A na-egosipụta ụgwọ niile n'ụzọ doro anya tupu ị kwado ịzụ ahịa gị.",
+            "keywords": ["ụgwọ ịzụta", "ọnụ ahịa ịzụ ahịa", "ụgwọ fiat on-ramp", "ụgwọ"]
+          },
+          {
+            "id": "fiat-05",
+            "question": "Kedu mba a kwadoro maka ịzụta crypto?",
+            "answer": "Fiat on-ramp nke Palma Wallet na-akwado ihe karịrị mba 150 na nlebara anya pụrụ iche na ahịa Africa gụnyere: Nigeria, Kenya, South Africa, Ghana, Uganda, Tanzania, na ọtụtụ ndị ọzọ. Ndị na-enye ọrụ ịkwụ ụgwọ na ụzọ dịnụ dabere na ọnọdụ gị. Mgbe ị mepere njirimara Zụta, ọ na-achọpụta obodo gị na akpaghị aka ma gosipụta nhọrọ dịnụ. Ụfọdụ ndị na-enye ọrụ nwere ike ịchọ akwụkwọ ụfọdụ dabere na iwu obodo.",
+            "keywords": ["mba a kwadoro", "mkpuchi ala", "nnweta", "mpaghara"]
+          },
+          {
+            "id": "fiat-06",
+            "question": "Kedu ihe bụ oke ịzụta maka ịzụta crypto?",
+            "answer": "Oke ịzụta dị iche site na onye na-enye ọrụ na obodo: 1) Ịzụta kacha nta na-abụkarị $10-50 USD ruru ya, 2) oke kacha elu sitere na $500-$10,000 kwa azụmahịa maka ndị ọrụ ọhụrụ, 3) oke kwa ụbọchị/ọnwa nwere ike itinye dabere na ọkwa nyocha, 4) oke dị elu dị mgbe ị mechara nyocha KYC na onye na-enye ọrụ. A na-egosipụta oke kpọmkwem maka onye ọ bụla na-enye ọrụ tupu ị gaa n'ihu.",
+            "keywords": ["oke ịzụta", "oke ịzụta", "ịzụta kacha nta", "ịzụta kacha elu"]
+          },
+          {
+            "id": "fiat-07",
+            "question": "Ogologo oge ole ka ọ na-ewe iji nweta cryptocurrency azụrụ?",
+            "answer": "Oge mmezu ịzụta dị iche site na ụzọ ịkwụ ụgwọ: 1) Ịkwụ ụgwọ kaadị: N'adịkarị 10-30 nkeji, 2) Nyefe ego site na ụlọ akụ: 1-5 ụbọchị azụmahịa dabere na ụlọ akụ gị, 3) Ego ekwentị: N'adịkarị n'ime 30 nkeji, 4) Obere akpa dijitalụ: N'adịkarị ozugbo ruo 15 nkeji. Mgbe onye na-enye ọrụ kwadoro ịkwụ ụgwọ, nnyefe cryptocurrency na Palma Wallet gị na-adịkarị n'ime nkeji ole na ole.",
+            "keywords": ["oge ịzụta", "oge nnyefe", "oge nhazi", "mmezu ịzụta"]
+          },
+          {
+            "id": "fiat-08",
+            "question": "M kwesịrị ịlele njirimara m iji zụta cryptocurrency?",
+            "answer": "Ihe achọrọ maka nyocha njirimara dabere na: 1) Onye na-enye ọrụ ịkwụ ụgwọ ị họọrọ, 2) ego ịzụ ahịa gị, 3) iwu obodo gị. Obere ịzụ ahịa (n'okpuru $150) anaghị achọ nyocha. Nnukwu ego na-adịkarị achọ: 1) Nyocha email, 2) nkwenye nọmba ekwentị, 3) ntinye ID gọọmentị, 4) nyocha site na selfie. A na-egosipụta ihe achọrọ nke onye ọ bụla na-enye ọrụ tupu ị gaa n'ihu.",
+            "keywords": ["KYC", "nyocha njirimara", "ihe achọrọ maka nyocha", "nnyocha ID"]
+          },
+          {
+            "id": "fiat-09",
+            "question": "Gịnị ka m kwesịrị ime ma ọ bụrụ na ịzụ ahịa m ada?",
+            "answer": "Ọ bụrụ na ịzụ ahịa gị ada: 1) Lelee ma ụlọ akụ gị/onye na-enye kaadị gị jụrụ ịkwụ ụgwọ gị, 2) Gbaa mbọ hụ na ị tinyere nkọwa ịkwụ ụgwọ ziri ezi, 3) Lelee ma ịzụ ahịa gị agafeghị oke, 4) Gbalịa ụzọ ịkwụ ụgwọ ọzọ ma ọ bụ onye na-enye ọrụ, 5) Ọ bụrụ na ewerela ego mana anataghị crypto, chekwaa ID iwu gị ma kpọtụrụ nkwado onye na-enye ọrụ ozugbo, 6) Nkwado Palma Wallet nwekwara ike inye aka soro ọnọdụ iwu gị.",
+            "keywords": ["ịzụ ahịa adaala", "mperi ịkwụ ụgwọ", "nsogbu ịzụta", "azụmahịa adaala"]
+          },
+          {
+            "id": "fiat-10",
+            "question": "M nwere ike ire cryptocurrency maka ego fiat (Off-Ramp)?",
+            "answer": "Ugbu a, Palma Wallet na-elekwasị anya n'inyere ndị ọrụ aka ịzụta cryptocurrency (on-ramp). A na-eme atụmatụ njirimara ire ere (off-ramp) maka ntọhapụ n'ọdịnihu ma ga-enye gị ohere: 1) Ire crypto maka ego obodo, 2) Ịwepụ ego na akaụntụ ụlọ akụ, 3) Iji mwepụ ego ekwentị na mpaghara a kwadoro, 4) Ịnweta ndị mmekọ mgbanwe obodo. Lelee ngwa ahụ maka mmelite banyere mgbe njirimara a ga-adị na mpaghara gị.",
+            "keywords": ["ire crypto", "off-ramp", "wepụ fiat", "wepụ ego"]
+          },
+          {
+            "id": "fiat-11",
+            "question": "Gịnị kpatara e ji egosipụta ndị na-enye ọrụ dị iche iche maka mba dị iche iche?",
+            "answer": "Ndị na-enye ọrụ ịkwụ ụgwọ nwere mkpuchi ala dị iche iche dabere na: 1) Nkwado iwu obodo na ikike, 2) Mmekọrịta ụlọ akụ na obodo ọ bụla, 3) Ngwaọrụ ịkwụ ụgwọ dịnụ, 4) Nkwado ego obodo. Palma Wallet na-egosipụta na akpaghị aka ndị na-enye ọrụ na-arụ ọrụ kacha mma na ọnọdụ gị, na-ahụ na ị nwetara ọrụ a tụkwasịrị obi na ọnụego asọmpi maka obodo gị akọwapụtara.",
+            "keywords": ["nnweta onye na-enye ọrụ", "ndị na-enye ọrụ mba", "ọdịiche mpaghara", "mkpuchi ala"]
+          },
+          {
+            "id": "fiat-12",
+            "question": "Ịzụta cryptocurrency site na Palma Wallet ọ dị mma?",
+            "answer": "Ee, ịzụta crypto site na Palma Wallet dị mma n'ihi na: 1) Anyị na-emekọ ihe naanị na ndị na-enye ọrụ ịkwụ ụgwọ nwere ikike na ndị a na-achịkwa, 2) Azụmahịa niile na-eji izo ya ezo echekwara, 3) Nhazi ịkwụ ụgwọ na-eme na ngwaọrụ echekwara nke onye na-enye ọrụ, 4) A na-enye adreesị Palma Wallet gị na akpaghị aka iji hụ na nnyefe ziri ezi, 5) Anyị na-enyocha ịzụ ahịa niile maka mmezu na-aga nke ọma. Na-enyocha mgbe niile na ị nọ na ebe nrụọrụ weebụ onye na-enye ọrụ ziri ezi mgbe ị na-akwụ ụgwọ.",
+            "keywords": ["nchekwa", "ịzụ ahịa echekwara", "zụta n'enweghị nsogbu", "nchekwa azụmahịa"]
           }
         ]
       }

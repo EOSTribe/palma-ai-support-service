@@ -21,8 +21,8 @@
         {
           "id": "general-02",
           "question": "Quais criptomoedas a Palma Wallet suporta?",
-          "answer": "A Palma Wallet atualmente suporta USDT (Tether) nas redes ERC20 (Ethereum) e TRC20 (TRON). O suporte para outras criptomoedas está planejado para atualizações futuras.",
-          "keywords": ["Moeda", "Token", "Criptomoeda", "Suporte", "USDT", "Tether"]
+          "answer": "A Palma Wallet atualmente suporta USDT (Tether) nas redes ERC20 (Ethereum) e TRC20 (TRON). Também suporta USDC (USD Coin) na rede ERC20. O suporte para outras criptomoedas está planejado para atualizações futuras.",
+          "keywords": ["Moeda", "Token", "Criptomoeda", "Suporte", "USDT", "Tether", "USDC", "USD Coin"]
         },
         {
           "id": "general-03",
@@ -233,6 +233,138 @@
           "question": "A Palma Wallet suportará NFTs?",
           "answer": "Sim, o suporte para visualização e gerenciamento de NFTs (Tokens Não-Fungíveis) está incluído no roteiro da Palma Wallet. Este recurso permitirá que os usuários visualizem suas coleções de NFTs, recebam NFTs e eventualmente negociem diretamente no aplicativo.",
           "keywords": ["NFT", "Token Não-Fungível", "Colecionáveis", "arte digital"]
+        }
+      ]
+    },
+    {
+      "sectionId": "swap-feature",
+      "sectionTitle": "Funcionalidade de Troca",
+      "content": [
+        {
+          "id": "swap-01",
+          "question": "O que é a funcionalidade de Troca da Palma Wallet?",
+          "answer": "A funcionalidade de Troca na Palma Wallet permite que você troque instantaneamente uma criptomoeda por outra diretamente no aplicativo. Ela se integra com a Changelly, um serviço de câmbio confiável, para fornecer taxas competitivas e suporte para múltiplos pares de criptomoedas. Você pode trocar entre USDT, USDC, ETH, BTC e outras criptomoedas suportadas sem sair do aplicativo Palma Wallet.",
+          "keywords": ["troca", "câmbio", "converter", "negociação", "Changelly"]
+        },
+        {
+          "id": "swap-02",
+          "question": "Como faço para trocar criptomoedas na Palma Wallet?",
+          "answer": "Para trocar criptomoedas: 1) Toque no botão 'Trocar' na tela inicial, 2) Selecione a criptomoeda da qual você deseja trocar (por exemplo, USDT), 3) Selecione a criptomoeda que você deseja receber (por exemplo, ETH), 4) Digite o valor que você deseja trocar, 5) Revise a taxa de câmbio e as taxas exibidas, 6) Confirme os detalhes da troca, 7) A transação será processada através da infraestrutura segura da Changelly. Sua nova criptomoeda aparecerá na sua carteira assim que a troca for concluída.",
+          "keywords": ["como trocar", "processo de câmbio", "converter cripto", "passos de troca"]
+        },
+        {
+          "id": "swap-03",
+          "question": "Quais criptomoedas posso trocar na Palma Wallet?",
+          "answer": "A Palma Wallet suporta a troca entre as principais criptomoedas, incluindo: 1) USDT (tanto ERC20 quanto TRC20), 2) USDC (ERC20), 3) Ethereum (ETH), 4) Bitcoin (BTC) e muitas outras criptomoedas populares. Os pares de negociação disponíveis são continuamente atualizados com base na disponibilidade do mercado através da nossa integração com a Changelly. Você pode verificar os pares disponíveis na interface de Troca.",
+          "keywords": ["moedas suportadas", "pares de negociação", "moedas disponíveis", "opções de troca"]
+        },
+        {
+          "id": "swap-04",
+          "question": "Quais são as taxas para trocar criptomoedas?",
+          "answer": "As taxas de troca incluem: 1) A Palma Wallet cobra uma taxa de transação de 0,5% em todas as trocas, 2) a taxa de câmbio da Changelly (geralmente 0,25-0,5%), 3) taxas de rede para as transações de blockchain (varia de acordo com a rede e a congestão). A taxa total é exibida claramente antes de você confirmar a troca, para que você saiba exatamente o que pagará. Não há taxas ocultas.",
+          "keywords": ["taxas de troca", "custos de câmbio", "taxas de transação", "preços"]
+        },
+        {
+          "id": "swap-05",
+          "question": "Quanto tempo leva para uma troca ser concluída?",
+          "answer": "Os tempos de conclusão da troca dependem de vários fatores: 1) Trocas típicas levam de 5 a 30 minutos, 2) transações de Bitcoin podem levar mais tempo (até 60 minutos) devido às confirmações da rede, 3) trocas de Ethereum e tokens ERC20 geralmente são concluídas em 5-15 minutos, 4) trocas TRC20 são tipicamente mais rápidas (3-10 minutos). Você pode rastrear o status da sua troca em tempo real no aplicativo.",
+          "keywords": ["tempo de troca", "duração do câmbio", "tempo de processamento", "conclusão"]
+        },
+        {
+          "id": "swap-06",
+          "question": "Qual é o valor mínimo e máximo que posso trocar?",
+          "answer": "Os limites de troca variam de acordo com a criptomoeda: 1) Os valores mínimos são definidos pela Changelly e geralmente variam de $10 a $50 USD equivalentes, 2) os valores máximos podem chegar a $50.000 USD equivalentes por transação para usuários verificados, 3) limites diários podem ser aplicados com base no seu nível de verificação de conta. Os limites exatos para o par selecionado são mostrados na interface de Troca antes de você confirmar a transação.",
+          "keywords": ["limites de troca", "valor mínimo", "valor máximo", "limites de transação"]
+        },
+        {
+          "id": "swap-07",
+          "question": "Posso cancelar uma troca depois de iniciá-la?",
+          "answer": "Depois que uma troca é confirmada e enviada para a blockchain, ela não pode ser cancelada devido à natureza irreversível das transações de blockchain. No entanto: 1) Você pode cancelar antes da confirmação final no aplicativo, 2) se uma troca falhar devido a problemas de rede, seus fundos originais serão devolvidos, 3) sempre verifique novamente os valores e endereços antes de confirmar. Entre em contato com o suporte se você tiver algum problema com uma troca.",
+          "keywords": ["cancelar troca", "reverter câmbio", "cancelamento de troca", "desfazer"]
+        },
+        {
+          "id": "swap-08",
+          "question": "Por que minha troca está demorando mais do que o esperado?",
+          "answer": "As trocas podem demorar mais devido a: 1) Alta congestão de rede na blockchain, 2) confirmações adicionais necessárias para grandes valores, 3) atrasos temporários no processamento da Changelly, 4) manutenção ou atualizações de rede. Se sua troca não for concluída em 2 horas, entre em contato com o suporte com seu ID de troca. Você sempre pode rastrear o status da sua troca no histórico de transações.",
+          "keywords": ["atraso na troca", "câmbio lento", "troca pendente", "problemas de processamento"]
+        }
+      ]
+    },
+    {
+      "sectionId": "fiat-onramp",
+      "sectionTitle": "Fiat On-Ramp (Comprar Cripto)",
+      "content": [
+        {
+          "id": "fiat-01",
+          "question": "O que é a funcionalidade Fiat On-Ramp na Palma Wallet?",
+          "answer": "A funcionalidade Fiat On-Ramp permite que você compre criptomoeda diretamente com sua moeda local (como USD, EUR, NGN, etc.) usando vários métodos de pagamento. A Palma Wallet faz parcerias com múltiplos provedores de pagamento, incluindo MoonPay, Mercuryo e outros através da infraestrutura da Changelly para oferecer taxas competitivas e ampla cobertura geográfica, especialmente focada nos mercados africanos.",
+          "keywords": ["comprar cripto", "fiat on-ramp", "comprar criptomoeda", "moeda local"]
+        },
+        {
+          "id": "fiat-02",
+          "question": "Como faço para comprar criptomoeda com moeda fiduciária?",
+          "answer": "Para comprar criptomoeda: 1) Toque no botão 'Comprar' na tela inicial, 2) Selecione seu país (detectado automaticamente por padrão), 3) Escolha quanto você deseja gastar em sua moeda local, 4) Selecione seu provedor de pagamento preferido nas opções disponíveis, 5) Revise a quantidade de criptomoeda que você receberá e as taxas, 6) Toque em 'Comprar Agora' para prosseguir para o checkout seguro do provedor, 7) Conclua o pagamento no site do provedor, 8) A criptomoeda será depositada na sua Palma Wallet automaticamente.",
+          "keywords": ["como comprar", "processo de compra", "passos para comprar", "fiat para cripto"]
+        },
+        {
+          "id": "fiat-03",
+          "question": "Quais métodos de pagamento são suportados?",
+          "answer": "Os métodos de pagamento suportados variam por país e provedor, mas tipicamente incluem: 1) Cartões de crédito/débito (Visa, Mastercard), 2) Transferências bancárias (ACH, SEPA, Wire), 3) Dinheiro móvel (M-PESA, Airtel Money em regiões suportadas), 4) Carteiras digitais (Apple Pay, Google Pay), 5) Métodos de pagamento locais específicos do seu país. Os métodos disponíveis são mostrados quando você seleciona um provedor.",
+          "keywords": ["métodos de pagamento", "opções de pagamento", "pagamento com cartão", "transferência bancária"]
+        },
+        {
+          "id": "fiat-04",
+          "question": "Quais são as taxas para comprar criptomoeda?",
+          "answer": "As taxas para comprar criptomoeda incluem: 1) Taxas do provedor (tipicamente 1-4% dependendo do método de pagamento), 2) Taxas de rede para depositar cripto na sua carteira, 3) Taxas de processamento de pagamento (podem ser aplicadas para certos métodos). A Palma Wallet não cobra taxas adicionais além das taxas do provedor. Todas as taxas são exibidas de forma transparente antes de você confirmar sua compra.",
+          "keywords": ["taxas de compra", "custos de compra", "taxas de fiat on-ramp", "cobranças"]
+        },
+        {
+          "id": "fiat-05",
+          "question": "Quais países são suportados para comprar cripto?",
+          "answer": "O fiat on-ramp da Palma Wallet suporta mais de 150 países com foco especial nos mercados africanos, incluindo: Nigéria, Quênia, África do Sul, Gana, Uganda, Tanzânia e muitos outros. Os provedores de pagamento e os métodos disponíveis dependem da sua localização. Quando você abre a funcionalidade de Compra, ela detecta automaticamente seu país e mostra as opções disponíveis. Alguns provedores podem exigir documentação específica com base nos regulamentos locais.",
+          "keywords": ["países suportados", "cobertura geográfica", "disponibilidade", "regiões"]
+        },
+        {
+          "id": "fiat-06",
+          "question": "Quais são os limites de compra para comprar cripto?",
+          "answer": "Os limites de compra variam por provedor e país: 1) A compra mínima é tipicamente de $10 a $50 USD equivalentes, 2) os limites máximos variam de $500 a $10.000 por transação para novos usuários, 3) limites diários/mensais podem ser aplicados com base no nível de verificação, 4) limites mais altos estão disponíveis após a conclusão da verificação KYC com o provedor. Os limites exatos são mostrados para cada provedor antes de você prosseguir.",
+          "keywords": ["limites de compra", "limites de compra", "compra mínima", "compra máxima"]
+        },
+        {
+          "id": "fiat-07",
+          "question": "Quanto tempo leva para receber a criptomoeda comprada?",
+          "answer": "Os tempos de conclusão da compra variam por método de pagamento: 1) Pagamentos com cartão: geralmente 10-30 minutos, 2) Transferências bancárias: 1-5 dias úteis dependendo do seu banco, 3) Dinheiro móvel: tipicamente em 30 minutos, 4) Carteiras digitais: geralmente instantâneo a 15 minutos. Após o pagamento ser confirmado pelo provedor, a entrega da criptomoeda para sua Palma Wallet é tipicamente em minutos.",
+          "keywords": ["tempo de compra", "tempo de entrega", "duração do processamento", "conclusão da compra"]
+        },
+        {
+          "id": "fiat-08",
+          "question": "Eu preciso verificar minha identidade para comprar criptomoeda?",
+          "answer": "Os requisitos de verificação de identidade dependem de: 1) O provedor de pagamento que você escolher, 2) seu valor de compra, 3) as regulamentações do seu país. Compras pequenas (abaixo de $150) geralmente não exigem verificação. Valores maiores tipicamente exigem: 1) Verificação de e-mail, 2) confirmação de número de telefone, 3) upload de documento de identidade, 4) verificação por selfie. Os requisitos de cada provedor são mostrados antes de você prosseguir.",
+          "keywords": ["KYC", "verificação de identidade", "requisitos de verificação", "verificação de ID"]
+        },
+        {
+          "id": "fiat-09",
+          "question": "O que devo fazer se minha compra falhar?",
+          "answer": "Se sua compra falhar: 1) Verifique se o seu pagamento foi recusado pelo seu banco/emissor do cartão, 2) certifique-se de ter inserido os detalhes de pagamento corretos, 3) verifique se sua compra não excede os limites, 4) tente um método de pagamento ou provedor diferente, 5) se o pagamento foi feito, mas a cripto não foi recebida, salve seu ID de pedido e entre em contato diretamente com o suporte do provedor, 6) o suporte da Palma Wallet também pode ajudar a rastrear o status do seu pedido.",
+          "keywords": ["compra falhou", "erro de pagamento", "problema de compra", "transação falhou"]
+        },
+        {
+          "id": "fiat-10",
+          "question": "Posso vender criptomoeda por moeda fiduciária (Off-Ramp)?",
+          "answer": "Atualmente, a Palma Wallet se concentra em ajudar os usuários a comprar criptomoeda (on-ramp). A funcionalidade de venda (off-ramp) está planejada para um lançamento futuro e permitirá que você: 1) Venda cripto por moeda local, 2) saque para contas bancárias, 3) use o saque de dinheiro móvel em regiões suportadas, 4) acesse parceiros de câmbio locais. Verifique o aplicativo para atualizações sobre quando esta funcionalidade estará disponível em sua região.",
+          "keywords": ["vender cripto", "off-ramp", "sacar fiat", "retirar dinheiro"]
+        },
+        {
+          "id": "fiat-11",
+          "question": "Por que diferentes provedores são mostrados para diferentes países?",
+          "answer": "Os provedores de pagamento têm cobertura geográfica diferente com base em: 1) Conformidade regulatória local e licenças, 2) parcerias bancárias em cada país, 3) infraestrutura de pagamento disponível, 4) suporte a moedas locais. A Palma Wallet mostra automaticamente os provedores que funcionam melhor em sua localização, garantindo que você obtenha um serviço confiável e taxas competitivas para o seu país específico.",
+          "keywords": ["disponibilidade do provedor", "provedores por país", "diferenças regionais", "cobertura geográfica"]
+        },
+        {
+          "id": "fiat-12",
+          "question": "É seguro comprar criptomoeda através da Palma Wallet?",
+          "answer": "Sim, comprar cripto através da Palma Wallet é seguro porque: 1) Só fazemos parcerias com provedores de pagamento licenciados e regulamentados, 2) todas as transações usam criptografia segura, 3) o processamento de pagamento ocorre na plataforma segura do provedor, 4) seu endereço da Palma Wallet é fornecido automaticamente para garantir a entrega correta, 5) monitoramos todas as compras para uma conclusão bem-sucedida. Sempre verifique se você está no site correto do provedor ao fazer o pagamento.",
+          "keywords": ["segurança", "compra segura", "comprar com segurança", "segurança da transação"]
         }
       ]
     }

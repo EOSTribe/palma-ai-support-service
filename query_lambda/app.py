@@ -364,7 +364,7 @@ def generate_ai_response(query, context_items):
             context += f"Question: {context_item.get('question', '')}\n"
             context += f"Answer: {context_item.get('answer', '')}\n\n"
         
-        # Prepare the Claude message format
+        # Prepare the Claude message format with language instruction
         messages = [
             {
                 "role": "user",
@@ -381,8 +381,14 @@ def generate_ai_response(query, context_items):
                         
                         User Question: {query}
                         
+                        CRITICAL INSTRUCTION: You MUST respond in the EXACT SAME LANGUAGE as the user's question above. 
+                        - If the user asks in English, respond in English.
+                        - If the user asks in Spanish, respond in Spanish.
+                        - If the user asks in any other language, respond in that same language.
+                        - Even if the context contains information in multiple languages, your response must be in the language of the user's question.
+                        
                         If the context doesn't contain the information needed to answer the question confidently, 
-                        acknowledge that and suggest what the user might want to know instead.
+                        acknowledge that and suggest what the user might want to know instead (in the same language as their question).
                         
                         Respond in a friendly, helpful tone as a customer support agent for Palma Wallet.
                         Keep your response concise but thorough.
@@ -392,6 +398,7 @@ def generate_ai_response(query, context_items):
                         2. Don't apologize excessively.
                         3. Use a conversational tone that's professional but friendly.
                         4. Format your response for readability with appropriate spacing.
+                        5. ALWAYS respond in the same language as the user's question, regardless of the language of the context.
                         """
                     }
                 ]
@@ -422,6 +429,7 @@ def generate_ai_response(query, context_items):
         logger.error(f"Error generating AI response: {str(e)}")
         return "I'm sorry, I encountered an error while processing your question. Please try asking again or contact our support team for assistance."
 
+        
 def log_query(query, response, found_items, user_id=None, session_id=None, feedback=None):
     """Log the query and response to improve the system over time."""
     try:
